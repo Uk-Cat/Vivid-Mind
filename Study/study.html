@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study - VividMind</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body {
+            justify-content: center;
+            background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .study-container {
+            max-width: 800px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .progress-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .progress-header h2 {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .progress-counter {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--success));
+            border-radius: 3px;
+            transition: width 0.4s ease;
+        }
+
+        .set-info {
+            background: var(--surface);
+            padding: 16px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .set-info h3 {
+            margin: 0;
+            color: var(--accent);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* 3D Flip Card */
+        .flip-card-container {
+            perspective: 1000px;
+            height: 400px;
+            cursor: pointer;
+            margin-bottom: 30px;
+        }
+
+        .flip-card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .flip-card-front {
+            background: var(--surface);
+            color: var(--text-primary);
+        }
+
+        .flip-card-back {
+            background: linear-gradient(135deg, rgba(35, 178, 109, 0.1), rgba(66, 85, 255, 0.1));
+            color: var(--success);
+            transform: rotateY(180deg);
+        }
+
+        .card-content {
+            font-size: 2rem;
+            font-weight: 600;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.4;
+        }
+
+        .card-image {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .flip-hint {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.7;
+        }
+
+        /* Controls */
+        .study-controls {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-control {
+            padding: 12px 24px;
+            min-width: 120px;
+            font-size: 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-prev {
+            background-color: var(--surface);
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-prev:hover {
+            background-color: rgba(66, 85, 255, 0.1);
+            border-color: var(--accent);
+        }
+
+        .btn-next {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-next:hover {
+            background-color: var(--accent-dark);
+        }
+
+        .btn-exit {
+            background-color: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-exit:hover {
+            color: var(--text-primary);
+            border-color: var(--text-secondary);
+        }
+
+        .completion-screen {
+            text-align: center;
+            padding: 40px;
+            background: var(--surface);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        .completion-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: bounce 0.6s ease infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .completion-screen h2 {
+            color: var(--success);
+            margin-bottom: 16px;
+        }
+
+        .completion-screen p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .set-selector-study {
+            background: var(--surface);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .set-selector-study h2 {
+            margin-bottom: 24px;
+        }
+
+        .set-buttons-study {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .btn-set {
+            padding: 16px;
+            background: var(--surface);
+            border: 2px solid var(--border);
+            color: var(--text-primary);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-set:hover {
+            border-color: var(--accent);
+            background-color: rgba(66, 85, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="study-container">
+        <div id="setSelector" class="set-selector-study" style="display: none;">
+            <h2>Choose a Set to Study</h2>
+            <div class="set-buttons-study" id="setButtonsStudy"></div>
+            <button class="btn-save" onclick="goBack()">← Back to Dashboard</button>
+        </div>
+
+        <div id="studySession" style="display: none;">
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <h2>Study Session</h2>
+                    <div class="progress-counter">
+                        <span id="currentCard">0</span> / <span id="totalCards">0</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                </div>
+            </div>
+
+            <!-- Set Info -->
+            <div class="set-info">
+                <h3 id="studySetName"></h3>
+            </div>
+
+            <!-- 3D Flip Card -->
+            <div class="flip-card-container" onclick="toggleFlip()">
+                <div class="flip-card" id="flipCard">
+                    <div class="flip-card-front">
+                        <div id="frontImage"></div>
+                        <div class="card-content" id="cardFront">Click to start</div>
+                        <div class="flip-hint">Click to reveal answer</div>
+                    </div>
+                    <div class="flip-card-back">
+                        <div id="backImage"></div>
+                        <div class="card-content" id="cardBack">Answer</div>
+                        <div class="flip-hint">Click to see question</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="study-controls">
+                <button class="btn-control btn-prev" onclick="prevCard()" id="prevBtn">← Previous</button>
+                <button class="btn-control btn-next" onclick="nextCard()" id="nextBtn">Next →</button>
+                <button class="btn-control btn-exit" onclick="exitStudy()">Exit Study</button>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div id="completionScreen" style="display: none;">
+            <div class="completion-screen">
+                <div class="completion-icon">🎉</div>
+                <h2>Great Job!</h2>
+                <p>You've completed all the cards in this set.</p>
+                <button class="btn-save" onclick="studyAgain()">Study Again</button>
+                <button class="btn-save" onclick="goBack()" style="background-color: var(--surface); color: var(--text-primary); border: 1px solid var(--border); margin-left: 12px;">Back to Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="../Icons/GlobalIcon.png" alt="VividMind" class="sidebar-icon">
+            <h2>VividMind</h2>
+        </div>
+
+        <div class="sidebar-content">
+            <!-- Navigation Links -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Navigation</h3>
+                <button class="sidebar-nav-link" onclick="goToIndex()">
+                    <img src="../Icons/SetIcon.png" alt="My Sets">
+                    <span>My Sets</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToSettings()">
+                    <img src="../Icons/SettingIcon.png" alt="Settings">
+                    <span>Settings</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToLibrary()">
+                    <img src="../Icons/GlobalIcon.png" alt="Global Library">
+                    <span>Global Library</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToStats()">
+                    <img src="../Icons/StatsIcon.png" alt="Study Stats">
+                    <span>Study Stats</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="sidebar-footer">
+            <button class="sidebar-logout-btn" onclick="sidebarLogout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../Save/UseSupabase.js"></script>
+    <script src="../Save/FlashcardFunctions.js"></script>
+    <script src="study.js"></script>
+</body>
+</html>

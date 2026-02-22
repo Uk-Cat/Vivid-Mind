@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - VividMind</title>
+    <link rel="stylesheet" href="../style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        .settings-container {
+            max-width: 500px;
+            width: 100%;
+            padding: 40px 20px;
+            margin: 0 auto;
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .settings-header h1 {
+            margin: 0;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .back-btn {
+            background: none;
+            border: none;
+            color: var(--accent);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            padding: 4px;
+        }
+
+        .back-btn:hover {
+            transform: translateX(-4px);
+        }
+
+        .settings-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: clamp(16px, 4vw, 24px);
+            margin-bottom: 24px;
+        }
+
+        .settings-section-title {
+            font-size: clamp(0.9rem, 3vw, 1.1rem);
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .settings-field {
+            margin-bottom: 20px;
+        }
+
+        .settings-field:last-child {
+            margin-bottom: 0;
+        }
+
+        .settings-label {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .settings-input, .settings-value {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.2);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+        }
+
+        .settings-input:focus {
+            outline: none;
+            border-color: var(--accent);
+            background-color: rgba(66, 85, 255, 0.15);
+        }
+
+        .settings-value {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: var(--accent);
+            font-weight: 600;
+            word-break: break-all;
+        }
+
+        .settings-button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .settings-btn {
+            flex: 1;
+            min-width: 120px;
+            padding: clamp(10px, 2vw, 12px);
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: clamp(0.85rem, 2vw, 0.95rem);
+        }
+
+        .settings-btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+        }
+
+        .settings-btn:disabled {
+            background-color: var(--border);
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .settings-btn-secondary {
+            background-color: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-primary);
+        }
+
+        .settings-btn-secondary:hover {
+            border-color: var(--accent);
+            background-color: rgba(66, 85, 255, 0.1);
+        }
+
+        .danger-zone {
+            border-color: #d32f2f;
+            background-color: rgba(211, 47, 47, 0.05);
+        }
+
+        .danger-btn {
+            background-color: #d32f2f;
+        }
+
+        .danger-btn:hover {
+            background-color: #b71c1c;
+        }
+
+        .status-message {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            display: none;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            font-weight: 500;
+        }
+
+        .status-message.success {
+            background-color: rgba(35, 178, 109, 0.2);
+            color: var(--success);
+            display: block;
+        }
+
+        .status-message.error {
+            background-color: rgba(211, 47, 47, 0.2);
+            color: #ef5350;
+            display: block;
+        }
+
+        /* Responsive for smaller screens */
+        @media (max-width: 768px) {
+            .settings-container {
+                padding: 30px 16px;
+            }
+
+            .settings-card {
+                padding: clamp(12px, 4vw, 20px);
+            }
+
+            .settings-button-group {
+                flex-direction: column;
+            }
+
+            .settings-btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .settings-container {
+                padding: 20px 12px;
+                max-width: 100%;
+            }
+
+            .settings-header h1 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar" id="sidebar"></div>
+
+        <div class="settings-container">
+            <div class="settings-header">
+                <h1>Settings</h1>
+                <button class="back-btn" onclick="goBack()" title="Back">←</button>
+            </div>
+
+            <!-- Profile Settings Card -->
+            <div class="settings-card">
+                <div class="settings-section-title">Profile</div>
+                <div id="statusMessage" class="status-message"></div>
+
+                <div class="settings-field">
+                    <label class="settings-label">Email</label>
+                    <div class="settings-value" id="settingsEmail"></div>
+                </div>
+
+                <div class="settings-field">
+                    <label class="settings-label">Preferred Name</label>
+                    <input 
+                        type="text" 
+                        class="settings-input" 
+                        id="settingsPreferredName" 
+                        placeholder="Enter your preferred name"
+                    >
+                </div>
+
+                <div class="settings-button-group">
+                    <button class="settings-btn" onclick="saveProfileSettingsHandler()">Save Changes</button>
+                    <button class="settings-btn settings-btn-secondary" onclick="resetProfileForm()">Cancel</button>
+                </div>
+            </div>
+
+            <!-- Debug Panel (Hidden by default) -->
+            <div class="settings-card" style="background-color: rgba(66, 85, 255, 0.1); border-color: rgba(66, 85, 255, 0.3); display: none;" id="debugPanel">
+                <div class="settings-section-title">Debug Tools</div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 15px;">
+                    Use these tools to troubleshoot connection issues.
+                </p>
+                <div class="settings-button-group">
+                    <button class="settings-btn" onclick="checkSupabaseConnection()" style="background-color: var(--accent);">Test Connection</button>
+                    <button class="settings-btn settings-btn-secondary" onclick="viewDebugLog()">View Console</button>
+                    <button class="settings-btn settings-btn-secondary" onclick="toggleDebugPanel()">Hide</button>
+                </div>
+            </div>
+
+            <!-- Account Settings Card -->
+            <div class="settings-card danger-zone">
+                <div class="settings-section-title" style="color: #d32f2f;">Account</div>
+                
+                <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">
+                    Logout from your account and return to the login page.
+                </p>
+
+                <div class="settings-button-group">
+                    <button class="settings-btn danger-btn" onclick="confirmLogout()">Logout</button>
+                    <button class="settings-btn settings-btn-secondary" onclick="toggleDebugPanel()" style="color: var(--accent);">Debug</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../config.js"></script>
+    <script src="../Save/UseSupabase.js"></script>
+    
+    <script>
+        let userObject = null;
+
+        window.onload = async function() {
+            const savedUser = localStorage.getItem(CONFIG.STORAGE_KEYS.USER);
+            if (!savedUser) {
+                window.location.href = CONFIG.REDIRECTS.LOGIN;
+                return;
+            }
+            
+            userObject = JSON.parse(savedUser);
+            
+            // Display email
+            document.getElementById('settingsEmail').textContent = userObject[CONFIG.USER_EMAIL_FIELD];
+            
+            // Load preferred name
+            await loadProfileSettings();
+            
+            // Setup sidebar
+            setupSidebar();
+        };
+
+        async function loadProfileSettings() {
+            try {
+                const result = await loadUserSettings(userObject[CONFIG.USER_EMAIL_FIELD]);
+                
+                if (result.success && result.data && result.data["Prefered Name"]) {
+                    document.getElementById('settingsPreferredName').value = result.data["Prefered Name"];
+                }
+            } catch (e) {
+                console.error('Error loading profile:', e);
+            }
+        }
+
+        async function saveProfileSettingsHandler() {
+            const preferredName = document.getElementById('settingsPreferredName').value.trim();
+            
+            if (!preferredName) {
+                showMessage('Please enter a preferred name', 'error');
+                return;
+            }
+            
+            if (!userObject || !userObject[CONFIG.USER_EMAIL_FIELD]) {
+                showMessage('User not logged in', 'error');
+                return;
+            }
+            
+            try {
+                // Show loading state
+                const btn = event.target;
+                const originalText = btn.textContent;
+                btn.textContent = 'Saving...';
+                btn.disabled = true;
+                
+                // Call the robust saveUserSettings function
+                const result = await saveUserSettings(
+                    userObject[CONFIG.USER_EMAIL_FIELD],
+                    preferredName
+                );
+                
+                // Restore button state
+                btn.textContent = originalText;
+                btn.disabled = false;
+                
+                if (result.success) {
+                    showMessage('✅ Settings saved successfully!', 'success');
+                } else {
+                    // Check if it's a schema cache error and provide helpful message
+                    if (result.code === 'SCHEMA_CACHE_ERROR') {
+                        showMessage(
+                            `⚠️ ${result.message}\n\nPlease run the SQL commands from SUPABASE_FIX.md in your Supabase SQL Editor.`,
+                            'error'
+                        );
+                        // Auto-show debug panel for users with schema errors
+                        document.getElementById('debugPanel').style.display = 'block';
+                    } else if (result.code === 'RLS_ERROR') {
+                        showMessage(
+                            `⚠️ ${result.message}\n\nCheck your RLS policies in Supabase.`,
+                            'error'
+                        );
+                    } else {
+                        showMessage(`❌ ${result.message || result.error}`, 'error');
+                    }
+                    
+                    // Log for debugging
+                    console.error('Save failed:', result);
+                }
+            } catch (e) {
+                showMessage(`❌ An error occurred: ${e.message}`, 'error');
+                console.error('Unexpected error:', e);
+            }
+        }
+
+        function resetProfileForm() {
+            loadProfileSettings();
+            document.getElementById('statusMessage').style.display = 'none';
+        }
+
+        function showMessage(message, type) {
+            const statusMessage = document.getElementById('statusMessage');
+            statusMessage.textContent = message;
+            statusMessage.className = 'status-message ' + type;
+        }
+
+        function confirmLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                logout();
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem(CONFIG.STORAGE_KEYS.USER);
+            window.location.href = CONFIG.REDIRECTS.LOGIN;
+        }
+
+        function goBack() {
+            window.location.href = '../index.html';
+        }
+
+        // Sidebar setup
+        function setupSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            if (!sidebar) return;
+
+            sidebar.innerHTML = `
+                <div class="sidebar-header">
+                    <img src="../Icons/GlobalIcon.png" alt="VividMind" class="sidebar-icon">
+                    <h2>VividMind</h2>
+                </div>
+                <div class="sidebar-content">
+                    <div class="sidebar-section">
+                        <h3 class="sidebar-section-title">Navigation</h3>
+                        <button class="sidebar-nav-link" onclick="goToIndex()">
+                            <img src="../Icons/SetIcon.png" alt="My Sets">
+                            <span>My Sets</span>
+                        </button>
+                        <button class="sidebar-nav-link" onclick="goToLibrary()">
+                            <img src="../Icons/GlobalIcon.png" alt="Global Library">
+                            <span>Global Library</span>
+                        </button>
+                        <button class="sidebar-nav-link" onclick="goToStats()">
+                            <img src="../Icons/StatsIcon.png" alt="Study Stats">
+                            <span>Study Stats</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="sidebar-footer">
+                    <button class="sidebar-logout-btn" onclick="confirmLogout()">Logout</button>
+                </div>
+            `;
+        }
+
+        function goToIndex() {
+            window.location.href = '../index.html';
+        }
+
+        function goToLibrary() {
+            window.location.href = '../GlobalLibrary.html';
+        }
+
+        function goToStats() {
+            alert('Study Stats coming soon!');
+        }
+
+        // Debug panel utilities
+        function toggleDebugPanel() {
+            const panel = document.getElementById('debugPanel');
+            if (panel) {
+                panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        async function checkSupabaseConnection() {
+            console.log('🔧 Running Supabase connection check...');
+            
+            try {
+                // Test 1: Check if Supabase client is initialized
+                const clientCheck = supabaseClient ? '✅ Supabase client initialized' : '❌ Supabase client not initialized';
+                console.log(clientCheck);
+                
+                // Test 2: Try to access VividMind table
+                const { data, error } = await supabaseClient
+                    .from('VividMind')
+                    .select('*')
+                    .limit(1);
+                
+                if (error) {
+                    console.error('❌ Error accessing VividMind table:', error.message);
+                    showMessage(`Cannot access VividMind table:\n${error.message}\n\nCheck the Debug Tools for more details.`, 'error');
+                } else {
+                    console.log('✅ VividMind table is accessible');
+                    showMessage('✅ Supabase connection successful!', 'success');
+                }
+            } catch (e) {
+                console.error('❌ Unexpected error during connection check:', e.message);
+                showMessage(`Connection check failed: ${e.message}`, 'error');
+            }
+        }
+
+        function viewDebugLog() {
+            alert('Open your browser Developer Console (F12 or Ctrl+Shift+I) to view debug logs.\n\nLook for messages starting with 🔴 (errors), 🟢 (success), or 🔍 (debug info).');
+        }
+
+        // Toggle sidebar on mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active');
+            if (overlay) overlay.classList.toggle('active');
+        }
+
+        // Close sidebar on mobile when clicking outside
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('sidebarToggle');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (overlay && !sidebar.contains(e.target) && !toggle.contains(e.target)) {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

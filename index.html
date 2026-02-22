@@ -4,42 +4,427 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VividMind</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script>
-        // Check if user is logged in
+        // Router for shared card viewing
+        function initRouter() {
+            const pathname = window.location.pathname;
+            const hash = window.location.hash;
+            
+            // Check pathname first (for direct URLs like /card/{uuid})
+            let cardUuidMatch = pathname.match(/\/card\/([a-f0-9\-]+)/i);
+            
+            // If not found in pathname, check hash (for links like index.html#/card/{uuid})
+            if (!cardUuidMatch && hash) {
+                cardUuidMatch = hash.match(/\/card\/([a-f0-9\-]+)/i);
+            }
+            
+            if (cardUuidMatch) {
+                const shareId = cardUuidMatch[1];
+                // Store share ID and defer loading until DOM is ready
+                window.sharedCardId = shareId;
+                window.isSharedView = true;
+                return;
+            }
+            
+            window.isSharedView = false;
+        }
+        
+        // Initialize router immediately
+        initRouter();
+        
+        // Check if user is logged in (skip if viewing shared card)
         try {
-            const savedUser = localStorage.getItem('vividmind_user');
-            if (!savedUser || savedUser === 'undefined' || savedUser === 'null') {
-                // Not logged in, redirect to login page
-                window.location.href = '../Login/Login.html';
+            if (!window.isSharedView) {
+                const savedUser = localStorage.getItem('vividmind_user');
+                if (!savedUser || savedUser === 'undefined' || savedUser === 'null') {
+                    // Not logged in, redirect to login page
+                    window.location.href = 'Login/Login.html';
+                }
             }
         } catch (e) {
-            window.location.href = '../Login/Login.html';
+            if (!window.isSharedView) {
+                window.location.href = 'Login/Login.html';
+            }
         }
     </script>
 </head>
 <body>
-    <h1>Welcome to VividMind!</h1>
-    <p>You are logged in.</p>
-    <button onclick="logout()">Logout</button>
+    <!-- Shared Card View (Displayed when sharing via UUID) -->
+    <div id="sharedCardView" style="display: none;">
+        <div class="shared-card-container">
+            <div class="shared-card-close">
+                <button onclick="window.history.back()" class="close-btn">← Back</button>
+            </div>
+            <div class="shared-card-content">
+                <div id="sharedCard" class="shared-card"></div>
+                <div class="shared-card-footer">
+                    <p id="sharedSetName" style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;"></p>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
+        <h1 id="welcomeTitle">Welcome to VividMind!</h1>
+        
+        <div class="form-section">
+            <div class="form-section-header">
+                <img src="Icons/SetIcon.png" alt="Sets" class="form-section-icon">
+                <h2>Create New Flashcards</h2>
+            </div>
+            
+            <!-- Set Selection -->
+            <div class="set-selector">
+                <label>Select or Create a Set:</label>
+                <div class="set-buttons" id="setButtons"></div>
+                
+                <div class="new-set-input">
+                    <input type="text" id="newSetName" placeholder="Create a new set...">
+                    <button onclick="createNewSet()">Create Set</button>
+                </div>
+            </div>
+
+            <!-- Current Set Display -->
+            <div class="current-set" id="currentSetDisplay" style="display: none;">
+                <p>Current Set: <span id="currentSetName"></span></p>
+            </div>
+
+            <!-- Card Creation Form (Hidden until set selected) -->
+            <div id="cardFormContainer" style="display: none;">
+                <div class="form-group">
+                    <label for="frontText">Front (Question):</label>
+                    <textarea id="frontText" placeholder="What should appear on the front?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="frontImage">Front Image (Optional):</label>
+                    <input type="file" id="frontImage" accept="image/*">
+                    <small>Max 100KB. Images larger than 600x400px will be resized.</small>
+                    <div id="frontImagePreview" style="margin-top: 10px;"></div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="backText">Back (Answer):</label>
+                    <textarea id="backText" placeholder="What should appear on the back?"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="backImage">Back Image (Optional):</label>
+                    <input type="file" id="backImage" accept="image/*">
+                    <small>Max 100KB. Images larger than 600x400px will be resized.</small>
+                    <div id="backImagePreview" style="margin-top: 10px;"></div>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn-save" onclick="saveAndFinish()">Save & Done</button>
+                    <button class="btn-save-next" onclick="saveAndAddAnother()">Save & Add Another</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="cardsContainer"></div>
+
+        <!-- Your Flashcard Sets Section -->
+        <div class="your-sets-section">
+            <div class="your-sets-header">
+                <h2>Your Flashcard Sets & Cards</h2>
+            </div>
+            <div class="your-sets-container" id="yourSetsContainer">
+                <p style="color: var(--text-secondary);">Loading your flashcards...</p>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="Icons/GlobalIcon.png" alt="VividMind" class="sidebar-icon">
+            <h2>VividMind</h2>
+            <p id="userEmail" class="sidebar-email" style="font-size:0.9rem; color:var(--text-secondary); margin:4px 0 0 0;"></p>
+        </div>
+
+        <div class="sidebar-content">
+            <!-- Navigation Links -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Navigation</h3>
+                <button class="sidebar-nav-link" onclick="goToSettings()">
+                    <img src="Icons/SettingIcon.png" alt="Settings">
+                    <span>Settings</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToLibrary()">
+                    <img src="Icons/GlobalIcon.png" alt="Global Library">
+                    <span>Global Library</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToStats()">
+                    <img src="Icons/StatsIcon.png" alt="Study Stats">
+                    <span>Study Stats</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="sidebar-footer">
+            <button class="sidebar-logout-btn" onclick="sidebarLogout()">Logout</button>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="Save/UseSupabase.js"></script>
+    <script src="Save/FlashcardFunctions.js"></script>
+    
     <script>
-        // Display user info
-        window.onload = function() {
-            const savedUser = localStorage.getItem('vividmind_user');
-            if (savedUser) {
-                const user = JSON.parse(savedUser);
-                document.querySelector('h1').textContent = 'Welcome back , ' + user.name + '!';
-            } else {
-                // Double-check - if not logged in, redirect
-                window.location.href = '../Login/Login.html';
+        // Global user object
+        let userObject = null;
+
+        window.onload = async function() {
+            try {
+                // Always initialize router first
+                initRouter();
+                
+                // Check if viewing a shared card
+                if (window.isSharedView && window.sharedCardId) {
+                    // Load and display the shared card
+                    await loadSharedCard(window.sharedCardId);
+                    return;
+                }
+                
+                // Normal dashboard flow
+                const savedUser = localStorage.getItem(CONFIG.STORAGE_KEYS.USER);
+                if (savedUser) {
+                    userObject = JSON.parse(savedUser);
+                    
+                    // Load user preferred name from database
+                    await updateWelcomeMessage();
+                    
+                    // Display email in sidebar
+                    document.getElementById('userEmail').textContent = userObject[CONFIG.USER_EMAIL_FIELD];
+                    
+                    // Setup image handlers
+                    setupImageHandlers();
+                    
+                    // Load existing sets
+                    await loadExistingSets();
+                    
+                    // Load and display user's flashcards
+                    await loadAndDisplayUserCards();
+                    
+                    // Load and display recent sets
+                    await loadAndDisplayRecentSets();
+                } else {
+                    // Double-check - if not logged in, redirect
+                    window.location.href = CONFIG.REDIRECTS.LOGIN;
+                }
+            } catch (e) {
+                console.error('Error during dashboard initialization:', e);
+                const container = document.getElementById('yourSetsContainer');
+                if (container) {
+                    const msg = escapeHtml((e && e.message) ? e.message : String(e));
+                    container.innerHTML = `<pre style="white-space: pre-wrap; color: var(--text-secondary);">Error initializing dashboard: ${msg}\n\nSee console for details.</pre>`;
+                }
+            }
+        }
+
+        // Global error handlers to surface runtime issues in the UI
+        window.addEventListener('error', function(event) {
+            console.error('Global error caught:', event.error || event.message || event);
+            const container = document.getElementById('yourSetsContainer');
+            if (container) {
+                const msg = escapeHtml((event && event.message) ? event.message : String(event));
+                container.innerHTML = `<pre style="white-space: pre-wrap; color: var(--text-secondary);">Global error: ${msg}\n\nSee console for stack.</pre>`;
+            }
+        });
+
+        window.addEventListener('unhandledrejection', function(event) {
+            console.error('Unhandled promise rejection:', event.reason);
+            const container = document.getElementById('yourSetsContainer');
+            if (container) {
+                const msg = escapeHtml((event && event.reason && event.reason.message) ? event.reason.message : String(event.reason));
+                container.innerHTML = `<pre style="white-space: pre-wrap; color: var(--text-secondary);">Unhandled rejection: ${msg}\n\nSee console for details.</pre>`;
+            }
+        });
+
+        // Close sidebar when clicking outside (mobile only)
+        document.addEventListener('click', function(event) {
+            const sidebar = document.getElementById('sidebar');
+            const toggle = document.getElementById('sidebarToggle');
+            if (sidebar && toggle && !sidebar.contains(event.target) && !toggle.contains(event.target)) {
+                if (sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                    const overlay = document.getElementById('sidebarOverlay');
+                    if (overlay) overlay.classList.remove('active');
+                }
+            }
+        });
+
+        // Toggle sidebar on mobile
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('active');
+            if (overlay) overlay.classList.toggle('active');
+        }
+
+        // Navigation functions
+        function goToSettings() {
+            window.location.href = CONFIG.REDIRECTS.SETTINGS;
+        }
+
+        function goToLibrary() {
+            window.location.href = 'GlobalLibrary.html';
+        }
+
+        function goToStats() {
+            alert('Study Stats feature coming soon!');
+        }
+
+        function sidebarLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                logout();
             }
         }
 
         function logout() {
-            localStorage.removeItem('vividmind_user');
-            window.location.href = '../Login/Login.html';
+            localStorage.removeItem(CONFIG.STORAGE_KEYS.USER);
+            window.location.href = CONFIG.REDIRECTS.LOGIN;
         }
+
+        // Load preferred name and update welcome message
+        async function updateWelcomeMessage() {
+            try {
+                const result = await loadUserSettings(userObject[CONFIG.USER_EMAIL_FIELD]);
+                let displayName = userObject.name; // Fallback to original name
+                
+                if (result.success && result.data && result.data["Prefered Name"]) {
+                    displayName = result.data["Prefered Name"];
+                }
+                
+                document.getElementById(CONFIG.UI_ELEMENTS.WELCOME_TITLE).textContent = 'Welcome back, ' + displayName + '!';
+            } catch (e) {
+                console.error('Error loading preferred name:', e);
+                document.getElementById(CONFIG.UI_ELEMENTS.WELCOME_TITLE).textContent = 'Welcome back, ' + userObject.name + '!';
+            }
+        }
+
+        // Load and display recent sets (4 most recently used)
+        async function loadAndDisplayRecentSets() {
+            try {
+                // Ensure userObject exists
+                if (!userObject || !userObject[CONFIG.USER_EMAIL_FIELD]) {
+                    document.getElementById('yourSetsContainer').innerHTML = '<p style="color: var(--text-secondary);">No user session found.</p>';
+                    return;
+                }
+
+                // Fetch all flashcard rows for this user and group by Set_name
+                const { data, error } = await supabaseClient
+                    .from(CONFIG.TABLES.FLASHCARDS)
+                    .select('Set_name, Cards, Public, UUID')
+                    .eq('Email', userObject[CONFIG.USER_EMAIL_FIELD]);
+
+                if (error) {
+                    console.error('Error fetching flashcard rows:', error);
+                    document.getElementById('yourSetsContainer').innerHTML = '<p style="color: var(--text-secondary);">Error loading sets. Please refresh the page.</p>';
+                    return;
+                }
+
+                if (!data || data.length === 0) {
+                    document.getElementById('yourSetsContainer').innerHTML = '<p style="color: var(--text-secondary);">No sets yet. Create one above to get started!</p>';
+                    return;
+                }
+
+                // Helper to count cards in a row regardless of stored format
+                function countCardsInRow(row) {
+                    if (!row || !row.Cards) return 0;
+                    if (Array.isArray(row.Cards)) return row.Cards.length;
+                    if (row.Cards.cards && Array.isArray(row.Cards.cards)) return row.Cards.cards.length;
+                    return 0;
+                }
+
+                const grouped = {};
+                data.forEach(row => {
+                    const setName = row.Set_name || 'Untitled Set';
+                    if (!grouped[setName]) grouped[setName] = { rows: [], count: 0, isPublic: false, UUID: null };
+                    grouped[setName].rows.push(row);
+                });
+
+                // Compute counts and public flag
+                for (const setName in grouped) {
+                    let total = 0;
+                    let isPublic = false;
+                    let uuid = null;
+                    grouped[setName].rows.forEach(r => {
+                        total += countCardsInRow(r);
+                        if (r.Public) isPublic = true;
+                        if (!uuid && r.UUID) uuid = r.UUID;
+                    });
+                    grouped[setName].count = total;
+                    grouped[setName].isPublic = isPublic;
+                    grouped[setName].UUID = uuid;
+                }
+
+                const setNames = Object.keys(grouped).sort();
+                let html = '<div class="sets-list">';
+
+                for (const setName of setNames) {
+                    const cardCount = grouped[setName].count;
+                    const isPublic = grouped[setName].isPublic;
+                    const shareButton = isPublic ? `<button class="btn-open-set" onclick="copyShareLinkUI('${escapeHtml(setName).replace(/'/g, "\\'")}')">📤 Share</button>` : '';
+
+                    html += `
+                        <div class="set-group">
+                            <div class="set-group-header">
+                                <h3>${escapeHtml(setName)}</h3>
+                                <span class="card-count-badge">${cardCount} ${cardCount === 1 ? 'card' : 'cards'}</span>
+                            </div>
+                            <div class="set-group-actions">
+                                <button class="btn-open-set" onclick="openSetForUse(event, '${escapeHtml(setName).replace(/'/g, "\\'")}')">📚 Study This Set</button>
+                                <button class="btn-edit-set" onclick="selectSetForEdit('${escapeHtml(setName).replace(/'/g, "\\'")}')">✏️ Edit Set</button>
+                                ${shareButton}
+                            </div>
+                        </div>
+                    `;
+                }
+
+                html += '</div>';
+                document.getElementById('yourSetsContainer').innerHTML = html;
+
+            } catch (e) {
+                console.error('Error loading sets:', e);
+                document.getElementById('yourSetsContainer').innerHTML = '<p style="color: var(--text-secondary);">Error loading sets. Please refresh the page.</p>';
+            }
+        }
+
+        // Select a set for editing cards
+        function selectSetForEdit(setName) {
+            currentSet = setName;
+            updateSetDisplay();
+            
+            // Scroll to the set creation area
+            document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+            
+            // Update button styling
+            document.querySelectorAll('.set-btn').forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.textContent === setName) {
+                    btn.classList.add('active');
+                }
+            });
+            
+            // Show form
+            document.getElementById('cardFormContainer').style.display = 'block';
+            clearCardForm();
+        }
+
+        // Open set for studying/using
+        function openSetForUse(event, setName) {
+            event.stopPropagation(); // Prevent card click
+            currentSet = setName;
+            window.location.href = 'Study/study.html?set=' + encodeURIComponent(setName);
+        }
+
+
     </script>
 </body>
 </html>

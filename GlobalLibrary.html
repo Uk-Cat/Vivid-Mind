@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Global Library - VividMind</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        // Suppress Chrome extension API errors that may be injected by extensions
+        // This prevents "Unchecked runtime.lastError" warnings
+        if (typeof chrome !== 'undefined' && chrome.runtime) {
+            const originalGetAcceptLanguages = chrome.i18n?.getAcceptLanguages;
+            if (originalGetAcceptLanguages) {
+                chrome.i18n.getAcceptLanguages = function(callback) {
+                    try {
+                        originalGetAcceptLanguages.call(chrome.i18n, function(languages) {
+                            if (chrome.runtime.lastError) {
+                                // Silently handle the error and provide default
+                                callback(['en']);
+                            } else {
+                                callback(languages && languages.length > 0 ? languages : ['en']);
+                            }
+                        });
+                    } catch (e) {
+                        // Fallback if API call fails
+                        if (callback) callback(['en']);
+                    }
+                };
+            }
+        }
+    </script>
+    <style>
+        .gl-container{max-width:980px;margin:24px auto;padding:12px;margin-right:80px}
+        .gl-header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+        .gl-search{flex:1;padding:8px 12px;border-radius:6px;border:1px solid var(--surface-light);background:var(--surface);color:var(--text-primary)}
+        .gl-list{margin-top:16px;display:grid;grid-template-columns:1fr;gap:12px}
+        .gl-card{border:1px solid var(--surface-light);padding:16px;border-radius:8px;background:var(--surface);box-shadow:0 4px 8px rgba(0,0,0,0.3);transition:transform 0.2s ease, box-shadow 0.2s ease}
+        .gl-card:hover{transform:translateY(-2px);box-shadow:0 6px 12px rgba(0,0,0,0.4)}
+        .gl-meta{color:var(--text-secondary);font-size:0.9rem;margin-top:6px}
+        .gl-actions{margin-top:8px;display:flex;gap:8px}
+        .btn-small{padding:6px 12px;border-radius:6px;border:0;background:#3b82f6;color:#fff;cursor:pointer;font-size:0.85rem;transition:background 0.2s ease}
+        .btn-small:hover{background:#2563eb}
+        .btn-small.secondary{background:#6b7280}
+        .btn-small.secondary:hover{background:#4b5563}
+        .no-results{color:var(--text-secondary)}
+        pre.sample{background:#f6f6f6;padding:8px;border-radius:6px;white-space:pre-wrap}
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="Icons/GlobalIcon.png" alt="VividMind" class="sidebar-icon">
+            <h2>VividMind</h2>
+            <p id="userEmail" class="sidebar-email" style="font-size:0.9rem; color:var(--text-secondary); margin:4px 0 0 0;"></p>
+        </div>
+
+        <div class="sidebar-content">
+            <!-- Navigation Links -->
+            <div class="sidebar-section">
+                <h3 class="sidebar-section-title">Navigation</h3>
+                <button class="sidebar-nav-link" onclick="goToIndex()">
+                    <img src="Icons/GlobalIcon.png" alt="My Sets">
+                    <span>My Sets</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToSettings()">
+                    <img src="Icons/SettingIcon.png" alt="Settings">
+                    <span>Settings</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToLibrary()">
+                    <img src="Icons/GlobalIcon.png" alt="Global Library">
+                    <span>Global Library</span>
+                </button>
+                <button class="sidebar-nav-link" onclick="goToStats()">
+                    <img src="Icons/StatsIcon.png" alt="Study Stats">
+                    <span>Study Stats</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Account Actions -->
+        <div class="sidebar-footer">
+            <button class="sidebar-logout-btn" onclick="sidebarLogout()">Logout</button>
+        </div>
+    </div>
+
+    <div class="gl-container">
+        <div class="gl-header">
+            <h1>Global Library</h1>
+            <div style="display:flex;gap:8px;align-items:center;width:100%;max-width:640px">
+                <input id="glSearch" class="gl-search" placeholder="Search sets or creators..." />
+                <button id="glRefresh" class="btn-small">Refresh</button>
+            </div>
+        </div>
+
+        <div id="glStatus" class="gl-status" style="margin-top:12px;color:var(--text-secondary)">Loading public flashcards...</div>
+        <div id="glList" class="gl-list"></div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="Save/UseSupabase.js"></script>
+    <script>
+        // Supabase keys - reuse existing project keys
+        const SUPABASE_URL = 'https://newsivpyvfnkthnxiyxk.supabase.co';
+        const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ld3NpdnB5dmZua3RobnhpeXhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY2MzEsImV4cCI6MjA4NjQwMjYzMX0.ytNvFv1AaT_9-K3l2_LdynlvYs9OieLdqpQyd3PMCEU';
+        const { createClient } = supabase;
+        const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+        // Global user object
+        let userObject = null;
+
+        // Initialize sidebar and user info
+        window.onload = async function() {
+            try {
+                // Check if user is logged in
+                const savedUser = localStorage.getItem(CONFIG.STORAGE_KEYS.USER);
+                if (savedUser) {
+                    userObject = JSON.parse(savedUser);
+                    // Display email in sidebar
+                    const userEmailEl = document.getElementById('userEmail');
+                    if (userEmailEl && userObject[CONFIG.USER_EMAIL_FIELD]) {
+                        userEmailEl.textContent = userObject[CONFIG.USER_EMAIL_FIELD];
+                    }
+                } else {
+                    // Not logged in, redirect to login
+                    window.location.href = CONFIG.REDIRECTS.LOGIN;
+                    return;
+                }
+            } catch (e) {
+                console.error('Error initializing:', e);
+            }
+        };
+
+        // Navigation functions
+        function goToIndex() {
+            window.location.href = 'index.html';
+        }
+
+        function goToSettings() {
+            window.location.href = CONFIG.REDIRECTS.SETTINGS;
+        }
+
+        function goToLibrary() {
+            window.location.href = 'GlobalLibrary.html';
+        }
+
+        function goToStats() {
+            alert('Study Stats feature coming soon!');
+        }
+
+        function sidebarLogout() {
+            if (confirm('Are you sure you want to logout?')) {
+                localStorage.removeItem(CONFIG.STORAGE_KEYS.USER);
+                window.location.href = CONFIG.REDIRECTS.LOGIN;
+            }
+        }
+
+        const elStatus = document.getElementById('glStatus');
+        const elList = document.getElementById('glList');
+        const input = document.getElementById('glSearch');
+        const refreshBtn = document.getElementById('glRefresh');
+
+        // Debounce helper
+        function debounce(fn, wait){let t;return (...args)=>{clearTimeout(t);t=setTimeout(()=>fn(...args),wait)}}
+
+        // Format date helper
+        function fmtDate(iso){if(!iso) return ''; try{const d=new Date(iso);return d.toLocaleString()}catch(e){return iso}}
+
+        // Load public sets. Accepts optional searchTerm to filter by set name or creator email/name
+        async function loadPublicSets(searchTerm=''){
+            elStatus.textContent = 'Loading public flashcards...';
+            elList.innerHTML = '';
+            try{
+                // Query public flashcards rows; include creator email and id
+                // Note: Using id for ordering since created_at column doesn't exist in the table
+                const { data, error } = await supabaseClient
+                    .from('Flashcards')
+                    .select('Set_name, Cards, Public, UUID, Email, id')
+                    .eq('Public', true)
+                    .order('id', {ascending:false});
+
+                if(error){
+                    console.error('Error loading public flashcards:', error);
+                    elStatus.textContent = 'Error loading library. See console.';
+                    return;
+                }
+
+                if(!data || data.length===0){
+                    elStatus.textContent = 'No public flashcards found.';
+                    return;
+                }
+
+                // Build list grouped by set name and creator
+                const groups = {};
+                data.forEach(row=>{
+                    const key = (row.Set_name||'Untitled') + '||' + (row.Email||'unknown');
+                    if(!groups[key]) groups[key] = {setName: row.Set_name||'Untitled', creator: row.Email||'unknown', rows:[], id: row.id, uuid: row.UUID || null};
+                    groups[key].rows.push(row);
+                    // keep earliest id if present (for sorting purposes)
+                    if(!groups[key].id && row.id) groups[key].id = row.id;
+                    if(!groups[key].uuid && row.UUID) groups[key].uuid = row.UUID;
+                });
+
+                // Convert to array and filter by search term
+                const entries = Object.values(groups).map(g=>{
+                    // count cards in rows
+                    let count = 0;
+                    g.rows.forEach(r=>{
+                        if(!r.Cards) return;
+                        if(Array.isArray(r.Cards)) count += r.Cards.length;
+                        else if(r.Cards.cards && Array.isArray(r.Cards.cards)) count += r.Cards.cards.length;
+                    });
+                    return {...g, count};
+                });
+
+                const term = (searchTerm||'').trim().toLowerCase();
+                const filtered = term ? entries.filter(e=> (e.setName||'').toLowerCase().includes(term) || (e.creator||'').toLowerCase().includes(term)) : entries;
+
+                if(filtered.length===0){
+                    elStatus.textContent = 'No results for "'+escapeHtml(searchTerm)+'"';
+                    return;
+                }
+
+                elStatus.textContent = '';
+                // render
+                filtered.forEach(entry=>{
+                    const div = document.createElement('div');
+                    div.className = 'gl-card';
+                    div.innerHTML = `
+                        <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
+                            <div>
+                                <strong>${escapeHtml(entry.setName)}</strong>
+                                <div class="gl-meta">By ${escapeHtml(entry.creator)} • ${entry.count} ${entry.count===1?'card':'cards'}</div>
+                            </div>
+                            <div class="gl-actions">
+                                ${entry.uuid?`<a class="btn-small" href="index.html#/card/${entry.uuid}">Open</a>`:''}
+                                <button class="btn-small secondary" onclick="viewSetDetails('${escapeHtml(entry.setName).replace(/'/g,"\\'")}', '${escapeHtml(entry.creator)}')">View</button>
+                            </div>
+                        </div>
+                    `;
+                    elList.appendChild(div);
+                });
+
+            }catch(e){
+                console.error('Exception loading public sets:', e);
+                elStatus.textContent = 'Error loading library. See console.';
+            }
+        }
+
+        // Simple XSS-safe escaper for HTML content
+        function escapeHtml(str){ if(!str && str !== 0) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;'); }
+
+        // Show a detail modal (quick inline list of cards) for a set
+        async function viewSetDetails(setName, creatorEmail){
+            elStatus.textContent = 'Loading set details...';
+            try{
+                const { data, error } = await supabaseClient
+                    .from('Flashcards')
+                    .select('Set_name, Cards, Public, UUID, Email, id')
+                    .eq('Public', true)
+                    .eq('Set_name', setName)
+                    .eq('Email', creatorEmail);
+
+                if(error){ console.error(error); elStatus.textContent = 'Error loading set'; return; }
+                if(!data || data.length===0){ elStatus.textContent = 'No cards found for this set.'; return; }
+
+                // Build modal HTML
+                const modal = document.createElement('div');
+                modal.style.position = 'fixed'; modal.style.left=0; modal.style.top=0; modal.style.right=0; modal.style.bottom=0; modal.style.background='rgba(0,0,0,0.45)'; modal.style.display='flex'; modal.style.alignItems='center'; modal.style.justifyContent='center';
+                const content = document.createElement('div'); content.style.background='#fff'; content.style.padding='18px'; content.style.maxWidth='800px'; content.style.maxHeight='80vh'; content.style.overflow='auto'; content.style.borderRadius='8px';
+                content.innerHTML = `<h3>Set: ${escapeHtml(setName)}</h3><p class="gl-meta">By ${escapeHtml(creatorEmail)}</p>`;
+
+                data.forEach(row=>{
+                    let cardsArray = [];
+                    if(row.Cards){ if(Array.isArray(row.Cards)) cardsArray = row.Cards; else if(row.Cards.cards) cardsArray = row.Cards.cards; }
+                    cardsArray.forEach((c, i)=>{
+                        let front=''; let back='';
+                        if(Array.isArray(c)){ front=c[0]||''; back=c[1]||''; }
+                        else{ front=c.front||''; back=c.back||''; }
+                        const cardDiv = document.createElement('div'); cardDiv.style.borderTop='1px solid #eee'; cardDiv.style.padding='8px 0'; cardDiv.innerHTML = `<strong>${escapeHtml(front)}</strong><div style="color:var(--text-secondary)">${escapeHtml(back)}</div>`;
+                        content.appendChild(cardDiv);
+                    });
+                });
+
+                const closeBtn = document.createElement('button'); closeBtn.textContent='Close'; closeBtn.className='btn-small'; closeBtn.style.marginTop='12px'; closeBtn.onclick = ()=> document.body.removeChild(modal);
+                content.appendChild(closeBtn);
+                modal.appendChild(content);
+                document.body.appendChild(modal);
+                elStatus.textContent = '';
+
+            }catch(e){ console.error(e); elStatus.textContent = 'Error loading set details.'; }
+        }
+
+        const debounced = debounce((ev)=>{
+            loadPublicSets(ev.target.value);
+        },300);
+
+        input.addEventListener('input', debounced);
+        refreshBtn.addEventListener('click', ()=> loadPublicSets(input.value));
+
+        // initial load
+        loadPublicSets();
+    </script>
+</body>
+</html>

@@ -8,10 +8,10 @@ async function handleCredentialResponse(response) {
     const result = await saveUserToSupabase(userObject);
     if (result.success) {
         // Save user to localStorage to remember login
-        localStorage.setItem('vividmind_user', JSON.stringify(userObject));
+        localStorage.setItem(CONFIG.STORAGE_KEYS.USER, JSON.stringify(userObject));
         console.log("User logged in: " + userObject.name);
         // Redirect to main page immediately after localStorage is set
-        window.location.href = '../index.html';
+        window.location.href = CONFIG.REDIRECTS.INDEX;
     } else {
         // Do not redirect if Supabase save fails
         alert("Login failed: " + result.error.message);
