@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivid Mind - True or False</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+/* ══════════════════════════════════════════
+   Vivid Mind — Shared Design System
+   ══════════════════════════════════════════ */
+
+
+/* ─── CSS Variables ─── */
+:root {
+    --bg-primary:        #1c1d2e;
+    --bg-secondary:      #252637;
+    --bg-card:           #2d2f44;
+    --bg-card-hover:     #33364d;
+    --bg-elevated:       #3a3c54;
+    --accent-purple:     #4255ff;
+    --accent-purple-hover: #5468ff;
+    --accent-purple-light: rgba(66, 85, 255, 0.15);
+    --accent-yellow:     #ffcd1f;
+    --accent-green:      #23b26d;
+    --accent-red:        #ff4a4a;
+    --text-primary:      #d9dde8;
+    --text-secondary:    #9399b3;
+    --text-muted:        #6b7194;
+    --border:            rgba(255,255,255,0.07);
+    --border-accent:     rgba(66, 85, 255, 0.4);
+    --shadow:            0 8px 32px rgba(0,0,0,0.4);
+    --shadow-card:       0 4px 24px rgba(0,0,0,0.3);
+    --radius-sm:  8px;
+    --radius-md:  12px;
+    --radius-lg:  16px;
+    --radius-xl:  20px;
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ─── Topbar ─── */
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 32px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--text-primary);
+}
+
+.logo-icon {
+    width: 34px; height: 34px;
+    background: var(--accent-purple);
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+}
+
+.logo-text { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.3px; }
+
+.topbar-right { display: flex; align-items: center; gap: 10px; }
+
+/* ─── Buttons ─── */
+.btn-icon {
+    width: 38px; height: 38px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+.btn-icon:hover { background: var(--bg-elevated); color: var(--text-primary); }
+
+.btn-primary {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 22px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: var(--accent-purple);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem; font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    letter-spacing: 0.2px;
+    text-decoration: none;
+}
+.btn-primary:hover {
+    background: var(--accent-purple-hover);
+    box-shadow: 0 4px 20px rgba(66,85,255,0.4);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 10px 18px;
+    border-radius: var(--radius-md);
+    border: 1.5px solid var(--border);
+    background: transparent;
+    color: var(--text-secondary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.88rem; font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+.btn-secondary:hover { background: var(--bg-elevated); color: var(--text-primary); border-color: var(--border-accent); }
+
+.btn-nav {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+.btn-nav:hover:not(:disabled) { border-color: var(--border-accent); color: var(--text-primary); background: var(--bg-card-hover); }
+.btn-nav:disabled { opacity: 0.3; cursor: not-allowed; }
+
+/* ─── Main layout ─── */
+.main {
+    flex: 1;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+}
+
+/* ─── Set Header ─── */
+.set-header { margin-bottom: 32px; }
+
+.set-title {
+    font-size: 1.75rem; font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.4px;
+    margin-bottom: 6px;
+}
+
+.set-meta {
+    display: flex; align-items: center; gap: 16px;
+    color: var(--text-secondary); font-size: 0.9rem;
+}
+.set-meta span { display: flex; align-items: center; gap: 5px; }
+.set-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-muted); }
+
+/* ─── Progress ─── */
+.progress-area { margin-bottom: 28px; }
+
+.progress-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px;
+}
+.progress-label {
+    font-size: 0.82rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    color: var(--text-muted);
+}
+.progress-counter { font-size: 0.9rem; font-weight: 600; color: var(--text-secondary); }
+
+.progress-track {
+    width: 100%; height: 5px;
+    background: var(--bg-elevated);
+    border-radius: 99px; overflow: hidden;
+}
+.progress-fill {
+    height: 100%;
+    background: var(--accent-purple);
+    border-radius: 99px;
+    transition: width 0.4s cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Error Banner ─── */
+.error-banner {
+    background: rgba(255,74,74,0.1);
+    border: 1px solid rgba(255,74,74,0.3);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    color: #ff7b7b;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    display: none;
+}
+.error-banner.show { display: block; }
+
+/* ─── Stats Strip ─── */
+.stats-strip {
+    display: flex; gap: 10px;
+    justify-content: center;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+.stat-chip {
+    display: flex; align-items: center; gap: 7px;
+    padding: 9px 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 99px;
+    font-size: 0.82rem; font-weight: 500;
+    color: var(--text-secondary);
+}
+.stat-chip .dot-green { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); }
+.stat-chip .dot-red   { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-red); }
+.stat-chip .dot-blue  { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-purple); }
+
+/* ─── Keyboard shortcuts bar ─── */
+.shortcuts-bar {
+    display: flex; gap: 20px;
+    justify-content: center;
+    margin-top: 28px;
+    flex-wrap: wrap;
+}
+.shortcut-item { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: var(--text-muted); }
+.kbd {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 1px 6px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    font-size: 0.68rem; color: var(--text-muted);
+    font-family: monospace;
+}
+
+/* ─── Modal overlay ─── */
+.modal-overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+    z-index: 200;
+    align-items: center;
+    justify-content: center;
+}
+.modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-xl);
+    padding: 32px;
+    width: 100%;
+    max-width: 460px;
+    box-shadow: var(--shadow);
+    animation: slideUp 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 24px;
+}
+.modal-title { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); }
+
+.modal-close {
+    width: 32px; height: 32px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    transition: all 0.2s;
+}
+.modal-close:hover { background: var(--bg-elevated); color: var(--text-primary); }
+
+.modal-subtitle { font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 600; }
+
+/* Test mode option cards */
+.test-option {
+    display: flex; align-items: center; gap: 16px;
+    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    border: 1.5px solid var(--border);
+    background: var(--bg-card);
+    cursor: pointer;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.2s;
+    margin-bottom: 10px;
+}
+.test-option:hover { border-color: var(--border-accent); background: var(--bg-card-hover); transform: translateY(-1px); }
+.test-option.disabled { opacity: 0.4; cursor: not-allowed; pointer-events: none; }
+
+.test-option-icon {
+    width: 44px; height: 44px; flex-shrink: 0;
+    border-radius: var(--radius-md);
+    background: var(--accent-purple-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+}
+.test-option-icon.grey { background: var(--bg-elevated); }
+
+.test-option-info { flex: 1; }
+.test-option-name { font-size: 0.97rem; font-weight: 600; margin-bottom: 2px; }
+.test-option-desc { font-size: 0.78rem; color: var(--text-muted); }
+
+.test-option-badge {
+    font-size: 0.68rem; font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 99px;
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+    .topbar { padding: 12px 16px; }
+    .main { padding: 24px 16px 48px; }
+    .set-title { font-size: 1.35rem; }
+    .set-meta { flex-wrap: wrap; gap: 8px; }
+    .modal { margin: 16px; }
+}
+
+    </style>
+
+    <style>
+        /* ─── Question Card ─── */
+        .question-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 48px 40px;
+            text-align: center;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-card);
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+        }
+        .question-label {
+            font-size: 0.72rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 1.2px;
+            color: var(--text-muted);
+        }
+        .question-term {
+            font-size: clamp(1.3rem, 3vw, 1.9rem);
+            font-weight: 600; line-height: 1.4;
+            color: var(--text-primary);
+        }
+        .question-divider {
+            width: 40px; height: 2px;
+            background: var(--border-accent);
+            border-radius: 99px;
+            margin: 4px 0;
+        }
+        .question-definition {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 400; line-height: 1.5;
+            color: var(--text-secondary);
+            max-width: 560px;
+        }
+
+        /* ─── T/F Buttons ─── */
+        .tf-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .tf-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 28px 20px;
+            border-radius: var(--radius-xl);
+            border: 2px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+            transition: all 0.18s;
+        }
+        .tf-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+        }
+        .tf-btn:disabled { cursor: default; transform: none; }
+
+        .tf-true:hover:not(:disabled) {
+            border-color: var(--accent-green);
+            background: rgba(35,178,109,0.08);
+            box-shadow: 0 4px 20px rgba(35,178,109,0.15);
+        }
+        .tf-false:hover:not(:disabled) {
+            border-color: var(--accent-red);
+            background: rgba(255,74,74,0.08);
+            box-shadow: 0 4px 20px rgba(255,74,74,0.15);
+        }
+
+        .tf-btn .tf-icon {
+            font-size: 2.2rem;
+            line-height: 1;
+        }
+        .tf-btn .tf-label {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .tf-btn .tf-key {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        /* Correct / wrong states */
+        .tf-btn.correct {
+            border-color: var(--accent-green);
+            background: rgba(35,178,109,0.12);
+        }
+        .tf-btn.correct .tf-label { color: var(--accent-green); }
+        .tf-btn.wrong {
+            border-color: var(--accent-red);
+            background: rgba(255,74,74,0.12);
+        }
+        .tf-btn.wrong .tf-label { color: var(--accent-red); }
+        .tf-btn.reveal {
+            border-color: var(--accent-green);
+            background: rgba(35,178,109,0.06);
+        }
+        .tf-btn.reveal .tf-label { color: var(--accent-green); }
+
+        /* ─── Feedback ─── */
+        .feedback {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 20px;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem; font-weight: 600;
+            margin-bottom: 20px;
+            animation: fadeUp 0.25s ease;
+        }
+        .feedback.show { display: flex; }
+        .feedback.correct-fb { background: rgba(35,178,109,0.12); border: 1px solid rgba(35,178,109,0.35); color: var(--accent-green); }
+        .feedback.wrong-fb   { background: rgba(255,74,74,0.12);  border: 1px solid rgba(255,74,74,0.35);  color: var(--accent-red); }
+        @keyframes fadeUp { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
+        .test-nav { display: flex; align-items: center; justify-content: center; gap: 12px; }
+
+        /* ─── Results ─── */
+        .results-screen {
+            display: none; flex-direction: column;
+            align-items: center; text-align: center;
+            gap: 20px; padding: 20px 0;
+        }
+        .results-screen.show { display: flex; }
+        .results-emoji { font-size: 4rem; line-height: 1; }
+        .results-title { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); }
+        .results-subtitle { font-size: 1rem; color: var(--text-secondary); }
+
+        .score-ring {
+            width: 120px; height: 120px; border-radius: 50%;
+            background: conic-gradient(var(--accent-purple) calc(var(--pct) * 1%), var(--bg-elevated) 0%);
+            display: flex; align-items: center; justify-content: center;
+            position: relative;
+        }
+        .score-ring::after {
+            content: ''; position: absolute;
+            width: 88px; height: 88px;
+            background: var(--bg-secondary); border-radius: 50%;
+        }
+        .score-ring-text {
+            position: relative; z-index: 1;
+            font-size: 1.4rem; font-weight: 700; color: var(--text-primary);
+        }
+        .results-stats { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+        .result-chip { padding: 10px 20px; border-radius: 99px; font-size: 0.88rem; font-weight: 600; }
+        .chip-correct { background: rgba(35,178,109,0.12); color: var(--accent-green); border: 1px solid rgba(35,178,109,0.3); }
+        .chip-wrong   { background: rgba(255,74,74,0.12);  color: var(--accent-red);   border: 1px solid rgba(255,74,74,0.3); }
+        .chip-total   { background: var(--bg-card); color: var(--text-secondary); border: 1px solid var(--border); }
+        .results-actions { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+        /* ─── Setup Screen ─── */
+        .setup-screen {
+            display: flex; flex-direction: column;
+            align-items: center; text-align: center;
+            gap: 32px; padding: 20px 0 40px;
+            animation: fadeUp 0.35s ease;
+        }
+        .setup-screen.hidden { display: none; }
+        .setup-icon {
+            width: 72px; height: 72px;
+            background: var(--accent-purple-light);
+            border: 1.5px solid var(--border-accent);
+            border-radius: var(--radius-xl);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px;
+        }
+        .setup-heading { font-size: 1.6rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.3px; }
+        .setup-card {
+            width: 100%; max-width: 480px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 32px 36px;
+            display: flex; flex-direction: column; gap: 28px;
+        }
+        .slider-wrap { display: flex; flex-direction: column; gap: 14px; }
+        .slider-meta { display: flex; justify-content: space-between; align-items: baseline; }
+        .slider-label { font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); }
+        .slider-value-display { font-size: 1.6rem; font-weight: 700; color: var(--accent-purple); line-height: 1; }
+        .slider-value-display span { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); margin-left: 3px; }
+        input[type="range"] {
+            -webkit-appearance: none; appearance: none;
+            width: 100%; height: 6px; border-radius: 99px;
+            background: var(--bg-elevated); outline: none; cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 22px; height: 22px; border-radius: 50%;
+            background: var(--accent-purple);
+            border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 2px var(--accent-purple);
+            cursor: pointer; transition: box-shadow 0.15s, transform 0.15s;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            box-shadow: 0 0 0 5px rgba(66,85,255,0.25); transform: scale(1.1);
+        }
+        input[type="range"]::-moz-range-thumb {
+            width: 22px; height: 22px; border-radius: 50%;
+            background: var(--accent-purple); border: 3px solid var(--bg-card);
+            box-shadow: 0 0 0 2px var(--accent-purple); cursor: pointer;
+        }
+        .slider-ticks { display: flex; justify-content: space-between; padding: 0 2px; }
+        .slider-ticks span { font-size: 0.7rem; color: var(--text-muted); }
+        .input-row { display: flex; align-items: center; gap: 12px; }
+        .input-row label { font-size: 0.85rem; color: var(--text-secondary); white-space: nowrap; }
+        .num-input {
+            width: 90px; padding: 9px 12px;
+            background: var(--bg-elevated);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem; font-weight: 600;
+            text-align: center; outline: none; transition: border-color 0.2s;
+        }
+        .num-input:focus { border-color: var(--border-accent); }
+        .input-hint { font-size: 0.75rem; color: var(--text-muted); }
+
+        @media (max-width: 580px) {
+            .tf-row { grid-template-columns: 1fr 1fr; }
+            .question-card { padding: 28px 20px; }
+            .setup-card { padding: 24px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="topbar">
+        <a class="logo" href="index.html">
+            <div class="logo-icon">⚡</div>
+            <span class="logo-text">Vivid Mind</span>
+        </a>
+        <div class="topbar-right">
+            <a href="index.html" class="btn-secondary">← Back</a>
+        </div>
+    </nav>
+
+    <main class="main">
+
+        <div class="set-header">
+            <h1 class="set-title">True or False</h1>
+            <div class="set-meta">
+                <span id="total-count">— questions</span>
+            </div>
+        </div>
+
+        <div class="progress-area" id="progress-area" style="visibility:hidden">
+            <div class="progress-meta">
+                <span class="progress-label">Question</span>
+                <span class="progress-counter" id="progress-counter">—</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill" style="width:0%"></div>
+            </div>
+        </div>
+
+        <div class="error-banner" id="error-banner"></div>
+
+        <!-- Setup Screen -->
+        <div class="setup-screen" id="setup-screen">
+            <div class="setup-icon">⚡</div>
+            <div>
+                <div class="setup-heading">True or False</div>
+                <div style="margin-top:8px; font-size:0.95rem; color:var(--text-secondary)" id="setup-sub">Choose how many questions you want</div>
+            </div>
+
+            <div class="setup-card">
+                <div class="slider-wrap">
+                    <div class="slider-meta">
+                        <span class="slider-label">Questions</span>
+                        <div class="slider-value-display" id="slider-display">10<span>questions</span></div>
+                    </div>
+                    <input type="range" id="q-slider" min="5" max="50" step="5" value="10">
+                    <div class="slider-ticks" id="slider-ticks"></div>
+                </div>
+                <div style="border-top:1px solid var(--border); padding-top:20px; display:flex; flex-direction:column; gap:10px;">
+                    <div class="input-row">
+                        <label for="q-input">Or type a number:</label>
+                        <input type="number" class="num-input" id="q-input" min="1" max="50" value="10">
+                        <span class="input-hint" id="input-hint">max 50</span>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn-primary" id="start-btn" style="padding:13px 40px; font-size:1rem;">Start Test →</button>
+        </div>
+
+        <!-- Quiz Area -->
+        <div id="quiz-area" style="display:none">
+
+            <div class="question-card">
+                <div class="question-label">Is this definition correct?</div>
+                <div class="question-term" id="question-term">…</div>
+                <div class="question-divider"></div>
+                <div class="question-definition" id="question-definition">…</div>
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <div class="tf-row">
+                <button class="tf-btn tf-true" id="btn-true" onclick="selectAnswer(true)">
+                    <span class="tf-icon">✓</span>
+                    <span class="tf-label">True</span>
+                    <span class="tf-key">T</span>
+                </button>
+                <button class="tf-btn tf-false" id="btn-false" onclick="selectAnswer(false)">
+                    <span class="tf-icon">✕</span>
+                    <span class="tf-label">False</span>
+                    <span class="tf-key">F</span>
+                </button>
+            </div>
+
+            <div class="test-nav">
+                <button class="btn-primary" id="next-btn" style="display:none" onclick="nextQuestion()">Next →</button>
+            </div>
+
+        </div>
+
+        <!-- Results -->
+        <div class="results-screen" id="results-screen">
+            <div class="results-emoji" id="results-emoji">🎉</div>
+            <div class="results-title" id="results-title">Test complete!</div>
+            <div class="results-subtitle" id="results-subtitle"></div>
+            <div class="score-ring" id="score-ring" style="--pct:0">
+                <span class="score-ring-text" id="score-pct">0%</span>
+            </div>
+            <div class="results-stats">
+                <div class="result-chip chip-correct" id="chip-correct">✓ 0 correct</div>
+                <div class="result-chip chip-wrong"   id="chip-wrong">✕ 0 wrong</div>
+                <div class="result-chip chip-total"   id="chip-total">0 total</div>
+            </div>
+            <div class="results-actions">
+                <button class="btn-primary" onclick="restartTest()">↻ Try again</button>
+                <a href="index.html" class="btn-secondary">← Back to cards</a>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        let allCards    = [];
+        let questions   = [];  // {card, correctDef, isTrue}
+        let qIndex      = 0;
+        let score       = 0;
+        let answered    = false;
+        let chosenCount = 10;
+
+        /* ── Load ── */
+        async function loadCards() {
+            try {
+                const r = await fetch('Card.json');
+                if (!r.ok) throw new Error('Failed to load Card.json');
+                allCards = await r.json();
+                if (!Array.isArray(allCards)) allCards = [allCards];
+                if (allCards.length < 2) { showError('Need at least 2 cards for True or False.'); return; }
+
+                const total   = allCards.length;
+                const maxQ    = Math.ceil(total / 5) * 5;
+                const slider  = document.getElementById('q-slider');
+                const input   = document.getElementById('q-input');
+                slider.min  = 5;
+                slider.max  = maxQ;
+                slider.step = 5;
+                input.max   = total;
+                document.getElementById('input-hint').textContent = `max ${total}`;
+
+                const defaultVal = Math.min(10, total);
+                slider.value = defaultVal;
+                input.value  = defaultVal;
+                updateSliderUI(defaultVal, maxQ);
+                buildTicks(maxQ);
+
+                document.getElementById('setup-sub').textContent =
+                    `${total} cards available — pick how many to test`;
+            } catch(e) { showError('Error loading cards: ' + e.message); }
+        }
+
+        function showError(msg) { const el = document.getElementById('error-banner'); el.textContent = '⚠️ ' + msg; el.classList.add('show'); }
+
+        /* ── Setup UI ── */
+        function buildTicks(maxQ) {
+            const ticks = document.getElementById('slider-ticks');
+            ticks.innerHTML = '';
+            const points = [5];
+            for (let i = 1; i < 5; i++) {
+                const v = Math.round((maxQ / 5) * i / 5) * 5;
+                if (v > 5 && v < maxQ) points.push(v);
+            }
+            points.push(maxQ);
+            points.forEach(v => {
+                const s = document.createElement('span');
+                s.textContent = v;
+                ticks.appendChild(s);
+            });
+        }
+
+        function updateSliderUI(val, maxOverride) {
+            const slider = document.getElementById('q-slider');
+            const max    = maxOverride || parseInt(slider.max);
+            const pct    = ((val - 5) / (max - 5)) * 100;
+            slider.style.background = `linear-gradient(to right, var(--accent-purple) ${pct}%, var(--bg-elevated) ${pct}%)`;
+            document.getElementById('slider-display').innerHTML = `${val}<span>questions</span>`;
+        }
+
+        document.getElementById('q-slider').addEventListener('input', function() {
+            const v = parseInt(this.value);
+            document.getElementById('q-input').value = v;
+            updateSliderUI(v);
+        });
+
+        document.getElementById('q-input').addEventListener('input', function() {
+            let v = parseInt(this.value) || 1;
+            const slider    = document.getElementById('q-slider');
+            const sliderMax = parseInt(slider.max);
+            const inputMax  = parseInt(this.max);
+            if (v > inputMax) { v = inputMax; this.value = inputMax; }
+            v = Math.max(1, v);
+            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, sliderMax));
+            slider.value = snapped;
+            updateSliderUI(v, sliderMax);
+            document.getElementById('slider-display').innerHTML = `${v}<span>questions</span>`;
+        });
+
+        document.getElementById('q-input').addEventListener('blur', function() {
+            const inputMax = parseInt(this.max);
+            let v = parseInt(this.value) || 1;
+            if (v > inputMax) v = inputMax;
+            if (v < 1) v = 1;
+            this.value = v;
+            const slider    = document.getElementById('q-slider');
+            const sliderMax = parseInt(slider.max);
+            const snapped   = Math.max(5, Math.min(Math.round(v / 5) * 5, sliderMax));
+            slider.value = snapped;
+            updateSliderUI(v, sliderMax);
+            document.getElementById('slider-display').innerHTML = `${v}<span>questions</span>`;
+        });
+
+        document.getElementById('start-btn').addEventListener('click', () => {
+            let v = parseInt(document.getElementById('q-input').value) || 10;
+            v = Math.max(1, Math.min(v, allCards.length));
+            chosenCount = v;
+            document.getElementById('setup-screen').classList.add('hidden');
+            document.getElementById('progress-area').style.visibility = '';
+            document.getElementById('total-count').textContent = chosenCount + ' questions';
+            document.getElementById('quiz-area').style.display = '';
+            buildQuestions();
+            renderQuestion();
+        });
+
+        /* ── Build questions ──
+           Each question shows a term + a definition.
+           50% chance the definition is correct (isTrue=true),
+           50% chance it's swapped with another card's definition (isTrue=false).
+        */
+        function buildQuestions() {
+            const shuffled = [...allCards].sort(() => Math.random() - 0.5).slice(0, chosenCount);
+            questions = shuffled.map(card => {
+                const isTrue = Math.random() < 0.5;
+                let shownDef;
+                if (isTrue) {
+                    shownDef = card.Back;
+                } else {
+                    // Pick a different card's definition
+                    const others = allCards.filter(c => c !== card);
+                    const wrong  = others[Math.floor(Math.random() * others.length)];
+                    shownDef = wrong.Back;
+                }
+                return { card, shownDef, isTrue };
+            });
+            qIndex = 0; score = 0;
+        }
+
+        /* ── Render ── */
+        function renderQuestion() {
+            if (qIndex >= questions.length) { showResults(); return; }
+
+            const { card, shownDef, isTrue } = questions[qIndex];
+            answered = false;
+
+            document.getElementById('progress-counter').textContent = `${qIndex+1} / ${questions.length}`;
+            document.getElementById('progress-fill').style.width = `${((qIndex+1)/questions.length)*100}%`;
+            document.getElementById('question-term').textContent = card.Front;
+            document.getElementById('question-definition').textContent = shownDef;
+
+            const fb = document.getElementById('feedback');
+            fb.className = 'feedback'; fb.textContent = '';
+            document.getElementById('next-btn').style.display = 'none';
+
+            const btnT = document.getElementById('btn-true');
+            const btnF = document.getElementById('btn-false');
+            btnT.className = 'tf-btn tf-true';
+            btnF.className = 'tf-btn tf-false';
+            btnT.disabled = false;
+            btnF.disabled = false;
+        }
+
+        /* ── Answer ── */
+        function selectAnswer(userSaidTrue) {
+            if (answered) return;
+            answered = true;
+
+            const { card, shownDef, isTrue } = questions[qIndex];
+            const correct = (userSaidTrue === isTrue);
+            const btnT = document.getElementById('btn-true');
+            const btnF = document.getElementById('btn-false');
+            const fb   = document.getElementById('feedback');
+
+            btnT.disabled = true;
+            btnF.disabled = true;
+
+            if (correct) {
+                score++;
+                (userSaidTrue ? btnT : btnF).classList.add('correct');
+                fb.className = 'feedback correct-fb show';
+                fb.innerHTML = '✓ &nbsp;Correct!';
+            } else {
+                (userSaidTrue ? btnT : btnF).classList.add('wrong');
+                // Highlight the correct button
+                (isTrue ? btnT : btnF).classList.add('reveal');
+                fb.className = 'feedback wrong-fb show';
+                fb.innerHTML = isTrue
+                    ? `✕ &nbsp;Incorrect — that <strong>was</strong> the correct definition`
+                    : `✕ &nbsp;Incorrect — the real definition is: <strong style="margin-left:4px">${card.Back}</strong>`;
+            }
+
+            document.getElementById('next-btn').style.display = 'inline-flex';
+        }
+
+        function nextQuestion() { qIndex++; renderQuestion(); }
+
+        /* ── Results ── */
+        function showResults() {
+            document.getElementById('quiz-area').style.display = 'none';
+            document.getElementById('results-screen').classList.add('show');
+
+            const total = questions.length;
+            const wrong = total - score;
+            const pct   = Math.round((score / total) * 100);
+
+            const emoji = pct === 100 ? '🏆' : pct >= 80 ? '🎉' : pct >= 50 ? '📚' : '💪';
+            const title = pct === 100 ? 'Perfect score!' : pct >= 80 ? 'Great job!' : pct >= 50 ? 'Good effort!' : 'Keep practicing!';
+
+            document.getElementById('results-emoji').textContent    = emoji;
+            document.getElementById('results-title').textContent    = title;
+            document.getElementById('results-subtitle').textContent = `You scored ${score} out of ${total}`;
+            document.getElementById('score-ring').style.setProperty('--pct', pct);
+            document.getElementById('score-pct').textContent        = pct + '%';
+            document.getElementById('chip-correct').textContent     = `✓ ${score} correct`;
+            document.getElementById('chip-wrong').textContent       = `✕ ${wrong} wrong`;
+            document.getElementById('chip-total').textContent       = `${total} total`;
+        }
+
+        function restartTest() {
+            document.getElementById('results-screen').classList.remove('show');
+            document.getElementById('quiz-area').style.display = '';
+            buildQuestions();
+            renderQuestion();
+        }
+
+        /* ── Keyboard ── */
+        document.addEventListener('keydown', e => {
+            if (e.key === 't' || e.key === 'T') { if (!answered) selectAnswer(true); }
+            else if (e.key === 'f' || e.key === 'F') { if (!answered) selectAnswer(false); }
+            else if (e.key === 'Enter' && answered) nextQuestion();
+        });
+
+        loadCards();
+    </script>
+</body>
+</html>
