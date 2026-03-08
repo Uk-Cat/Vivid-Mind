@@ -696,11 +696,14 @@ body {
         function resetCards() { reviewList=[...cards]; currentIndex=0; knownCount=0; unknownCount=0; displayCard(); }
 
         function updateProgress() {
-            const total = reviewList.length, current = total ? currentIndex+1 : 0;
+            const total     = cards.length;                        // always the full deck size
+            const completed = knownCount;                          // cards marked as known
+            const current   = reviewList.length ? Math.min(completed + currentIndex + 1, total) : total;
             document.getElementById('progress-counter').textContent = total ? `${current} / ${total}` : '—';
             document.getElementById('progress-fill').style.width = total ? `${(current/total)*100}%` : '100%';
-            document.getElementById('prev-btn').disabled = currentIndex===0||!total;
-            document.getElementById('next-btn').disabled = currentIndex===total-1||!total;
+            const remaining = reviewList.length;
+            document.getElementById('prev-btn').disabled = currentIndex===0 || !remaining;
+            document.getElementById('next-btn').disabled = currentIndex===remaining-1 || !remaining;
         }
         function updateStats() {
             document.getElementById('stat-known').textContent    = knownCount + ' know';
