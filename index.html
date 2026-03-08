@@ -628,7 +628,7 @@ body {
     </main>
 
     <script>
-        let cards = [], reviewList = [], currentIndex = 0, isFlipped = false, knownCount = 0, unknownCount = 0;
+        let cards = [], reviewList = [], currentIndex = 0, isFlipped = false, knownCount = 0, unknownCount = 0, seenCount = 0;
 
         async function loadCards() {
             try {
@@ -651,6 +651,7 @@ body {
                 document.getElementById('back-text').textContent = '';
                 updateProgress(); return;
             }
+            seenCount = Math.min(seenCount + 1, cards.length);
             const card = reviewList[currentIndex];
             isFlipped = false;
             const cardEl = document.getElementById('card');
@@ -693,12 +694,11 @@ body {
         function nextCard() { if (!reviewList.length) return; currentIndex = (currentIndex+1) % reviewList.length; displayCard(); }
         function previousCard() { if (!reviewList.length) return; currentIndex = (currentIndex-1+reviewList.length) % reviewList.length; displayCard(); }
         function shuffleCards() { for (let i=reviewList.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[reviewList[i],reviewList[j]]=[reviewList[j],reviewList[i]];} currentIndex=0; displayCard(); }
-        function resetCards() { reviewList=[...cards]; currentIndex=0; knownCount=0; unknownCount=0; displayCard(); }
+        function resetCards() { reviewList=[...cards]; currentIndex=0; knownCount=0; unknownCount=0; seenCount=0; displayCard(); }
 
         function updateProgress() {
-            const total     = cards.length;                        // always the full deck size
-            const completed = knownCount;                          // cards marked as known
-            const current   = reviewList.length ? Math.min(completed + currentIndex + 1, total) : total;
+            const total     = cards.length;
+            const current   = reviewList.length ? seenCount : total;
             document.getElementById('progress-counter').textContent = total ? `${current} / ${total}` : '—';
             document.getElementById('progress-fill').style.width = total ? `${(current/total)*100}%` : '100%';
             const remaining = reviewList.length;
