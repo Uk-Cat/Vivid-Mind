@@ -473,6 +473,118 @@ body {
 
         .nav-row { display: flex; align-items: center; justify-content: center; gap: 12px; }
 
+
+        /* ─── Auth Modal ─── */
+        .auth-modal-overlay {
+            display: none;
+            position: fixed; inset: 0;
+            background: rgba(0,0,0,0.75);
+            backdrop-filter: blur(8px);
+            z-index: 300;
+            align-items: center;
+            justify-content: center;
+        }
+        .auth-modal-overlay.open { display: flex; animation: fadeIn 0.2s ease; }
+
+        .auth-modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 36px 32px;
+            width: 100%; max-width: 400px;
+            box-shadow: var(--shadow);
+            animation: slideUp 0.25s cubic-bezier(.4,0,.2,1);
+            display: flex; flex-direction: column; gap: 20px;
+        }
+
+        .auth-title { font-size: 1.4rem; font-weight: 700; color: var(--text-primary); text-align: center; }
+        .auth-subtitle { font-size: 0.88rem; color: var(--text-muted); text-align: center; margin-top: 4px; margin-bottom: 8px; }
+
+        .auth-tabs {
+            display: flex;
+            background: var(--bg-elevated);
+            border-radius: var(--radius-md);
+            padding: 4px; gap: 4px;
+        }
+        .auth-tab {
+            flex: 1; padding: 8px;
+            border-radius: var(--radius-sm);
+            border: none; background: transparent;
+            color: var(--text-muted);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .auth-tab.active {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .auth-field { display: flex; flex-direction: column; gap: 6px; }
+        .auth-field label { font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.6px; }
+        .auth-input {
+            padding: 11px 14px;
+            background: var(--bg-elevated);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            outline: none; transition: border-color 0.2s;
+            width: 100%;
+        }
+        .auth-input:focus { border-color: var(--border-accent); }
+
+        .auth-error {
+            background: rgba(255,74,74,0.1);
+            border: 1px solid rgba(255,74,74,0.3);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            color: #ff7b7b; font-size: 0.85rem;
+            display: none;
+        }
+        .auth-error.show { display: block; }
+
+        .auth-submit {
+            width: 100%; padding: 13px;
+            background: var(--accent-purple);
+            color: #fff; border: none;
+            border-radius: var(--radius-md);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .auth-submit:hover { background: var(--accent-purple-hover); box-shadow: 0 4px 20px rgba(66,85,255,0.4); }
+        .auth-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+
+        /* User chip in topbar */
+        .user-chip {
+            display: flex; align-items: center; gap: 8px;
+            padding: 6px 12px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            font-size: 0.82rem; font-weight: 600;
+            color: var(--text-secondary);
+            cursor: pointer; transition: all 0.2s;
+        }
+        .user-chip:hover { border-color: var(--border-accent); color: var(--text-primary); }
+        .user-chip .avatar {
+            width: 22px; height: 22px;
+            background: var(--accent-purple);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.7rem; color: #fff; font-weight: 700;
+        }
+
+        /* Score indicator on stat chips */
+        .score-hint { font-size: 0.7rem; color: var(--text-muted); margin-top: 2px; }
+
+        @media (max-width: 640px) {
+            .auth-modal { margin: 16px; padding: 28px 20px; }
+        }
+
         @media (max-width: 640px) {
             /* Card */
             .scene { height: 250px; }
@@ -504,6 +616,7 @@ body {
             .btn-nav { width: 44px; height: 44px; flex-shrink: 0; }
         }
     </style>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
 
@@ -513,10 +626,92 @@ body {
             <span class="logo-text">Vivid Mind</span>
         </a>
         <div class="topbar-right">
+            <div id="user-area">
+                <button class="btn-secondary" id="login-btn" style="font-size:0.82rem; padding:7px 14px;">Sign in</button>
+            </div>
             <button class="btn-primary" id="test-btn">📝 Test</button>
-            <button class="btn-icon" title="Settings">⚙️</button>
         </div>
     </nav>
+
+
+    <!-- AUTH MODAL -->
+    <div class="auth-modal-overlay" id="auth-modal">
+        <div class="auth-modal">
+
+            <!-- ── Main sign-in / register view ── -->
+            <div id="auth-main-view">
+                <div class="auth-title">⚡ Vivid Mind</div>
+                <div class="auth-subtitle">Sign in to save your progress</div>
+
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+                    <button class="auth-tab" id="tab-register" onclick="switchTab('register')">Register</button>
+                </div>
+
+                <div id="auth-login-fields">
+                    <div style="display:flex;flex-direction:column;gap:14px">
+                        <div class="auth-field">
+                            <label>Email</label>
+                            <input class="auth-input" type="email" id="login-email" placeholder="you@email.com">
+                        </div>
+                        <div class="auth-field">
+                            <div style="display:flex;justify-content:space-between;align-items:center">
+                                <label>Password</label>
+                                <button onclick="switchToForgot()" style="background:none;border:none;color:var(--accent-purple);font-size:0.75rem;cursor:pointer;font-family:'Outfit',sans-serif;padding:0;">Forgot password?</button>
+                            </div>
+                            <input class="auth-input" type="password" id="login-password" placeholder="••••••••">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="auth-register-fields" style="display:none">
+                    <div style="display:flex;flex-direction:column;gap:14px">
+                        <div class="auth-field">
+                            <label>Name</label>
+                            <input class="auth-input" type="text" id="reg-name" placeholder="Your name">
+                        </div>
+                        <div class="auth-field">
+                            <label>Email</label>
+                            <input class="auth-input" type="email" id="reg-email" placeholder="you@email.com">
+                        </div>
+                        <div class="auth-field">
+                            <label>Password</label>
+                            <input class="auth-input" type="password" id="reg-password" placeholder="Min. 6 characters">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auth-error" id="auth-error"></div>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+                    <button class="auth-submit" id="auth-submit-btn" onclick="handleAuth()">Sign In</button>
+                    <div style="display:flex;justify-content:flex-end">
+                        <button style="background:none;border:none;color:var(--text-muted);font-size:0.8rem;cursor:pointer;font-family:'Outfit',sans-serif;padding:4px 0;" onclick="closeAuthModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Forgot password view ── -->
+            <div id="auth-forgot-view" style="display:none;flex-direction:column;gap:20px">
+                <div>
+                    <button onclick="switchToMain()" style="background:none;border:none;color:var(--text-muted);font-size:0.82rem;cursor:pointer;font-family:'Outfit',sans-serif;padding:0;margin-bottom:16px;">← Back to sign in</button>
+                    <div class="auth-title" style="font-size:1.2rem">Reset Password</div>
+                    <div class="auth-subtitle" style="margin-bottom:0">Enter your email and we'll send you a reset link</div>
+                </div>
+                <div class="auth-field">
+                    <label>Email</label>
+                    <input class="auth-input" type="email" id="forgot-email" placeholder="you@email.com">
+                </div>
+                <div class="auth-error" id="forgot-error"></div>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:8px">
+                    <button class="auth-submit" id="forgot-submit-btn" onclick="handleForgotPassword()">Send Reset Link</button>
+                    <div style="display:flex;justify-content:flex-end">
+                        <button style="background:none;border:none;color:var(--text-muted);font-size:0.8rem;cursor:pointer;font-family:'Outfit',sans-serif;padding:4px 0;" onclick="closeAuthModal()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!-- TEST MODAL -->
     <div class="modal-overlay" id="test-modal">
@@ -628,50 +823,453 @@ body {
     </main>
 
     <script>
-        let cards = [], reviewList = [], currentIndex = 0, isFlipped = false, knownCount = 0, unknownCount = 0, seenCount = 0;
+        /* ══════════════════════════════════════
+           SUPABASE INIT
+        ══════════════════════════════════════ */
+        const SUPABASE_URL  = 'https://newsivpyvfnkthnxiyxk.supabase.co';
+        const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5ld3NpdnB5dmZua3RobnhpeXhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzA4MjY2MzEsImV4cCI6MjA4NjQwMjYzMX0.ytNvFv1AaT_9-K3l2_LdynlvYs9OieLdqpQyd3PMCEU';
+        const sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON);
 
+        /* ══════════════════════════════════════
+           STATE
+        ══════════════════════════════════════ */
+        let cards        = [];   // [{Front, Back, word}]
+        let cardScores   = {};   // { word: score }  — from Supabase / local
+        let reviewList   = [];
+        let currentIndex = 0;
+        let isFlipped    = false;
+        let knownCount   = 0;
+        let unknownCount = 0;
+        let seenCount    = 0;
+        let hintShownFor = null;  // word for which hint was shown this flip
+        let currentUser  = null;  // Supabase user object
+        let userRow      = null;  // row from Users table
+        let authTab      = 'login';
+        let syncTimeout  = null;
+
+        /* ══════════════════════════════════════
+           AUTH UI
+        ══════════════════════════════════════ */
+        function switchTab(tab) {
+            authTab = tab;
+            document.getElementById('auth-login-fields').style.display    = tab === 'login'    ? '' : 'none';
+            document.getElementById('auth-register-fields').style.display = tab === 'register' ? '' : 'none';
+            document.getElementById('tab-login').classList.toggle('active',    tab === 'login');
+            document.getElementById('tab-register').classList.toggle('active', tab === 'register');
+            document.getElementById('auth-submit-btn').textContent = tab === 'login' ? 'Sign In' : 'Create Account';
+            const err = document.getElementById('auth-error');
+            err.classList.remove('show');
+            err.style = '';
+        }
+
+        function switchToForgot() {
+            document.getElementById('auth-main-view').style.display   = 'none';
+            document.getElementById('auth-forgot-view').style.display = 'flex';
+            document.getElementById('forgot-error').classList.remove('show');
+            document.getElementById('forgot-email').value = document.getElementById('login-email').value || '';
+        }
+
+        function switchToMain() {
+            document.getElementById('auth-forgot-view').style.display = 'none';
+            document.getElementById('auth-main-view').style.display   = '';
+        }
+
+        async function handleForgotPassword() {
+            const btn   = document.getElementById('forgot-submit-btn');
+            const email = document.getElementById('forgot-email').value.trim();
+
+            document.getElementById('forgot-error').classList.remove('show');
+            document.getElementById('forgot-error').style = '';
+
+            if (!email) { showForgotError('Please enter your email.'); return; }
+
+            btn.disabled    = true;
+            btn.textContent = '⏳ Sending…';
+
+            try {
+                // Check email exists in our Users table first
+                const { data: existing } = await sb.from('Users').select('Email').eq('Email', email).single();
+                if (!existing) {
+                    showForgotError('No account found with that email address.');
+                    btn.disabled = false; btn.textContent = 'Send Reset Link';
+                    return;
+                }
+
+                // Send Supabase's official password reset email
+                const { error } = await sb.auth.resetPasswordForEmail(email, {
+                    redirectTo: window.location.origin + '/reset.html'
+                });
+                if (error) throw error;
+
+                // Success
+                const err = document.getElementById('forgot-error');
+                err.style.background  = 'rgba(35,178,109,0.1)';
+                err.style.borderColor = 'rgba(35,178,109,0.3)';
+                err.style.color       = '#23b26d';
+                err.textContent       = '✓ Reset link sent! Check your email.';
+                err.classList.add('show');
+                btn.textContent = 'Send Reset Link';
+                btn.disabled    = false;
+
+            } catch(e) {
+                showForgotError(e.message);
+                btn.disabled    = false;
+                btn.textContent = 'Send Reset Link';
+            }
+        }
+
+        function showForgotError(msg) {
+            const err = document.getElementById('forgot-error');
+            err.style = '';
+            err.textContent = msg;
+            err.classList.add('show');
+        }
+
+        document.getElementById('login-btn').addEventListener('click', () => {
+            document.getElementById('auth-modal').classList.add('open');
+        });
+
+        function closeAuthModal() {
+            document.getElementById('auth-modal').classList.remove('open');
+        }
+
+        async function handleAuth() {
+            const btn = document.getElementById('auth-submit-btn');
+            const err = document.getElementById('auth-error');
+            btn.disabled = true;
+            btn.textContent = '⏳ Please wait…';
+            err.classList.remove('show');
+
+            try {
+                if (authTab === 'login') {
+                    const email    = document.getElementById('login-email').value.trim();
+                    const password = document.getElementById('login-password').value;
+                    if (!email || !password) throw new Error('Please fill in all fields');
+                    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+                    if (error) throw error;
+
+                } else {
+                    const name     = document.getElementById('reg-name').value.trim();
+                    const email    = document.getElementById('reg-email').value.trim();
+                    const password = document.getElementById('reg-password').value;
+                    if (!name)              throw new Error('Please enter your name');
+                    if (!email)             throw new Error('Please enter your email');
+                    if (password.length < 6) throw new Error('Password must be at least 6 characters');
+
+                    // Check if email already exists in Users table
+                    const { data: existing } = await sb.from('Users').select('Email').eq('Email', email).single();
+                    if (existing) throw new Error('That email is already registered. Please sign in instead.');
+
+                    // Sign up with Supabase Auth — sends verification email
+                    const { data, error } = await sb.auth.signUp({ email, password, options: { emailRedirectTo: window.location.origin + '/index.html' } });
+                    if (error) {
+                        if (error.message.toLowerCase().includes('already')) {
+                            throw new Error('That email is already registered. Please sign in instead.');
+                        }
+                        throw error;
+                    }
+
+                    // Build initial Card scores — all words from the loaded deck start at 0
+                    const initialCard = {};
+                    for (const card of cards) initialCard[card.word] = cardScores[card.word] ?? 0;
+
+                    // Upsert row — insert or update if email already exists
+                    const { error: upsertError } = await sb.from('Users').upsert({
+                        Name:     name,
+                        Email:    email,
+                        Password: password,
+                        Card:     initialCard
+                    }, { onConflict: 'Email' });
+
+                    if (upsertError) throw new Error('Could not save account: ' + upsertError.message);
+
+                    // If the user session is immediately available (email confirm disabled),
+                    // load them in. Otherwise show a success message.
+                    if (data.user && data.session) {
+                        currentUser = data.user;
+                        userRow = { Name: name, Email: email };
+                        Object.assign(cardScores, initialCard);
+                        renderUserArea(data.user);
+                    } else {
+                        // Email confirmation required — tell the user
+                        err.style.background = 'rgba(35,178,109,0.1)';
+                        err.style.borderColor = 'rgba(35,178,109,0.3)';
+                        err.style.color = '#23b26d';
+                        err.textContent = '✓ Account created! Check your email to confirm, then sign in.';
+                        err.classList.add('show');
+                        btn.disabled = false;
+                        btn.textContent = 'Create Account';
+                        return;
+                    }
+                }
+                closeAuthModal();
+            } catch(e) {
+                err.style = '';
+                err.textContent = e.message;
+                err.classList.add('show');
+            }
+            btn.disabled = false;
+            btn.textContent = authTab === 'login' ? 'Sign In' : 'Create Account';
+        }
+
+        async function handleSignOut() {
+            await sb.auth.signOut();
+            currentUser = null; userRow = null;
+            renderUserArea(null);
+        }
+
+        function renderUserArea(user) {
+            const area = document.getElementById('user-area');
+            if (user) {
+                const name = userRow?.Name || user.email.split('@')[0];
+                const initial = name[0].toUpperCase();
+                area.innerHTML = `
+                    <div class="user-chip" onclick="handleSignOut()" title="Sign out">
+                        <div class="avatar">${initial}</div>
+                        <span>${name}</span>
+                        <span style="color:var(--text-muted);font-size:0.75rem">↩</span>
+                    </div>`;
+            } else {
+                area.innerHTML = `<button class="btn-secondary" id="login-btn" style="font-size:0.82rem;padding:7px 14px;" onclick="document.getElementById('auth-modal').classList.add('open')">Sign in</button>`;
+            }
+        }
+
+        /* ══════════════════════════════════════
+           SUPABASE DATA
+        ══════════════════════════════════════ */
+        async function loadUserData(user) {
+            currentUser = user;
+            const { data, error } = await sb.from('Users')
+                .select('*')
+                .eq('Email', user.email)
+                .single();
+
+            if (data) {
+                userRow = data;
+                // Merge saved Card scores — Supabase scores take priority over local defaults
+                if (data.Card && typeof data.Card === 'object') {
+                    Object.assign(cardScores, data.Card);
+                }
+                renderUserArea(user);
+                rebuildReviewList();
+            } else {
+                // No row yet — create one (happens if they confirmed email after registering)
+                const initialCard = {};
+                for (const card of cards) initialCard[card.word] = 0;
+                await sb.from('Users').insert({
+                    Name:  user.email.split('@')[0],
+                    Email: user.email,
+                    Card:  initialCard
+                });
+                userRow = { Name: user.email.split('@')[0], Email: user.email };
+                renderUserArea(user);
+            }
+        }
+
+        // Debounced save — batches rapid updates into one write every 3s
+        function scheduleSync() {
+            if (!currentUser) return;
+            clearTimeout(syncTimeout);
+            syncTimeout = setTimeout(syncScores, 3000);
+        }
+
+        async function syncScores() {
+            if (!currentUser) return;
+            // Build a clean scores object matching Card.json format { "word": score }
+            const snapshot = {};
+            for (const card of cards) {
+                snapshot[card.word] = cardScores[card.word] ?? 0;
+            }
+            const { error } = await sb.from('Users')
+                .update({ Card: snapshot })
+                .eq('Email', currentUser.email);
+            if (error) console.warn('Score sync failed:', error.message);
+        }
+
+        /* ══════════════════════════════════════
+           CARD LOADING + WEIGHTING
+        ══════════════════════════════════════ */
         async function loadCards() {
             try {
                 const r = await fetch('Card.json');
                 if (!r.ok) throw new Error('Failed to load Card.json');
-                cards = await r.json();
-                if (!Array.isArray(cards)) cards = [cards];
-                if (!cards.length) { showError('No cards found in Card.json'); return; }
-                reviewList = [...cards];
+                const raw = await r.json();
+
+                // Card.json can be:
+                //   A) Array of {Front, Back, Hint} objects  ← original format
+                //   B) Object of { "word": score }           ← score-map format (pasted JSON)
+                //   C) Object of { "word": {Front,Back,Hint} } ← rich object format
+
+                if (Array.isArray(raw)) {
+                    // Format A — standard [{Front, Back, Hint}] array
+                    cards = raw.map(obj => {
+                        const word = obj.Front || obj.front || Object.values(obj)[0];
+                        if (!(word in cardScores)) cardScores[word] = 0;
+                        return { ...obj, word };
+                    });
+                } else {
+                    const firstVal = Object.values(raw)[0];
+                    if (firstVal !== null && typeof firstVal === 'object' && (firstVal.Front || firstVal.front)) {
+                        // Format C — { "key": {Front, Back, Hint} }
+                        cards = Object.entries(raw).map(([key, obj]) => {
+                            if (!(key in cardScores)) cardScores[key] = 0;
+                            return { ...obj, word: key };
+                        });
+                    } else {
+                        // Format B — { "word": score } — the word is the card, no separate Back
+                        // Front = Chinese term, Back = intentionally blank (self-recall)
+                        cards = Object.entries(raw).map(([word, val]) => {
+                            if (!(word in cardScores)) {
+                                cardScores[word] = typeof val === 'number' ? val : 0;
+                            }
+                            return { Front: word, Back: '', word };
+                        });
+                    }
+                }
+
                 document.getElementById('total-count').textContent = cards.length + ' terms';
+                rebuildReviewList();
                 displayCard();
+
+                // Init Supabase auth listener
+                sb.auth.onAuthStateChange(async (event, session) => {
+                    if (session?.user) {
+                        await loadUserData(session.user);
+                        rebuildReviewList();
+                        displayCard();
+                    } else {
+                        currentUser = null; userRow = null;
+                        renderUserArea(null);
+                    }
+                });
+
             } catch(e) { showError('Error loading cards: ' + e.message); }
+        }
+
+        // Build review list — one copy of each card, sorted so lower-scored words come first
+        function rebuildReviewList() {
+            if (!cards.length) return;
+            // Sort by score ascending (weakest cards first), shuffle within equal-score bands
+            const sorted = [...cards].sort((a, b) => {
+                const sa = cardScores[a.word] ?? 0;
+                const sb = cardScores[b.word] ?? 0;
+                return sa !== sb ? sa - sb : Math.random() - 0.5;
+            });
+            reviewList   = sorted;
+            currentIndex = 0;
+            seenCount    = 1;
         }
 
         function showError(msg) { const el = document.getElementById('error-banner'); el.textContent = '⚠️ ' + msg; el.classList.add('show'); }
 
+        /* ══════════════════════════════════════
+           CARD DISPLAY
+        ══════════════════════════════════════ */
         function displayCard() {
             if (!reviewList.length) {
                 document.getElementById('front-text').textContent = '🎉 All cards reviewed!';
-                document.getElementById('back-text').textContent = '';
+                document.getElementById('back-text').textContent  = '';
                 updateProgress(); return;
             }
-            seenCount = Math.min(seenCount + 1, cards.length);
             const card = reviewList[currentIndex];
-            isFlipped = false;
+            isFlipped    = false;
+            hintShownFor = null;
+
             const cardEl = document.getElementById('card');
             cardEl.style.transition = 'none';
             cardEl.classList.remove('flipped');
             cardEl.getBoundingClientRect();
             cardEl.style.transition = '';
+
             document.getElementById('front-text').textContent = card.Front;
-            document.getElementById('back-text').textContent = card.Back;
+            const backText = card.Back && card.Back.trim()
+                ? card.Back
+                : '（回忆这个词的意思）';  // prompt to recall meaning if no Back defined
+            document.getElementById('back-text').textContent = backText;
+
             const hintPill = document.getElementById('hint-pill');
             const hintBtn  = document.getElementById('hint-btn');
             const hintArea = document.getElementById('hint-area');
             hintPill.classList.remove('show');
             hintBtn.textContent = '💡 Show hint';
+
             if (card.Hint) { hintPill.textContent = card.Hint; hintArea.style.display = 'flex'; }
             else { hintArea.style.display = 'none'; }
+
             document.getElementById('answer-row').classList.remove('visible');
             updateProgress(); updateStats();
         }
 
+        /* ══════════════════════════════════════
+           SCORING
+        ══════════════════════════════════════ */
+        function applyScore(word, delta) {
+            cardScores[word] = (cardScores[word] ?? 0) + delta;
+            scheduleSync();
+        }
+
+        function markKnown() {
+            if (!reviewList.length) return;
+            const word = reviewList[currentIndex].word;
+            applyScore(word, +1);
+            knownCount++;
+            reviewList.splice(currentIndex, 1);
+            if (currentIndex >= reviewList.length) currentIndex = Math.max(0, reviewList.length - 1);
+            seenCount = Math.min(seenCount + 1, cards.length);
+            displayCard();
+        }
+
+        function markUnknown() {
+            if (!reviewList.length) return;
+            const word = reviewList[currentIndex].word;
+            applyScore(word, -1);
+            unknownCount++;
+            reviewList.push(reviewList[currentIndex]);
+            nextCard();
+        }
+
+        /* ══════════════════════════════════════
+           NAVIGATION
+        ══════════════════════════════════════ */
+        function nextCard()     { if (!reviewList.length) return; currentIndex = (currentIndex + 1) % reviewList.length; seenCount = Math.min(seenCount + 1, cards.length); displayCard(); }
+        function previousCard() { if (!reviewList.length) return; currentIndex = (currentIndex - 1 + reviewList.length) % reviewList.length; displayCard(); }
+
+        function shuffleCards() {
+            for (let i = reviewList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [reviewList[i], reviewList[j]] = [reviewList[j], reviewList[i]];
+            }
+            currentIndex = 0; displayCard();
+        }
+
+        function resetCards() {
+            knownCount = 0; unknownCount = 0; seenCount = 0;
+            rebuildReviewList();
+            displayCard();
+        }
+
+        /* ══════════════════════════════════════
+           PROGRESS & STATS
+        ══════════════════════════════════════ */
+        function updateProgress() {
+            const total   = cards.length;
+            const current = reviewList.length ? seenCount : total;
+            document.getElementById('progress-counter').textContent = total ? `${current} / ${total}` : '—';
+            document.getElementById('progress-fill').style.width    = total ? `${(current / total) * 100}%` : '100%';
+            const remaining = reviewList.length;
+            document.getElementById('prev-btn').disabled = currentIndex === 0 || !remaining;
+            document.getElementById('next-btn').disabled = currentIndex === remaining - 1 || !remaining;
+        }
+
+        function updateStats() {
+            document.getElementById('stat-known').textContent     = knownCount + ' know';
+            document.getElementById('stat-unknown').textContent   = unknownCount + ' learning';
+            document.getElementById('stat-remaining').textContent = (cards.length - knownCount) + ' remaining';
+        }
+
+        /* ══════════════════════════════════════
+           EVENTS
+        ══════════════════════════════════════ */
         document.getElementById('scene').addEventListener('click', () => {
             if (!reviewList.length) return;
             isFlipped = !isFlipped;
@@ -682,55 +1280,43 @@ body {
         document.getElementById('hint-btn').addEventListener('click', e => {
             e.stopPropagation();
             const pill = document.getElementById('hint-pill');
+            const wasHidden = !pill.classList.contains('show');
             pill.classList.toggle('show');
             document.getElementById('hint-btn').textContent = pill.classList.contains('show') ? '🙈 Hide hint' : '💡 Show hint';
+
+            // Only score -0.5 the FIRST time hint is shown for this card
+            if (wasHidden && reviewList.length) {
+                const word = reviewList[currentIndex].word;
+                if (hintShownFor !== word) {
+                    hintShownFor = word;
+                    applyScore(word, -0.5);
+                }
+            }
         });
 
-        document.getElementById('know-btn').addEventListener('click', e => { e.stopPropagation(); markKnown(); });
+        document.getElementById('know-btn').addEventListener('click',     e => { e.stopPropagation(); markKnown(); });
         document.getElementById('dontknow-btn').addEventListener('click', e => { e.stopPropagation(); markUnknown(); });
-
-        function markKnown() { if (!reviewList.length) return; knownCount++; reviewList.splice(currentIndex, 1); if (currentIndex >= reviewList.length) currentIndex = Math.max(0, reviewList.length-1); displayCard(); }
-        function markUnknown() { if (!reviewList.length) return; unknownCount++; reviewList.push(reviewList[currentIndex]); nextCard(); }
-        function nextCard() { if (!reviewList.length) return; currentIndex = (currentIndex+1) % reviewList.length; displayCard(); }
-        function previousCard() { if (!reviewList.length) return; currentIndex = (currentIndex-1+reviewList.length) % reviewList.length; displayCard(); }
-        function shuffleCards() { for (let i=reviewList.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[reviewList[i],reviewList[j]]=[reviewList[j],reviewList[i]];} currentIndex=0; displayCard(); }
-        function resetCards() { reviewList=[...cards]; currentIndex=0; knownCount=0; unknownCount=0; seenCount=0; displayCard(); }
-
-        function updateProgress() {
-            const total     = cards.length;
-            const current   = reviewList.length ? seenCount : total;
-            document.getElementById('progress-counter').textContent = total ? `${current} / ${total}` : '—';
-            document.getElementById('progress-fill').style.width = total ? `${(current/total)*100}%` : '100%';
-            const remaining = reviewList.length;
-            document.getElementById('prev-btn').disabled = currentIndex===0 || !remaining;
-            document.getElementById('next-btn').disabled = currentIndex===remaining-1 || !remaining;
-        }
-        function updateStats() {
-            document.getElementById('stat-known').textContent    = knownCount + ' know';
-            document.getElementById('stat-unknown').textContent  = unknownCount + ' learning';
-            document.getElementById('stat-remaining').textContent = reviewList.length + ' remaining';
-        }
 
         document.addEventListener('keydown', e => {
             if (document.getElementById('test-modal').classList.contains('open')) return;
-            if (e.key==='ArrowRight') nextCard();
-            else if (e.key==='ArrowLeft') previousCard();
-            else if (e.key===' ') { e.preventDefault(); document.getElementById('scene').click(); }
-            else if (e.key==='1'&&isFlipped) markKnown();
-            else if (e.key==='2'&&isFlipped) markUnknown();
+            if (document.getElementById('auth-modal').classList.contains('open')) return;
+            if (e.key === 'ArrowRight') nextCard();
+            else if (e.key === 'ArrowLeft') previousCard();
+            else if (e.key === ' ')  { e.preventDefault(); document.getElementById('scene').click(); }
+            else if (e.key === '1' && isFlipped) markKnown();
+            else if (e.key === '2' && isFlipped) markUnknown();
         });
 
         document.getElementById('prev-btn').addEventListener('click', previousCard);
         document.getElementById('next-btn').addEventListener('click', nextCard);
 
-        // Modal
+        // Test modal
         document.getElementById('test-btn').addEventListener('click', () => document.getElementById('test-modal').classList.add('open'));
         document.getElementById('modal-close').addEventListener('click', () => document.getElementById('test-modal').classList.remove('open'));
-        document.getElementById('test-modal').addEventListener('click', e => { if (e.target===document.getElementById('test-modal')) document.getElementById('test-modal').classList.remove('open'); });
-        document.addEventListener('keydown', e => { if (e.key==='Escape') document.getElementById('test-modal').classList.remove('open'); });
+        document.getElementById('test-modal').addEventListener('click', e => { if (e.target === document.getElementById('test-modal')) document.getElementById('test-modal').classList.remove('open'); });
+        document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.getElementById('test-modal').classList.remove('open'); closeAuthModal(); } });
 
-
-        // Update flip hint text for touch devices
+        // Touch / swipe
         if ('ontouchstart' in window) {
             const h1 = document.getElementById('flip-hint-text');
             const h2 = document.getElementById('flip-hint-back-text');
@@ -738,18 +1324,15 @@ body {
             if (h2) h2.textContent = 'Tap to flip back';
         }
 
-        // Swipe left/right to navigate on mobile
         let touchStartX = 0;
-        document.getElementById('scene').addEventListener('touchstart', e => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
+        document.getElementById('scene').addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
         document.getElementById('scene').addEventListener('touchend', e => {
             const dx = e.changedTouches[0].screenX - touchStartX;
-            if (Math.abs(dx) > 50) {
-                if (dx < 0) nextCard();
-                else previousCard();
-            }
+            if (Math.abs(dx) > 50) { if (dx < 0) nextCard(); else previousCard(); }
         }, { passive: true });
+
+        // Sync scores before page close
+        window.addEventListener('beforeunload', () => { if (currentUser) syncScores(); });
 
         loadCards();
     </script>
