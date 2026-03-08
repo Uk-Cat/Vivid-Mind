@@ -719,20 +719,20 @@ body {
                 if (allCards.length < 2) { showError('Need at least 2 cards for True or False.'); return; }
 
                 const total   = allCards.length;
-                const maxQ    = Math.ceil(total / 5) * 5;
                 const slider  = document.getElementById('q-slider');
                 const input   = document.getElementById('q-input');
                 slider.min  = 5;
-                slider.max  = maxQ;
+                slider.max  = Math.floor(total / 5) * 5 || 5;
                 slider.step = 5;
+                slider.dataset.total = total;
                 input.max   = total;
                 document.getElementById('input-hint').textContent = `max ${total}`;
 
                 const defaultVal = Math.min(10, total);
                 slider.value = defaultVal;
                 input.value  = defaultVal;
-                updateSliderUI(defaultVal, maxQ);
-                buildTicks(maxQ);
+                updateSliderUI(defaultVal, total);
+                buildTicks(total);
 
                 document.getElementById('setup-sub').textContent =
                     `${total} cards available — pick how many to test`;
@@ -742,47 +742,57 @@ body {
         function showError(msg) { const el = document.getElementById('error-banner'); el.textContent = '⚠️ ' + msg; el.classList.add('show'); }
 
         /* ── Setup UI ── */
-        function buildTicks(maxQ) {
+        function buildTicks(total) {
             const ticks = document.getElementById('slider-ticks');
             ticks.innerHTML = '';
-            const points = [5];
-            for (let i = 1; i < 5; i++) {
-                const v = Math.round((maxQ / 5) * i / 5) * 5;
-                if (v > 5 && v < maxQ) points.push(v);
+            const points = [];
+            for (let v = 5; v < total; v += 5) points.push(v);
+            if (points[points.length - 1] !== total) points.push(total);
+            const MAX_LABELS = 8;
+            let labels;
+            if (points.length <= MAX_LABELS) {
+                labels = points;
+            } else {
+                const step = Math.ceil(points.length / (MAX_LABELS - 1));
+                labels = points.filter((_, i) => i % step === 0);
+                if (labels[labels.length - 1] !== total) labels.push(total);
             }
-            points.push(maxQ);
-            points.forEach(v => {
+            labels.forEach(v => {
                 const s = document.createElement('span');
                 s.textContent = v;
                 ticks.appendChild(s);
             });
         }
 
-        function updateSliderUI(val, maxOverride) {
+        function updateSliderUI(val, total) {
             const slider = document.getElementById('q-slider');
-            const max    = maxOverride || parseInt(slider.max);
+            const max    = total || parseInt(slider.dataset.total);
             const pct    = ((val - 5) / (max - 5)) * 100;
             slider.style.background = `linear-gradient(to right, var(--accent-purple) ${pct}%, var(--bg-elevated) ${pct}%)`;
             document.getElementById('slider-display').innerHTML = `${val}<span>questions</span>`;
         }
 
         document.getElementById('q-slider').addEventListener('input', function() {
-            const v = parseInt(this.value);
+            const total  = parseInt(this.dataset.total);
+            const floor5 = Math.floor(total / 5) * 5;
+            let v = parseInt(this.value);
+            if (v >= floor5) v = total;
             document.getElementById('q-input').value = v;
-            updateSliderUI(v);
+            updateSliderUI(v, total);
         });
 
         document.getElementById('q-input').addEventListener('input', function() {
             let v = parseInt(this.value) || 1;
-            const slider    = document.getElementById('q-slider');
-            const sliderMax = parseInt(slider.max);
-            const inputMax  = parseInt(this.max);
+            const slider   = document.getElementById('q-slider');
+            const total    = parseInt(slider.dataset.total);
+            const floor5   = Math.floor(total / 5) * 5 || 5;
+            const inputMax = parseInt(this.max);
             if (v > inputMax) { v = inputMax; this.value = inputMax; }
             v = Math.max(1, v);
-            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, sliderMax));
+            // Snap slider to nearest 5, but clamp to floor5
+            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, floor5));
             slider.value = snapped;
-            updateSliderUI(v, sliderMax);
-            document.getElementById('slider-display').innerHTML = `${v}<span>questions</span>`;
+            updateSliderUI(v, total);
         });
 
         document.getElementById('q-input').addEventListener('blur', function() {
@@ -791,12 +801,12 @@ body {
             if (v > inputMax) v = inputMax;
             if (v < 1) v = 1;
             this.value = v;
-            const slider    = document.getElementById('q-slider');
-            const sliderMax = parseInt(slider.max);
-            const snapped   = Math.max(5, Math.min(Math.round(v / 5) * 5, sliderMax));
+            const slider = document.getElementById('q-slider');
+            const total  = parseInt(slider.dataset.total);
+            const floor5 = Math.floor(total / 5) * 5 || 5;
+            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, floor5));
             slider.value = snapped;
-            updateSliderUI(v, sliderMax);
-            document.getElementById('slider-display').innerHTML = `${v}<span>questions</span>`;
+            updateSliderUI(v, total);
         });
 
         document.getElementById('start-btn').addEventListener('click', () => {

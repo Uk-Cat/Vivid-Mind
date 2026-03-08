@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GCSE Mandarin - Multiple Choice</title>
+    <title>Vivid Mind - Multiple Choice</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
 /* ══════════════════════════════════════════
@@ -774,14 +774,14 @@ body {
                 if (!Array.isArray(allCards)) allCards = [allCards];
                 if (allCards.length < 2) { showError('Need at least 2 cards for Multiple Choice.'); return; }
 
-                const total  = allCards.length;
-                const slider = document.getElementById('q-slider');
-                const input  = document.getElementById('q-input');
+                const total   = allCards.length;
+                const slider  = document.getElementById('q-slider');
+                const input   = document.getElementById('q-input');
 
-                // Slider goes up to total, stepping in 5s
-                slider.max  = total;
                 slider.min  = 5;
+                slider.max  = Math.floor(total / 5) * 5 || 5;
                 slider.step = 5;
+                slider.dataset.total = total;
                 input.max   = total;
                 document.getElementById('input-hint').textContent = `max ${total}`;
 
@@ -806,50 +806,77 @@ body {
             document.getElementById('progress-area') && (document.getElementById('progress-area').style.visibility = 'hidden');
         }
 
-        function buildTicks(maxQ) {
+        function buildTicks(total) {
             const ticks = document.getElementById('slider-ticks');
             ticks.innerHTML = '';
-            // Show exactly 6 tick labels: min, ~20%, ~40%, ~60%, ~80%, max
-            const points = [5];
-            const steps = 5;
-            for (let i = 1; i < steps; i++) {
-                const v = Math.round((maxQ / steps) * i / 5) * 5;
-                if (v > 5 && v < maxQ) points.push(v);
+            const points = [];
+            for (let v = 5; v < total; v += 5) points.push(v);
+            // Always add exact total as the last tick
+            if (points[points.length - 1] !== total) points.push(total);
+            // If too many ticks, thin them out to ~8 visible labels
+            const MAX_LABELS = 8;
+            let labels;
+            if (points.length <= MAX_LABELS) {
+                labels = points;
+            } else {
+                const step = Math.ceil(points.length / (MAX_LABELS - 1));
+                labels = points.filter((_, i) => i % step === 0);
+                if (labels[labels.length - 1] !== total) labels.push(total);
             }
-            points.push(maxQ);
-            points.forEach(v => {
+            labels.forEach(v => {
                 const s = document.createElement('span');
                 s.textContent = v;
                 ticks.appendChild(s);
             });
         }
 
-        function updateSliderUI(val, maxOverride) {
-            const slider  = document.getElementById('q-slider');
-            const max     = maxOverride || parseInt(slider.max);
-            const pct     = ((val - 5) / (max - 5)) * 100;
+
+        function updateSliderUI(val, total) {
+            const slider = document.getElementById('q-slider');
+            const max    = total || parseInt(slider.dataset.total);
+            const pct    = ((val - 5) / (max - 5)) * 100;
             slider.style.background = `linear-gradient(to right, var(--accent-purple) ${pct}%, var(--bg-elevated) ${pct}%)`;
             document.getElementById('slider-display').innerHTML = `${val}<span>questions</span>`;
         }
 
         // Slider → text input
+        // When slider is dragged to its visual max, snap to actual total
         document.getElementById('q-slider').addEventListener('input', function() {
-            const v = parseInt(this.value);
+            const total = parseInt(this.dataset.total);
+            const floor5 = Math.floor(total / 5) * 5;
+            let v = parseInt(this.value);
+            if (v >= floor5) v = total;   // snap last stop to exact total
             document.getElementById('q-input').value = v;
-            updateSliderUI(v);
+            updateSliderUI(v, total);
         });
 
         // Text input → slider (snap to nearest 5 for slider visual, but allow any value)
         document.getElementById('q-input').addEventListener('input', function() {
             let v = parseInt(this.value) || 1;
-            const slider = document.getElementById('q-slider');
-            const max = parseInt(slider.max);
-            v = Math.max(1, Math.min(v, parseInt(document.getElementById('q-input').max)));
-            // Snap slider to nearest 5
-            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, max));
+            const slider   = document.getElementById('q-slider');
+            const total    = parseInt(slider.dataset.total);
+            const floor5   = Math.floor(total / 5) * 5 || 5;
+            const inputMax = parseInt(this.max);
+            if (v > inputMax) { v = inputMax; this.value = inputMax; }
+            v = Math.max(1, v);
+            // Snap slider to nearest 5, but clamp to floor5
+            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, floor5));
             slider.value = snapped;
-            updateSliderUI(v);
-            document.getElementById('slider-display').innerHTML = `${v}<span>questions</span>`;
+            updateSliderUI(v, total);
+        });
+
+        document.getElementById('q-input').addEventListener('blur', function() {
+            const inputMax = parseInt(this.max);
+            let v = parseInt(this.value) || 1;
+            if (v > inputMax) v = inputMax;
+            if (v < 1) v = 1;
+            this.value = v;
+            const slider = document.getElementById('q-slider');
+            const total  = parseInt(slider.dataset.total);
+            const floor5 = Math.floor(total / 5) * 5 || 5;
+            const snapped = Math.max(5, Math.min(Math.round(v / 5) * 5, floor5));
+            slider.value = snapped;
+            updateSliderUI(v, total);
         });
 
         document.getElementById('start-btn').addEventListener('click', () => {
