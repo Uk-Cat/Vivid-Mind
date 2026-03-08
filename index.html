@@ -585,8 +585,7 @@
             <h1 class="set-title" id="set-title">Flashcard Set</h1>
             <div class="set-meta">
                 <span id="total-count">— terms</span>
-                <span class="dot"></span>
-                <span id="mastered-count">0 mastered</span>
+
             </div>
         </div>
 
@@ -825,8 +824,6 @@
         }
 
         function updateStats() {
-            const mastered = cards.length - reviewList.length;
-            document.getElementById('mastered-count').textContent = mastered + ' mastered';
             document.getElementById('stat-known').textContent   = knownCount + ' know';
             document.getElementById('stat-unknown').textContent = unknownCount + ' learning';
             document.getElementById('stat-remaining').textContent = reviewList.length + ' remaining';
