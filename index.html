@@ -151,11 +151,11 @@ body {
     max-width: 860px;
     width: 100%;
     margin: 0 auto;
-    padding: 40px 24px 60px;
+    padding: 20px 24px 60px;
 }
 
 /* ─── Set Header ─── */
-.set-header { margin-bottom: 32px; }
+.set-header { margin-bottom: 18px; }
 
 .set-title {
     font-size: 1.75rem; font-weight: 700;
@@ -172,7 +172,7 @@ body {
 .set-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--text-muted); }
 
 /* ─── Progress ─── */
-.progress-area { margin-bottom: 28px; }
+.progress-area { margin-bottom: 14px; }
 
 .progress-meta {
     display: flex; justify-content: space-between; align-items: center;
@@ -205,7 +205,7 @@ body {
     padding: 16px 20px;
     color: #ff7b7b;
     font-size: 0.9rem;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
     display: none;
 }
 .error-banner.show { display: block; }
@@ -343,7 +343,7 @@ body {
     }
     .logo-text { font-size: 1.05rem; }
     .main {
-        padding: 20px 14px 100px; /* bottom pad for floating nav */
+        padding: 12px 14px 90px; /* bottom pad for floating nav */
     }
     .set-title { font-size: 1.25rem; }
     .set-meta { flex-wrap: wrap; gap: 6px; font-size: 0.82rem; }
@@ -359,12 +359,12 @@ body {
     .btn-primary { padding: 10px 16px; font-size: 0.85rem; }
     .btn-secondary { padding: 10px 14px; font-size: 0.85rem; }
     .stat-chip { padding: 7px 14px; font-size: 0.78rem; }
-    .stats-strip { gap: 8px; margin-top: 24px; }
+    .stats-strip { gap: 8px; margin-top: 16px; }
     .shortcuts-bar { display: none; } /* hide keyboard hints on mobile */
     .progress-label { font-size: 0.75rem; }
     .progress-counter { font-size: 0.82rem; }
-    .set-header { margin-bottom: 20px; }
-    .progress-area { margin-bottom: 18px; }
+    .set-header { margin-bottom: 12px; }
+    .progress-area { margin-bottom: 10px; }
 }
 
     </style>
@@ -372,8 +372,8 @@ body {
         /* ─── Card Scene ─── */
         .scene {
             perspective: 1200px;
-            width: 100%; height: 340px;
-            margin-bottom: 20px;
+            width: 100%; height: 320px;
+            margin-bottom: 10px;
             cursor: pointer;
             touch-action: manipulation;
             -webkit-tap-highlight-color: transparent;
@@ -430,7 +430,7 @@ body {
         /* Answer buttons */
         .answer-row {
             display: flex; gap: 12px; justify-content: center;
-            margin-bottom: 24px;
+            margin-bottom: 0;
             opacity: 0; transform: translateY(8px);
             transition: all 0.3s ease; pointer-events: none;
         }
@@ -449,7 +449,7 @@ body {
         .btn-dontknow:hover { background: rgba(255,74,74,0.2); box-shadow: 0 4px 16px rgba(255,74,74,0.2); transform: translateY(-1px); }
 
         /* Hint */
-        .hint-area { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-bottom: 20px; min-height: 44px; }
+        .hint-area { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-bottom: 0; min-height: 40px; }
         .btn-hint {
             display: inline-flex; align-items: center; gap: 6px;
             padding: 8px 18px; border-radius: var(--radius-sm);
@@ -587,7 +587,7 @@ body {
 
         @media (max-width: 640px) {
             /* Card */
-            .scene { height: 250px; }
+            .scene { height: 230px; }
             .card-face { padding: 22px 18px; }
             .card-body-text { font-size: 1.1rem; }
             .card-side-label { font-size: 0.65rem; top: 14px; left: 16px; }
@@ -791,6 +791,8 @@ body {
             </div>
         </div>
 
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:10px;">
+
         <div class="answer-row" id="answer-row">
             <button class="btn-answer btn-dontknow" id="dontknow-btn">✕ Still learning</button>
             <button class="btn-answer btn-know" id="know-btn">✓ Got it</button>
@@ -819,6 +821,8 @@ body {
             <div class="shortcut-item"><span class="kbd">←</span><span class="kbd">→</span> Navigate</div>
             <div class="shortcut-item"><span class="kbd">1</span> Got it &nbsp;<span class="kbd">2</span> Still learning</div>
         </div>
+
+        </div><!-- end below-card block -->
 
     </main>
 
