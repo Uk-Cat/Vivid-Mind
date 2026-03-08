@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashMind - Flashcards</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #1c1d2e;
+            --bg-secondary: #252637;
+            --bg-card: #2d2f44;
+            --bg-card-hover: #33364d;
+            --bg-elevated: #3a3c54;
+            --accent-purple: #4255ff;
+            --accent-purple-hover: #5468ff;
+            --accent-purple-light: rgba(66, 85, 255, 0.15);
+            --accent-yellow: #ffcd1f;
+            --accent-green: #23b26d;
+            --accent-red: #ff4a4a;
+            --text-primary: #d9dde8;
+            --text-secondary: #9399b3;
+            --text-muted: #6b7194;
+            --border: rgba(255,255,255,0.07);
+            --border-accent: rgba(66, 85, 255, 0.4);
+            --shadow: 0 8px 32px rgba(0,0,0,0.4);
+            --shadow-card: 0 4px 24px rgba(0,0,0,0.3);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ─── TOP NAV ─── */
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 32px;
+            background: var(--bg-secondary);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-primary);
+        }
+
+        .logo-icon {
+            width: 34px;
+            height: 34px;
+            background: var(--accent-purple);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 1.2rem;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+
+        .btn-icon:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+        }
+
+        /* ─── MAIN LAYOUT ─── */
+        .main {
+            flex: 1;
+            max-width: 860px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 40px 24px 60px;
+        }
+
+        /* ─── SET HEADER ─── */
+        .set-header {
+            margin-bottom: 32px;
+        }
+
+        .set-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.4px;
+            margin-bottom: 6px;
+        }
+
+        .set-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .set-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .set-meta .dot {
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
+            background: var(--text-muted);
+        }
+
+        /* ─── PROGRESS BAR ─── */
+        .progress-area {
+            margin-bottom: 28px;
+        }
+
+        .progress-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .progress-label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--text-muted);
+        }
+
+        .progress-counter {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .progress-track {
+            width: 100%;
+            height: 5px;
+            background: var(--bg-elevated);
+            border-radius: 99px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--accent-purple);
+            border-radius: 99px;
+            transition: width 0.4s cubic-bezier(.4,0,.2,1);
+        }
+
+        /* ─── CARD SCENE ─── */
+        .scene {
+            perspective: 1200px;
+            width: 100%;
+            height: 340px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.55s cubic-bezier(.4,0,.2,1);
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            border-radius: var(--radius-xl);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            text-align: center;
+            user-select: none;
+        }
+
+        .card-front {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow-card);
+        }
+
+        .card-back {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-accent);
+            box-shadow: 0 4px 24px rgba(66,85,255,0.15);
+            transform: rotateY(180deg);
+        }
+
+        .card-face:hover .flip-hint {
+            opacity: 1;
+        }
+
+        .card-side-label {
+            position: absolute;
+            top: 20px;
+            left: 24px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-muted);
+        }
+
+        .card-back .card-side-label {
+            color: var(--accent-purple);
+            opacity: 0.85;
+        }
+
+        .card-body-text {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 500;
+            line-height: 1.45;
+            color: var(--text-primary);
+            max-width: 560px;
+        }
+
+        .flip-hint {
+            position: absolute;
+            bottom: 18px;
+            right: 20px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.6;
+            transition: opacity 0.2s;
+        }
+
+        .flip-hint svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* keyboard shortcut badge */
+        .kbd {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1px 6px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            font-family: monospace;
+        }
+
+        /* ─── ANSWER BUTTONS ─── */
+        .answer-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .answer-row.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all;
+        }
+
+        .btn-answer {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 28px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-know {
+            background: rgba(35,178,109,0.1);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .btn-know:hover {
+            background: rgba(35,178,109,0.2);
+            box-shadow: 0 4px 16px rgba(35,178,109,0.2);
+            transform: translateY(-1px);
+        }
+
+        .btn-dontknow {
+            background: rgba(255,74,74,0.1);
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+        }
+
+        .btn-dontknow:hover {
+            background: rgba(255,74,74,0.2);
+            box-shadow: 0 4px 16px rgba(255,74,74,0.2);
+            transform: translateY(-1px);
+        }
+
+        /* ─── HINT ─── */
+        .hint-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            min-height: 44px;
+        }
+
+        .btn-hint {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-hint:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border-color: var(--border-accent);
+        }
+
+        .hint-pill {
+            display: none;
+            background: rgba(255, 205, 31, 0.08);
+            border: 1px solid rgba(255,205,31,0.25);
+            border-radius: var(--radius-md);
+            padding: 12px 20px;
+            color: #e8bb1a;
+            font-size: 0.88rem;
+            max-width: 480px;
+            text-align: center;
+            animation: fadeUp 0.25s ease;
+        }
+
+        .hint-pill.show { display: block; }
+
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── NAV CONTROLS ─── */
+        .nav-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .btn-nav {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            transition: all 0.2s;
+        }
+
+        .btn-nav:hover:not(:disabled) {
+            border-color: var(--border-accent);
+            color: var(--text-primary);
+            background: var(--bg-card-hover);
+        }
+
+        .btn-nav:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 22px;
+            border-radius: var(--radius-md);
+            border: none;
+            background: var(--accent-purple);
+            color: #fff;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.2px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-purple-hover);
+            box-shadow: 0 4px 20px rgba(66,85,255,0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 18px;
+            border-radius: var(--radius-md);
+            border: 1.5px solid var(--border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-elevated);
+            color: var(--text-primary);
+            border-color: var(--border-accent);
+        }
+
+        /* ─── STATS STRIP ─── */
+        .stats-strip {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 9px 18px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 99px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .stat-chip .dot-green { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-green); }
+        .stat-chip .dot-red   { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-red); }
+        .stat-chip .dot-blue  { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-purple); }
+
+        /* ─── ERROR ─── */
+        .error-banner {
+            background: rgba(255,74,74,0.1);
+            border: 1px solid rgba(255,74,74,0.3);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            color: #ff7b7b;
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            display: none;
+        }
+
+        .error-banner.show { display: block; }
+
+        /* ─── KEYBOARD SHORTCUTS TOOLTIP ─── */
+        .shortcuts-bar {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 28px;
+            flex-wrap: wrap;
+        }
+
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 640px) {
+            .topbar { padding: 12px 16px; }
+            .main { padding: 24px 16px 48px; }
+            .set-title { font-size: 1.35rem; }
+            .scene { height: 280px; }
+            .card-face { padding: 28px 24px; }
+            .card-body-text { font-size: 1.2rem; }
+            .nav-row { gap: 8px; }
+            .btn-primary, .btn-secondary { padding: 9px 14px; font-size: 0.82rem; }
+            .set-meta { flex-wrap: wrap; gap: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP NAV -->
+    <nav class="topbar">
+        <a class="logo" href="#">
+            <div class="logo-icon">⚡</div>
+            <span class="logo-text">FlashMind</span>
+        </a>
+        <div class="topbar-right">
+            <button class="btn-icon" title="Settings">⚙️</button>
+            <button class="btn-icon" title="Fullscreen">⛶</button>
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="main">
+
+        <!-- SET HEADER -->
+        <div class="set-header">
+            <h1 class="set-title" id="set-title">Flashcard Set</h1>
+            <div class="set-meta">
+                <span id="total-count">— terms</span>
+                <span class="dot"></span>
+                <span id="mastered-count">0 mastered</span>
+            </div>
+        </div>
+
+        <!-- PROGRESS -->
+        <div class="progress-area">
+            <div class="progress-meta">
+                <span class="progress-label">Progress</span>
+                <span class="progress-counter" id="progress-counter">1 / 1</span>
+            </div>
+            <div class="progress-track">
+                <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+            </div>
+        </div>
+
+        <!-- ERROR -->
+        <div class="error-banner" id="error-banner"></div>
+
+        <!-- CARD -->
+        <div class="scene" id="scene">
+            <div class="card" id="card">
+                <!-- FRONT -->
+                <div class="card-face card-front">
+                    <span class="card-side-label">Term</span>
+                    <p class="card-body-text" id="front-text">Loading…</p>
+                    <div class="flip-hint">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                        Click to flip
+                    </div>
+                </div>
+                <!-- BACK -->
+                <div class="card-face card-back">
+                    <span class="card-side-label">Definition</span>
+                    <p class="card-body-text" id="back-text"></p>
+                    <div class="flip-hint">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 1l4 4-4 4"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><path d="M7 23l-4-4 4-4"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+                        Click to flip back
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ANSWER BUTTONS (shown after flip) -->
+        <div class="answer-row" id="answer-row">
+            <button class="btn-answer btn-dontknow" id="dontknow-btn">
+                <span>✕</span> Still learning
+            </button>
+            <button class="btn-answer btn-know" id="know-btn">
+                <span>✓</span> Got it
+            </button>
+        </div>
+
+        <!-- HINT -->
+        <div class="hint-area" id="hint-area">
+            <button class="btn-hint" id="hint-btn">💡 Show hint</button>
+            <div class="hint-pill" id="hint-pill"></div>
+        </div>
+
+        <!-- NAV CONTROLS -->
+        <div class="nav-row">
+            <button class="btn-nav" id="prev-btn" title="Previous (←)">‹</button>
+            <button class="btn-secondary" onclick="shuffleCards()">🔀 Shuffle</button>
+            <button class="btn-primary" onclick="resetCards()">↻ Restart</button>
+            <button class="btn-nav" id="next-btn" title="Next (→)">›</button>
+        </div>
+
+        <!-- STATS -->
+        <div class="stats-strip">
+            <div class="stat-chip"><span class="dot-green"></span><span id="stat-known">0 know</span></div>
+            <div class="stat-chip"><span class="dot-red"></span><span id="stat-unknown">0 learning</span></div>
+            <div class="stat-chip"><span class="dot-blue"></span><span id="stat-remaining">— remaining</span></div>
+        </div>
+
+        <!-- KEYBOARD SHORTCUTS -->
+        <div class="shortcuts-bar">
+            <div class="shortcut-item"><span class="kbd">Space</span> Flip card</div>
+            <div class="shortcut-item"><span class="kbd">←</span><span class="kbd">→</span> Navigate</div>
+            <div class="shortcut-item"><span class="kbd">1</span> Got it &nbsp;<span class="kbd">2</span> Still learning</div>
+        </div>
+
+    </main>
+
+    <script>
+        let cards = [];
+        let reviewList = [];
+        let currentIndex = 0;
+        let isFlipped = false;
+        let knownCount = 0;
+        let unknownCount = 0;
+
+        /* ── Load ── */
+        async function loadCards() {
+            try {
+                const response = await fetch('Card.json');
+                if (!response.ok) throw new Error('Failed to load Card.json');
+                cards = await response.json();
+                if (!Array.isArray(cards)) cards = [cards];
+                if (cards.length === 0) { showError('No cards found in Card.json'); return; }
+                reviewList = [...cards];
+                document.getElementById('set-title').textContent = 'Flashcard Set';
+                document.getElementById('total-count').textContent = cards.length + ' terms';
+                displayCard();
+            } catch (e) {
+                showError('Error loading cards: ' + e.message);
+            }
+        }
+
+        function showError(msg) {
+            const el = document.getElementById('error-banner');
+            el.textContent = '⚠️ ' + msg;
+            el.classList.add('show');
+        }
+
+        /* ── Display ── */
+        function displayCard() {
+            if (reviewList.length === 0) {
+                document.getElementById('front-text').textContent = '🎉 All cards reviewed!';
+                document.getElementById('back-text').textContent = '';
+                updateProgress();
+                return;
+            }
+
+            const card = reviewList[currentIndex];
+            isFlipped = false;
+
+            const cardEl = document.getElementById('card');
+            // Disable transition temporarily so the flip-back is instant (no back-face flash)
+            cardEl.style.transition = 'none';
+            cardEl.classList.remove('flipped');
+            // Force reflow so the removal takes effect before re-enabling transition
+            cardEl.getBoundingClientRect();
+            cardEl.style.transition = '';
+
+            document.getElementById('front-text').textContent = card.Front;
+            document.getElementById('back-text').textContent = card.Back;
+
+            // hint
+            const hintArea = document.getElementById('hint-area');
+            const hintPill = document.getElementById('hint-pill');
+            const hintBtn  = document.getElementById('hint-btn');
+            hintPill.classList.remove('show');
+            hintBtn.textContent = '💡 Show hint';
+
+            if (card.Hint) {
+                hintPill.textContent = card.Hint;
+                hintArea.style.display = 'flex';
+            } else {
+                hintArea.style.display = 'none';
+            }
+
+            // hide answer row
+            document.getElementById('answer-row').classList.remove('visible');
+
+            updateProgress();
+            updateStats();
+        }
+
+        /* ── Flip ── */
+        document.getElementById('scene').addEventListener('click', () => {
+            if (reviewList.length === 0) return;
+            isFlipped = !isFlipped;
+            document.getElementById('card').classList.toggle('flipped', isFlipped);
+            document.getElementById('answer-row').classList.toggle('visible', isFlipped);
+        });
+
+        /* ── Hint ── */
+        document.getElementById('hint-btn').addEventListener('click', e => {
+            e.stopPropagation();
+            const pill = document.getElementById('hint-pill');
+            const btn  = document.getElementById('hint-btn');
+            pill.classList.toggle('show');
+            btn.textContent = pill.classList.contains('show') ? '🙈 Hide hint' : '💡 Show hint';
+        });
+
+        /* ── Know / Don't Know ── */
+        document.getElementById('know-btn').addEventListener('click', e => {
+            e.stopPropagation(); markKnown();
+        });
+        document.getElementById('dontknow-btn').addEventListener('click', e => {
+            e.stopPropagation(); markUnknown();
+        });
+
+        function markKnown() {
+            if (!reviewList.length) return;
+            knownCount++;
+            reviewList.splice(currentIndex, 1);
+            if (currentIndex >= reviewList.length) currentIndex = Math.max(0, reviewList.length - 1);
+            displayCard();
+        }
+
+        function markUnknown() {
+            if (!reviewList.length) return;
+            unknownCount++;
+            const card = reviewList[currentIndex];
+            reviewList.push(card);
+            nextCard();
+        }
+
+        /* ── Navigation ── */
+        function nextCard() {
+            if (!reviewList.length) return;
+            currentIndex = (currentIndex + 1) % reviewList.length;
+            displayCard();
+        }
+
+        function previousCard() {
+            if (!reviewList.length) return;
+            currentIndex = (currentIndex - 1 + reviewList.length) % reviewList.length;
+            displayCard();
+        }
+
+        function shuffleCards() {
+            for (let i = reviewList.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [reviewList[i], reviewList[j]] = [reviewList[j], reviewList[i]];
+            }
+            currentIndex = 0;
+            displayCard();
+        }
+
+        function resetCards() {
+            reviewList = [...cards];
+            currentIndex = 0;
+            knownCount = 0;
+            unknownCount = 0;
+            displayCard();
+        }
+
+        /* ── Progress & Stats ── */
+        function updateProgress() {
+            const total   = reviewList.length;
+            const current = total === 0 ? 0 : currentIndex + 1;
+            document.getElementById('progress-counter').textContent = total === 0 ? '—' : `${current} / ${total}`;
+            document.getElementById('progress-fill').style.width = total === 0 ? '100%' : `${(current / total) * 100}%`;
+            document.getElementById('prev-btn').disabled = currentIndex === 0 || total === 0;
+            document.getElementById('next-btn').disabled = (currentIndex === total - 1) || total === 0;
+        }
+
+        function updateStats() {
+            const mastered = cards.length - reviewList.length;
+            document.getElementById('mastered-count').textContent = mastered + ' mastered';
+            document.getElementById('stat-known').textContent   = knownCount + ' know';
+            document.getElementById('stat-unknown').textContent = unknownCount + ' learning';
+            document.getElementById('stat-remaining').textContent = reviewList.length + ' remaining';
+        }
+
+        /* ── Keyboard ── */
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight')        nextCard();
+            else if (e.key === 'ArrowLeft')    previousCard();
+            else if (e.key === ' ')            { e.preventDefault(); document.getElementById('scene').click(); }
+            else if (e.key === '1' && isFlipped) markKnown();
+            else if (e.key === '2' && isFlipped) markUnknown();
+        });
+
+        document.getElementById('prev-btn').addEventListener('click', previousCard);
+        document.getElementById('next-btn').addEventListener('click', nextCard);
+
+        loadCards();
+    </script>
+</body>
+</html>

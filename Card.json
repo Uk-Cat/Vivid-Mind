@@ -1,0 +1,5587 @@
+[
+  {
+    "Front": "阿姨",
+    "Back": "aunt",
+    "Hint": "āyí"
+  },
+  {
+    "Front": "矮",
+    "Back": "short (in height)",
+    "Hint": "ǎi"
+  },
+  {
+    "Front": "爱好",
+    "Back": "interest; hobby",
+    "Hint": "àihào"
+  },
+  {
+    "Front": "安静",
+    "Back": "quiet, peaceful",
+    "Hint": "ānjìng"
+  },
+  {
+    "Front": "安全",
+    "Back": "safety",
+    "Hint": "ānquán"
+  },
+  {
+    "Front": "安全带",
+    "Back": "seat belt, safety belt",
+    "Hint": "ānquándài"
+  },
+  {
+    "Front": "安慰",
+    "Back": "to console",
+    "Hint": "ānwèi"
+  },
+  {
+    "Front": "澳大利亚",
+    "Back": "Australia",
+    "Hint": "Àodàlìyà"
+  },
+  {
+    "Front": "澳洲",
+    "Back": "Australia",
+    "Hint": "Àozhōu"
+  },
+  {
+    "Front": "吧",
+    "Back": "particle indicating a suggestion",
+    "Hint": "ba"
+  },
+  {
+    "Front": "八",
+    "Back": "eight",
+    "Hint": "bā"
+  },
+  {
+    "Front": "巴黎",
+    "Back": "Paris",
+    "Hint": "Bālí"
+  },
+  {
+    "Front": "爸爸",
+    "Back": "dad; father",
+    "Hint": "bàba"
+  },
+  {
+    "Front": "白",
+    "Back": "white",
+    "Hint": "bái"
+  },
+  {
+    "Front": "白族",
+    "Back": "Bai nationality",
+    "Hint": "Báizú"
+  },
+  {
+    "Front": "百",
+    "Back": "hundred",
+    "Hint": "bǎi"
+  },
+  {
+    "Front": "班",
+    "Back": "class (of students)",
+    "Hint": "bān"
+  },
+  {
+    "Front": "半",
+    "Back": "half",
+    "Hint": "bàn"
+  },
+  {
+    "Front": "办公室",
+    "Back": "office",
+    "Hint": "bàngōngshì"
+  },
+  {
+    "Front": "帮忙",
+    "Back": "to help",
+    "Hint": "bāngmáng"
+  },
+  {
+    "Front": "包",
+    "Back": "bag; to wrap",
+    "Hint": "bāo"
+  },
+  {
+    "Front": "包子",
+    "Back": "steamed bun",
+    "Hint": "bāozi"
+  },
+  {
+    "Front": "保护区",
+    "Back": "reserve",
+    "Hint": "bǎohùqū"
+  },
+  {
+    "Front": "报纸",
+    "Back": "newspaper",
+    "Hint": "bàozhǐ"
+  },
+  {
+    "Front": "杯",
+    "Back": "glass; cup",
+    "Hint": "bēi"
+  },
+  {
+    "Front": "北",
+    "Back": "north",
+    "Hint": "běi"
+  },
+  {
+    "Front": "北京",
+    "Back": "Beijing",
+    "Hint": "Běijīng"
+  },
+  {
+    "Front": "北京烤鸭",
+    "Back": "Peking Duck",
+    "Hint": "Běijīngkǎoyā"
+  },
+  {
+    "Front": "背景",
+    "Back": "background",
+    "Hint": "bèijǐng"
+  },
+  {
+    "Front": "本",
+    "Back": "origin; root; measure word for books",
+    "Hint": "běn"
+  },
+  {
+    "Front": "本子",
+    "Back": "notebook; exercise book",
+    "Hint": "běnzi"
+  },
+  {
+    "Front": "鼻子",
+    "Back": "nose",
+    "Hint": "bízi"
+  },
+  {
+    "Front": "比",
+    "Back": "to compare; than",
+    "Hint": "bǐ"
+  },
+  {
+    "Front": "比较",
+    "Back": "quite, comparatively",
+    "Hint": "bǐjiào"
+  },
+  {
+    "Front": "比如",
+    "Back": "for example",
+    "Hint": "bǐrú"
+  },
+  {
+    "Front": "比赛",
+    "Back": "competition; to compete",
+    "Hint": "bǐsài"
+  },
+  {
+    "Front": "笔",
+    "Back": "pen",
+    "Hint": "bǐ"
+  },
+  {
+    "Front": "笔友",
+    "Back": "pen pal",
+    "Hint": "bǐyǒu"
+  },
+  {
+    "Front": "必须",
+    "Back": "must",
+    "Hint": "bìxū"
+  },
+  {
+    "Front": "毕业",
+    "Back": "to graduate",
+    "Hint": "bìyè"
+  },
+  {
+    "Front": "鞭炮",
+    "Back": "firecrackers",
+    "Hint": "biànpào"
+  },
+  {
+    "Front": "表演",
+    "Back": "to perform; to act",
+    "Hint": "biǎoyǎn"
+  },
+  {
+    "Front": "别……了",
+    "Back": "don’t…",
+    "Hint": "bié…le"
+  },
+  {
+    "Front": "别的",
+    "Back": "other",
+    "Hint": "biéde"
+  },
+  {
+    "Front": "别人",
+    "Back": "other people",
+    "Hint": "biéren"
+  },
+  {
+    "Front": "冰灯节",
+    "Back": "ice festival",
+    "Hint": "bīngdēng jié"
+  },
+  {
+    "Front": "兵马俑",
+    "Back": "Terracotta Army",
+    "Hint": "bīngmǎyǒng"
+  },
+  {
+    "Front": "冰淇淋",
+    "Back": "ice cream",
+    "Hint": "bīngqílín"
+  },
+  {
+    "Front": "兵器",
+    "Back": "weapon",
+    "Hint": "bīngqì"
+  },
+  {
+    "Front": "冰箱",
+    "Back": "refrigerator",
+    "Hint": "bīngxiāng"
+  },
+  {
+    "Front": "病",
+    "Back": "illness, disease; to become ill",
+    "Hint": "bìng"
+  },
+  {
+    "Front": "并不",
+    "Back": "not at all",
+    "Hint": "bìngbù"
+  },
+  {
+    "Front": "博客",
+    "Back": "blogger, blog",
+    "Hint": "bókè"
+  },
+  {
+    "Front": "博物馆",
+    "Back": "museum",
+    "Hint": "bówùguǎn"
+  },
+  {
+    "Front": "不",
+    "Back": "not; no",
+    "Hint": "bù"
+  },
+  {
+    "Front": "部",
+    "Back": "part; section; measure word for films",
+    "Hint": "bù"
+  },
+  {
+    "Front": "不必",
+    "Back": "not necessary",
+    "Hint": "bùbì"
+  },
+  {
+    "Front": "不错",
+    "Back": "not bad",
+    "Hint": "bùcuò"
+  },
+  {
+    "Front": "不但……而且……",
+    "Back": "not only…but also…",
+    "Hint": "bùdàn...ěrqiě"
+  },
+  {
+    "Front": "不得了",
+    "Back": "extremely, very",
+    "Hint": "bùdéliǎo"
+  },
+  {
+    "Front": "不过",
+    "Back": "however",
+    "Hint": "bùguò"
+  },
+  {
+    "Front": "不好意思",
+    "Back": "embarrassed, \"Excuse me\"",
+    "Hint": "bùhǎo yìsi"
+  },
+  {
+    "Front": "不客气",
+    "Back": "you're welcome",
+    "Hint": "bùkèqi"
+  },
+  {
+    "Front": "不要",
+    "Back": "no need, don’t",
+    "Hint": "bùyào"
+  },
+  {
+    "Front": "不用",
+    "Back": "no need, don’t",
+    "Hint": "bùyòng"
+  },
+  {
+    "Front": "部分",
+    "Back": "part",
+    "Hint": "bùfen"
+  },
+  {
+    "Front": "才",
+    "Back": "“only\", \"not until\"",
+    "Hint": "cái"
+  },
+  {
+    "Front": "菜",
+    "Back": "dish; vegetable; cuisine",
+    "Hint": "cài"
+  },
+  {
+    "Front": "菜单",
+    "Back": "menu",
+    "Hint": "càidān"
+  },
+  {
+    "Front": "参观",
+    "Back": "to visit",
+    "Hint": "cānguān"
+  },
+  {
+    "Front": "参加",
+    "Back": "to attend",
+    "Hint": "cānjiā"
+  },
+  {
+    "Front": "餐厅",
+    "Back": "dining hall; restaurant",
+    "Hint": "cāntīng"
+  },
+  {
+    "Front": "苍山",
+    "Back": "Cang Mountain",
+    "Hint": "Cāngshān"
+  },
+  {
+    "Front": "操场",
+    "Back": "sports field",
+    "Hint": "cāochǎng"
+  },
+  {
+    "Front": "厕所",
+    "Back": "toilet",
+    "Hint": "cèsuǒ"
+  },
+  {
+    "Front": "层",
+    "Back": "level, floor",
+    "Hint": "céng"
+  },
+  {
+    "Front": "茶",
+    "Back": "tea",
+    "Hint": "chá"
+  },
+  {
+    "Front": "差",
+    "Back": "inferior, lacking",
+    "Hint": "chà"
+  },
+  {
+    "Front": "差不多",
+    "Back": "almost, about the same",
+    "Hint": "chàbuduō"
+  },
+  {
+    "Front": "长",
+    "Back": "long",
+    "Hint": "cháng"
+  },
+  {
+    "Front": "长城",
+    "Back": "the Great Wall",
+    "Hint": "Chángchéng"
+  },
+  {
+    "Front": "尝",
+    "Back": "to taste",
+    "Hint": "cháng"
+  },
+  {
+    "Front": "常常",
+    "Back": "frequently",
+    "Hint": "chángcháng"
+  },
+  {
+    "Front": "唱歌",
+    "Back": "to sing a song",
+    "Hint": "chàng gē"
+  },
+  {
+    "Front": "超重",
+    "Back": "overweight",
+    "Hint": "chāo zhòng"
+  },
+  {
+    "Front": "超市",
+    "Back": "supermarket",
+    "Hint": "chāoshì"
+  },
+  {
+    "Front": "炒",
+    "Back": "to fry",
+    "Hint": "chǎo"
+  },
+  {
+    "Front": "吵",
+    "Back": "noisy",
+    "Hint": "chǎo"
+  },
+  {
+    "Front": "衬衫/衬衣",
+    "Back": "shirt",
+    "Hint": "chènshān/chènyī"
+  },
+  {
+    "Front": "橙",
+    "Back": "orange",
+    "Hint": "chéng"
+  },
+  {
+    "Front": "成",
+    "Back": "to become",
+    "Hint": "chéng"
+  },
+  {
+    "Front": "成都",
+    "Back": "Chengdu",
+    "Hint": "Chéngdū"
+  },
+  {
+    "Front": "成功",
+    "Back": "success, successful",
+    "Hint": "chénggōng"
+  },
+  {
+    "Front": "成绩",
+    "Back": "achievement, grades",
+    "Hint": "chéngjī"
+  },
+  {
+    "Front": "城墙",
+    "Back": "town wall",
+    "Hint": "chéngqiáng"
+  },
+  {
+    "Front": "城市",
+    "Back": "city",
+    "Hint": "chéngshì"
+  },
+  {
+    "Front": "吃",
+    "Back": "to eat",
+    "Hint": "chī"
+  },
+  {
+    "Front": "迟到",
+    "Back": "to be late",
+    "Hint": "chídào"
+  },
+  {
+    "Front": "尺子",
+    "Back": "ruler",
+    "Hint": "chǐzi"
+  },
+  {
+    "Front": "宠物",
+    "Back": "pet",
+    "Hint": "chǒngwù"
+  },
+  {
+    "Front": "出",
+    "Back": "to go out",
+    "Hint": "chū"
+  },
+  {
+    "Front": "出发",
+    "Back": "to depart, set off",
+    "Hint": "chūfā"
+  },
+  {
+    "Front": "出口",
+    "Back": "Exit; export",
+    "Hint": "chūkǒu"
+  },
+  {
+    "Front": "出生",
+    "Back": "to be born",
+    "Hint": "chūshēng"
+  },
+  {
+    "Front": "出租车",
+    "Back": "taxi",
+    "Hint": "chūzūchē"
+  },
+  {
+    "Front": "厨房",
+    "Back": "kitchen",
+    "Hint": "chúfáng"
+  },
+  {
+    "Front": "厨师",
+    "Back": "chef",
+    "Hint": "chúshī"
+  },
+  {
+    "Front": "穿",
+    "Back": "to wear; to put on; to pass through",
+    "Hint": "chuān"
+  },
+  {
+    "Front": "船",
+    "Back": "boat",
+    "Hint": "chuán"
+  },
+  {
+    "Front": "窗户",
+    "Back": "window",
+    "Hint": "chuānghu"
+  },
+  {
+    "Front": "床",
+    "Back": "bed",
+    "Hint": "chuáng"
+  },
+  {
+    "Front": "春节",
+    "Back": "Spring Festival",
+    "Hint": "Chūnjié"
+  },
+  {
+    "Front": "春天",
+    "Back": "spring",
+    "Hint": "chūntiān"
+  },
+  {
+    "Front": "次",
+    "Back": "an occurrence, ‘time’",
+    "Hint": "cì"
+  },
+  {
+    "Front": "刺穿",
+    "Back": "to pierce",
+    "Hint": "cìchuān"
+  },
+  {
+    "Front": "聪明",
+    "Back": "intelligent",
+    "Hint": "cōngming"
+  },
+  {
+    "Front": "从",
+    "Back": "from",
+    "Hint": "cóng"
+  },
+  {
+    "Front": "从来",
+    "Back": "at all times",
+    "Hint": "cónglái"
+  },
+  {
+    "Front": "从来不",
+    "Back": "never",
+    "Hint": "cóngláibù"
+  },
+  {
+    "Front": "错",
+    "Back": "mistake, wrong",
+    "Hint": "cuò"
+  },
+  {
+    "Front": "打",
+    "Back": "to beat; to play (ball game); to call (phone)",
+    "Hint": "dǎ"
+  },
+  {
+    "Front": "打算",
+    "Back": "to plan to, to intend",
+    "Hint": "dǎsuàn"
+  },
+  {
+    "Front": "打字",
+    "Back": "to type",
+    "Hint": "dǎzì"
+  },
+  {
+    "Front": "大",
+    "Back": "big",
+    "Hint": "dà"
+  },
+  {
+    "Front": "大家",
+    "Back": "everyone",
+    "Hint": "dàjiā"
+  },
+  {
+    "Front": "大人",
+    "Back": "adult",
+    "Hint": "dàrén"
+  },
+  {
+    "Front": "大学",
+    "Back": "university",
+    "Hint": "dàxué"
+  },
+  {
+    "Front": "大雁塔",
+    "Back": "Great Goose Pagoda in Xi'an",
+    "Hint": "Dàyàntǎ"
+  },
+  {
+    "Front": "大衣",
+    "Back": "overcoat",
+    "Hint": "dàyī"
+  },
+  {
+    "Front": "傣族",
+    "Back": "Dai nationality",
+    "Hint": "Dǎi zú"
+  },
+  {
+    "Front": "带",
+    "Back": "to bring, take",
+    "Hint": "dài"
+  },
+  {
+    "Front": "戴",
+    "Back": "to put on or wear (accessories)",
+    "Hint": "dài"
+  },
+  {
+    "Front": "担心",
+    "Back": "to worry",
+    "Hint": "dānxīn"
+  },
+  {
+    "Front": "单程",
+    "Back": "one-way (eg ‘one-way ticket’)",
+    "Hint": "dānchéng"
+  },
+  {
+    "Front": "单人房",
+    "Back": "single room",
+    "Hint": "dānrénfáng"
+  },
+  {
+    "Front": "蛋糕",
+    "Back": "cake",
+    "Hint": "dàngāo"
+  },
+  {
+    "Front": "但是",
+    "Back": "but",
+    "Hint": "dànshì"
+  },
+  {
+    "Front": "当",
+    "Back": "when; to be (a job)",
+    "Hint": "dāng"
+  },
+  {
+    "Front": "当地",
+    "Back": "local",
+    "Hint": "dāngdì"
+  },
+  {
+    "Front": "当然",
+    "Back": "of course",
+    "Hint": "dāngrán"
+  },
+  {
+    "Front": "到",
+    "Back": "to; until",
+    "Hint": "dào"
+  },
+  {
+    "Front": "到达",
+    "Back": "to arrive",
+    "Hint": "dàodá"
+  },
+  {
+    "Front": "到底",
+    "Back": "after all",
+    "Hint": "dàodǐ"
+  },
+  {
+    "Front": "得",
+    "Back": "used to indicate degree, manner, or effect",
+    "Hint": "de"
+  },
+  {
+    "Front": "得意",
+    "Back": "delighted",
+    "Hint": "déyì"
+  },
+  {
+    "Front": "的",
+    "Back": "particle indicating attribution",
+    "Hint": "de"
+  },
+  {
+    "Front": "……的时候",
+    "Back": "…when",
+    "Hint": "de shíhòu"
+  },
+  {
+    "Front": "灯",
+    "Back": "light, lamp, lantern",
+    "Hint": "dēng"
+  },
+  {
+    "Front": "灯笼",
+    "Back": "lantern",
+    "Hint": "dēnglóng"
+  },
+  {
+    "Front": "登记表",
+    "Back": "registration form",
+    "Hint": "dēngjìbiǎo"
+  },
+  {
+    "Front": "等",
+    "Back": "to wait",
+    "Hint": "děng"
+  },
+  {
+    "Front": "等等",
+    "Back": "et cetera",
+    "Hint": "děngděng"
+  },
+  {
+    "Front": "第",
+    "Back": "(prefix indicating ordinal number)",
+    "Hint": " dì"
+  },
+  {
+    "Front": "弟弟",
+    "Back": "younger brother",
+    "Hint": "dìdi"
+  },
+  {
+    "Front": "地点",
+    "Back": "site, location",
+    "Hint": "dìdiǎn"
+  },
+  {
+    "Front": "地方",
+    "Back": "place",
+    "Hint": "dìfang"
+  },
+  {
+    "Front": "地理",
+    "Back": "geography",
+    "Hint": "dìlǐ"
+  },
+  {
+    "Front": "地铁",
+    "Back": "subway; metro",
+    "Hint": "dìtiě"
+  },
+  {
+    "Front": "地图",
+    "Back": "map",
+    "Hint": "dìtú"
+  },
+  {
+    "Front": "地址",
+    "Back": "address",
+    "Hint": "dìzhǐ"
+  },
+  {
+    "Front": "点菜",
+    "Back": "to order dishes (in a restaurant)",
+    "Hint": "diǎn cài"
+  },
+  {
+    "Front": "点心",
+    "Back": "snack; dim sum",
+    "Hint": "diǎnxin"
+  },
+  {
+    "Front": "电池",
+    "Back": "battery",
+    "Hint": "diànchí"
+  },
+  {
+    "Front": "电话",
+    "Back": "telephone",
+    "Hint": "diànhuà"
+  },
+  {
+    "Front": "电脑",
+    "Back": "computer",
+    "Hint": "diànnǎo"
+  },
+  {
+    "Front": "电视",
+    "Back": "television",
+    "Hint": "diànshì"
+  },
+  {
+    "Front": "电视剧",
+    "Back": "TV play, soap opera",
+    "Hint": "diànshì jù"
+  },
+  {
+    "Front": "电影",
+    "Back": "movie; film",
+    "Hint": "diànyǐng"
+  },
+  {
+    "Front": "电子邮件",
+    "Back": "email",
+    "Hint": "diànzǐ yóujiàn"
+  },
+  {
+    "Front": "掉",
+    "Back": "fall; drop; lose",
+    "Hint": "diào"
+  },
+  {
+    "Front": "钓鱼",
+    "Back": "to fish",
+    "Hint": "diào yú"
+  },
+  {
+    "Front": "订票",
+    "Back": "to book tickets",
+    "Hint": "dìng piào"
+  },
+  {
+    "Front": "丢",
+    "Back": "to lose",
+    "Hint": "diū"
+  },
+  {
+    "Front": "冬天",
+    "Back": "winter",
+    "Hint": "dōngtiān"
+  },
+  {
+    "Front": "东",
+    "Back": "east",
+    "Hint": "dōng"
+  },
+  {
+    "Front": "东方明珠塔",
+    "Back": "Oriental Pearl Tower",
+    "Hint": "Dōngfāng Míngzhū Tǎ"
+  },
+  {
+    "Front": "东汉",
+    "Back": "Eastern Han era",
+    "Hint": "Dōnghàn"
+  },
+  {
+    "Front": "东西",
+    "Back": "thing",
+    "Hint": "dōngxi"
+  },
+  {
+    "Front": "懂",
+    "Back": "to understand",
+    "Hint": "dǒng"
+  },
+  {
+    "Front": "动画片",
+    "Back": "cartoon",
+    "Hint": "dònghuà piàn"
+  },
+  {
+    "Front": "动物",
+    "Back": "animal",
+    "Hint": "dòngwù"
+  },
+  {
+    "Front": "动物园",
+    "Back": "zoo",
+    "Hint": "dòngwùyuán"
+  },
+  {
+    "Front": "都",
+    "Back": "all; both",
+    "Hint": "dōu"
+  },
+  {
+    "Front": "豆腐",
+    "Back": "tofu / bean curd",
+    "Hint": "dòufu"
+  },
+  {
+    "Front": "豆浆",
+    "Back": "soy milk",
+    "Hint": "dòujiāng"
+  },
+  {
+    "Front": "毒品",
+    "Back": "drugs",
+    "Hint": "dúpǐn"
+  },
+  {
+    "Front": "独生子",
+    "Back": "only child",
+    "Hint": "dúshēng zǐ"
+  },
+  {
+    "Front": "度假",
+    "Back": "to spend a holiday",
+    "Hint": "dùjià"
+  },
+  {
+    "Front": "端午节",
+    "Back": "Dragon Boat Festival",
+    "Hint": "Duānwǔjié"
+  },
+  {
+    "Front": "短",
+    "Back": "short",
+    "Hint": "duǎn"
+  },
+  {
+    "Front": "短裤",
+    "Back": "shorts",
+    "Hint": "duǎnkù"
+  },
+  {
+    "Front": "短信",
+    "Back": "text message",
+    "Hint": "duǎnxìn"
+  },
+  {
+    "Front": "断",
+    "Back": "to break",
+    "Hint": "duàn"
+  },
+  {
+    "Front": "对",
+    "Back": "correct; opposite",
+    "Hint": "duì"
+  },
+  {
+    "Front": "对不起",
+    "Back": "I'm sorry",
+    "Hint": "duìbuqǐ"
+  },
+  {
+    "Front": "对面",
+    "Back": "across (the street); face to face",
+    "Hint": "duìmiàn"
+  },
+  {
+    "Front": "队员",
+    "Back": "teammate",
+    "Hint": "duìyuán"
+  },
+  {
+    "Front": "盾",
+    "Back": "shield",
+    "Hint": "dùn"
+  },
+  {
+    "Front": "多",
+    "Back": "many; much; often",
+    "Hint": "duō"
+  },
+  {
+    "Front": "多大",
+    "Back": "how old",
+    "Hint": "duōdà"
+  },
+  {
+    "Front": "多久?",
+    "Back": "how long?",
+    "Hint": "duōjiǔ?"
+  },
+  {
+    "Front": "多少",
+    "Back": "how many; how much",
+    "Hint": "duōshǎo"
+  },
+  {
+    "Front": "多云",
+    "Back": "cloudy",
+    "Hint": "duōyún"
+  },
+  {
+    "Front": "躲",
+    "Back": "to hide",
+    "Hint": "duǒ"
+  },
+  {
+    "Front": "俄文",
+    "Back": "Russian language",
+    "Hint": "Éwén"
+  },
+  {
+    "Front": "饿",
+    "Back": "hungry",
+    "Hint": "è"
+  },
+  {
+    "Front": "儿子",
+    "Back": "son",
+    "Hint": "érzi"
+  },
+  {
+    "Front": "洱海",
+    "Back": "Lake Er in Yunnan",
+    "Hint": "Ěr Hǎi"
+  },
+  {
+    "Front": "耳朵",
+    "Back": "ear(s)",
+    "Hint": "ěrduo"
+  },
+  {
+    "Front": "二",
+    "Back": "two",
+    "Hint": "èr"
+  },
+  {
+    "Front": "发",
+    "Back": "to send",
+    "Hint": "fā"
+  },
+  {
+    "Front": "法国",
+    "Back": "France",
+    "Hint": "Fǎguó"
+  },
+  {
+    "Front": "法文",
+    "Back": "French language",
+    "Hint": "Fǎwén"
+  },
+  {
+    "Front": "反对",
+    "Back": "to oppose, be opposed to",
+    "Hint": "fǎnduì"
+  },
+  {
+    "Front": "饭店",
+    "Back": "restaurant; hotel",
+    "Hint": "fàndiàn"
+  },
+  {
+    "Front": "饭馆",
+    "Back": "restaurant",
+    "Hint": "fànguǎn"
+  },
+  {
+    "Front": "饭厅",
+    "Back": "dining room",
+    "Hint": "fàntīng"
+  },
+  {
+    "Front": "犯罪",
+    "Back": "to commit a crime",
+    "Hint": "fànzuì"
+  },
+  {
+    "Front": "方便",
+    "Back": "convenient",
+    "Hint": "fāngbiàn"
+  },
+  {
+    "Front": "房价",
+    "Back": "house price",
+    "Hint": "fángjià"
+  },
+  {
+    "Front": "房间",
+    "Back": "room",
+    "Hint": "fángjiān"
+  },
+  {
+    "Front": "房子",
+    "Back": "house",
+    "Hint": "fángzi"
+  },
+  {
+    "Front": "放",
+    "Back": "to place; to set off (kite, fireworks)",
+    "Hint": "fàng"
+  },
+  {
+    "Front": "放假",
+    "Back": "to spend a holiday (for school to break up)",
+    "Hint": "fàngjià"
+  },
+  {
+    "Front": "放学",
+    "Back": "to finish school for the day",
+    "Hint": "fàngxué"
+  },
+  {
+    "Front": "飞机",
+    "Back": "aeroplane",
+    "Hint": "fēijī"
+  },
+  {
+    "Front": "非常",
+    "Back": "extremely",
+    "Hint": "fēicháng"
+  },
+  {
+    "Front": "非洲",
+    "Back": "Africa",
+    "Hint": "Fēizhōu"
+  },
+  {
+    "Front": "分",
+    "Back": "score; a fraction of ten; to divide; minute",
+    "Hint": "fēn"
+  },
+  {
+    "Front": "粉红",
+    "Back": "pink",
+    "Hint": "fěnhóng"
+  },
+  {
+    "Front": "风景",
+    "Back": "scenery",
+    "Hint": "fēngjǐng"
+  },
+  {
+    "Front": "风险",
+    "Back": "risk",
+    "Hint": "fēngxiǎn"
+  },
+  {
+    "Front": "风筝",
+    "Back": "kite",
+    "Hint": "fēngzhēng"
+  },
+  {
+    "Front": "锋利",
+    "Back": "sharp",
+    "Hint": "fēnglì"
+  },
+  {
+    "Front": "福",
+    "Back": "good fortune",
+    "Hint": "fú"
+  },
+  {
+    "Front": "福气",
+    "Back": "good luck",
+    "Hint": "fúqi"
+  },
+  {
+    "Front": "服务员",
+    "Back": "waiter",
+    "Hint": "fúwùyuán"
+  },
+  {
+    "Front": "复活节",
+    "Back": "Easter",
+    "Hint": "Fùhuójié"
+  },
+  {
+    "Front": "附近",
+    "Back": "nearby",
+    "Hint": "fùjìn"
+  },
+  {
+    "Front": "父母",
+    "Back": "parents",
+    "Hint": "fùmǔ"
+  },
+  {
+    "Front": "父亲",
+    "Back": "father",
+    "Hint": "fùqīn"
+  },
+  {
+    "Front": "富有",
+    "Back": "rich",
+    "Hint": "fùyǒu"
+  },
+  {
+    "Front": "复制",
+    "Back": "to copy",
+    "Hint": "fùzhì"
+  },
+  {
+    "Front": "干杯",
+    "Back": "\"Cheers!\"",
+    "Hint": "gānbēi"
+  },
+  {
+    "Front": "干净",
+    "Back": "clean",
+    "Hint": "gānjìng"
+  },
+  {
+    "Front": "敢",
+    "Back": "to dare",
+    "Hint": "gǎn"
+  },
+  {
+    "Front": "感觉",
+    "Back": "feeling",
+    "Hint": "gǎnjué"
+  },
+  {
+    "Front": "感冒",
+    "Back": "to catch a cold",
+    "Hint": "gǎnmào"
+  },
+  {
+    "Front": "感谢",
+    "Back": "\"Thank you!\"",
+    "Hint": "gǎnxiè"
+  },
+  {
+    "Front": "感兴趣",
+    "Back": "to be interested in",
+    "Hint": "gǎn xìngqù"
+  },
+  {
+    "Front": "钢琴",
+    "Back": "piano",
+    "Hint": "gāngqín"
+  },
+  {
+    "Front": "高",
+    "Back": "high; tall",
+    "Hint": "gāo"
+  },
+  {
+    "Front": "高考",
+    "Back": "college entrance exam",
+    "Hint": "gāokǎo"
+  },
+  {
+    "Front": "高楼大厦",
+    "Back": "skyscraper",
+    "Hint": "gāolóudàshà"
+  },
+  {
+    "Front": "高铁",
+    "Back": "China high speed rail",
+    "Hint": "gāotiě"
+  },
+  {
+    "Front": "高兴",
+    "Back": "happy",
+    "Hint": "gāoxìng"
+  },
+  {
+    "Front": "告诉",
+    "Back": "to tell",
+    "Hint": "gàosu"
+  },
+  {
+    "Front": "哥哥",
+    "Back": "older brother",
+    "Hint": "gēge"
+  },
+  {
+    "Front": "歌词",
+    "Back": "lyrics",
+    "Hint": "gēcí"
+  },
+  {
+    "Front": "歌曲",
+    "Back": "song",
+    "Hint": "gēqǔ"
+  },
+  {
+    "Front": "个",
+    "Back": "measure word for people or things",
+    "Hint": "gè"
+  },
+  {
+    "Front": "个人",
+    "Back": "individual, personal",
+    "Hint": "gèrén"
+  },
+  {
+    "Front": "给",
+    "Back": "to; for; to give",
+    "Hint": "gěi"
+  },
+  {
+    "Front": "跟",
+    "Back": "and; with",
+    "Hint": "gēn"
+  },
+  {
+    "Front": "跟……一样",
+    "Back": "the same as…",
+    "Hint": "gēn...yīyàng"
+  },
+  {
+    "Front": "更",
+    "Back": "word for comparisons to indicate 'more'",
+    "Hint": "gèng"
+  },
+  {
+    "Front": "宫保鸡丁",
+    "Back": "Kung Pao Chicken",
+    "Hint": "gōngbǎojīdīng"
+  },
+  {
+    "Front": "工厂",
+    "Back": "factory",
+    "Hint": "gōngchǎng"
+  },
+  {
+    "Front": "工程师",
+    "Back": "engineer",
+    "Hint": "gōngchéngshī"
+  },
+  {
+    "Front": "工人",
+    "Back": "worker",
+    "Hint": "gōngrén"
+  },
+  {
+    "Front": "工艺",
+    "Back": "design technology",
+    "Hint": "gōngyì"
+  },
+  {
+    "Front": "工资",
+    "Back": "salary, pay",
+    "Hint": "gōngzī"
+  },
+  {
+    "Front": "工作",
+    "Back": "to work; job",
+    "Hint": "gōngzuò"
+  },
+  {
+    "Front": "公分",
+    "Back": "centimetre, gram",
+    "Hint": "gōngfēn"
+  },
+  {
+    "Front": "公共汽车",
+    "Back": "public bus",
+    "Hint": "gōnggòngqìchē"
+  },
+  {
+    "Front": "公斤",
+    "Back": "kilogram",
+    "Hint": "gōngjīn"
+  },
+  {
+    "Front": "公里",
+    "Back": "kilometre",
+    "Hint": "gōnglǐ"
+  },
+  {
+    "Front": "公司",
+    "Back": "company",
+    "Hint": "gōngsī"
+  },
+  {
+    "Front": "公园",
+    "Back": "public park",
+    "Hint": "gōngyuán"
+  },
+  {
+    "Front": "狗",
+    "Back": "dog",
+    "Hint": "gǒu"
+  },
+  {
+    "Front": "够",
+    "Back": "enough",
+    "Hint": "gòu"
+  },
+  {
+    "Front": "购物",
+    "Back": "to go shopping",
+    "Hint": "gòu wù"
+  },
+  {
+    "Front": "古城",
+    "Back": "old town",
+    "Hint": "gǔchéng"
+  },
+  {
+    "Front": "古代",
+    "Back": "ancient time",
+    "Hint": "gǔdài"
+  },
+  {
+    "Front": "古镇",
+    "Back": "old town",
+    "Hint": "gǔ zhèn"
+  },
+  {
+    "Front": "古装剧",
+    "Back": "costume drama",
+    "Hint": "gǔzhuāngjù"
+  },
+  {
+    "Front": "故宫",
+    "Back": "The Forbidden City",
+    "Hint": "gùgōng"
+  },
+  {
+    "Front": "刮风",
+    "Back": "to be windy",
+    "Hint": "guāfēng"
+  },
+  {
+    "Front": "拐",
+    "Back": "to turn (a corner)",
+    "Hint": "guǎi"
+  },
+  {
+    "Front": "关门",
+    "Back": "closed; to close a door",
+    "Hint": "guānmén"
+  },
+  {
+    "Front": "管理",
+    "Back": "to manage",
+    "Hint": "guǎnlǐ"
+  },
+  {
+    "Front": "广告",
+    "Back": "advertisement",
+    "Hint": "guǎnggào"
+  },
+  {
+    "Front": "广州",
+    "Back": "Guangzhou",
+    "Hint": "Guǎngzhōu"
+  },
+  {
+    "Front": "贵",
+    "Back": "expensive",
+    "Hint": "guì"
+  },
+  {
+    "Front": "国家",
+    "Back": "country",
+    "Hint": "guójiā"
+  },
+  {
+    "Front": "果汁",
+    "Back": "fruit juice",
+    "Hint": "guǒzhī"
+  },
+  {
+    "Front": "果子",
+    "Back": "fruit",
+    "Hint": "guǒzi"
+  },
+  {
+    "Front": "过",
+    "Back": "(particle to indicate experience)",
+    "Hint": "guò"
+  },
+  {
+    "Front": "过马路",
+    "Back": "to cross the road",
+    "Hint": "guò mǎlù"
+  },
+  {
+    "Front": "过年",
+    "Back": "to celebrate new year",
+    "Hint": "guònián"
+  },
+  {
+    "Front": "哈尔滨",
+    "Back": "Harbin",
+    "Hint": "Hā'ěrbīn"
+  },
+  {
+    "Front": "还",
+    "Back": "still; also; yet",
+    "Hint": "hái"
+  },
+  {
+    "Front": "还",
+    "Back": "return",
+    "Hint": "huán"
+  },
+  {
+    "Front": "还是",
+    "Back": "or (used in questions)",
+    "Hint": "háishi"
+  },
+  {
+    "Front": "孩子",
+    "Back": "child",
+    "Hint": "háizi"
+  },
+  {
+    "Front": "海滩",
+    "Back": "beach",
+    "Hint": "hǎitān"
+  },
+  {
+    "Front": "海鲜",
+    "Back": "seafood",
+    "Hint": "hǎixiān"
+  },
+  {
+    "Front": "韩国",
+    "Back": "South Korea",
+    "Hint": "Hánguó"
+  },
+  {
+    "Front": "寒假",
+    "Back": "winter holidays",
+    "Hint": "hánjià"
+  },
+  {
+    "Front": "喊",
+    "Back": "to shout",
+    "Hint": "hǎn"
+  },
+  {
+    "Front": "汉语",
+    "Back": "Chinese language",
+    "Hint": "Hànyǔ"
+  },
+  {
+    "Front": "汉字",
+    "Back": "Chinese character",
+    "Hint": "hànzì"
+  },
+  {
+    "Front": "杭州",
+    "Back": "Hangzhou",
+    "Hint": "Hángzhōu"
+  },
+  {
+    "Front": "好",
+    "Back": "good; well; easy to",
+    "Hint": "hǎo"
+  },
+  {
+    "Front": "好吃",
+    "Back": "tasty",
+    "Hint": "hǎochī"
+  },
+  {
+    "Front": "好处",
+    "Back": "advantage, benefit",
+    "Hint": "hǎochu"
+  },
+  {
+    "Front": "好喝",
+    "Back": "tasty (for drinks)",
+    "Hint": "hǎohē"
+  },
+  {
+    "Front": "好看",
+    "Back": "good-looking; good (for a movie, book)",
+    "Hint": "hǎokàn"
+  },
+  {
+    "Front": "好听",
+    "Back": "sounds good",
+    "Hint": "hǎotīng"
+  },
+  {
+    "Front": "好玩",
+    "Back": "fun",
+    "Hint": "hǎowán"
+  },
+  {
+    "Front": "号",
+    "Back": "ordinal number; day of a month",
+    "Hint": "hào"
+  },
+  {
+    "Front": "号码",
+    "Back": "number",
+    "Hint": "hàomǎ"
+  },
+  {
+    "Front": "喝",
+    "Back": "to drink",
+    "Hint": "hē"
+  },
+  {
+    "Front": "河",
+    "Back": "river",
+    "Hint": "hé"
+  },
+  {
+    "Front": "和",
+    "Back": "and; together with",
+    "Hint": "hé"
+  },
+  {
+    "Front": "黑",
+    "Back": "black",
+    "Hint": "hēi"
+  },
+  {
+    "Front": "很",
+    "Back": "very",
+    "Hint": "hěn"
+  },
+  {
+    "Front": "很少",
+    "Back": "infrequently, few, less",
+    "Hint": "hěnshǎo"
+  },
+  {
+    "Front": "恨",
+    "Back": "to hate",
+    "Hint": "hèn"
+  },
+  {
+    "Front": "红",
+    "Back": "red",
+    "Hint": "hóng"
+  },
+  {
+    "Front": "红包",
+    "Back": "red envelope filled with money",
+    "Hint": "hóngbāo"
+  },
+  {
+    "Front": "红绿灯",
+    "Back": "traffic light",
+    "Hint": "hónglǜdēng"
+  },
+  {
+    "Front": "红烧",
+    "Back": "simmer-fried (dish)",
+    "Hint": "hóngshāo"
+  },
+  {
+    "Front": "洪水",
+    "Back": "flood",
+    "Hint": "hóngshuǐ"
+  },
+  {
+    "Front": "后来",
+    "Back": "later on",
+    "Hint": "hòulái"
+  },
+  {
+    "Front": "后面",
+    "Back": "behind",
+    "Hint": "hòumian"
+  },
+  {
+    "Front": "后天",
+    "Back": "the day after tomorrow",
+    "Hint": "hòutiān"
+  },
+  {
+    "Front": "胡说",
+    "Back": "to talk nonsense",
+    "Hint": "húshuō"
+  },
+  {
+    "Front": "狐假虎威",
+    "Back": "The fox uses the tiger's ferocity",
+    "Hint": "hújiǎhǔwēi"
+  },
+  {
+    "Front": "狐狸",
+    "Back": "fox",
+    "Hint": "húli"
+  },
+  {
+    "Front": "湖",
+    "Back": "lake",
+    "Hint": "hú"
+  },
+  {
+    "Front": "壶",
+    "Back": "pot",
+    "Hint": "hú"
+  },
+  {
+    "Front": "护士",
+    "Back": "nurse",
+    "Hint": "hùshi"
+  },
+  {
+    "Front": "护照",
+    "Back": "passport",
+    "Hint": "hùzhào"
+  },
+  {
+    "Front": "花",
+    "Back": "to spend (money, time); flower",
+    "Hint": "huā"
+  },
+  {
+    "Front": "花园",
+    "Back": "garden",
+    "Hint": "huāyuán"
+  },
+  {
+    "Front": "滑板",
+    "Back": "skateboard",
+    "Hint": "huábǎn"
+  },
+  {
+    "Front": "滑冰",
+    "Back": "skating",
+    "Hint": "huábīng"
+  },
+  {
+    "Front": "滑雪",
+    "Back": "skiing",
+    "Hint": "huáxuě"
+  },
+  {
+    "Front": "华清池",
+    "Back": "Huaqing Pool",
+    "Hint": "Huáqīng chí"
+  },
+  {
+    "Front": "画",
+    "Back": "to draw; picture",
+    "Hint": "huà"
+  },
+  {
+    "Front": "画家",
+    "Back": "painter",
+    "Hint": "huàjiā"
+  },
+  {
+    "Front": "化学",
+    "Back": "chemistry",
+    "Hint": "huàxué"
+  },
+  {
+    "Front": "坏",
+    "Back": "bad, broken",
+    "Hint": "huài"
+  },
+  {
+    "Front": "坏处",
+    "Back": "disadvantage, harm",
+    "Hint": "huàichu"
+  },
+  {
+    "Front": "欢迎",
+    "Back": "welcome",
+    "Hint": "huānyíng"
+  },
+  {
+    "Front": "环境",
+    "Back": "environment",
+    "Hint": "huánjìng"
+  },
+  {
+    "Front": "换钱",
+    "Back": "to exchange currency",
+    "Hint": "huànqián"
+  },
+  {
+    "Front": "黄",
+    "Back": "yellow",
+    "Hint": "huáng"
+  },
+  {
+    "Front": "灰色",
+    "Back": "grey",
+    "Hint": "huī sè"
+  },
+  {
+    "Front": "回",
+    "Back": "to return",
+    "Hint": "huí"
+  },
+  {
+    "Front": "回答",
+    "Back": "to reply",
+    "Hint": "huídá"
+  },
+  {
+    "Front": "会",
+    "Back": "can; will",
+    "Hint": "huì"
+  },
+  {
+    "Front": "婚礼",
+    "Back": "wedding",
+    "Hint": "hūnlǐ"
+  },
+  {
+    "Front": "活动",
+    "Back": "exercise; activity",
+    "Hint": "huódòng"
+  },
+  {
+    "Front": "火车",
+    "Back": "train",
+    "Hint": "huǒchē"
+  },
+  {
+    "Front": "火锅",
+    "Back": "hotpot",
+    "Hint": "huǒguō"
+  },
+  {
+    "Front": "或者",
+    "Back": "or",
+    "Hint": "huòzhě"
+  },
+  {
+    "Front": "鸡",
+    "Back": "chicken",
+    "Hint": "jī"
+  },
+  {
+    "Front": "鸡蛋",
+    "Back": "egg",
+    "Hint": "jīdàn"
+  },
+  {
+    "Front": "鸡肉",
+    "Back": "chicken (meat)",
+    "Hint": "jīròu"
+  },
+  {
+    "Front": "鸡爪",
+    "Back": "chicken claw",
+    "Hint": "jī zhuǎ"
+  },
+  {
+    "Front": "机会",
+    "Back": "opportunity",
+    "Hint": "jīhuì"
+  },
+  {
+    "Front": "饥荒",
+    "Back": "famine",
+    "Hint": "jīhuāng"
+  },
+  {
+    "Front": "极了",
+    "Back": "extremely, very",
+    "Hint": "jíle"
+  },
+  {
+    "Front": "吉他",
+    "Back": "guitar",
+    "Hint": "jítā"
+  },
+  {
+    "Front": "几",
+    "Back": "how many; several",
+    "Hint": "jǐ"
+  },
+  {
+    "Front": "记得",
+    "Back": "to remember",
+    "Hint": "jìdé"
+  },
+  {
+    "Front": "季节",
+    "Back": "season",
+    "Hint": "jìjié"
+  },
+  {
+    "Front": "纪念品",
+    "Back": "souvenirs",
+    "Hint": "jìniànpǐn"
+  },
+  {
+    "Front": "计算器",
+    "Back": "calculator",
+    "Hint": "jìsuànqì"
+  },
+  {
+    "Front": "寄信",
+    "Back": "to post a letter",
+    "Hint": "jì xìn"
+  },
+  {
+    "Front": "家",
+    "Back": "home; family",
+    "Hint": "jiā"
+  },
+  {
+    "Front": "家庭主妇",
+    "Back": "housewife",
+    "Hint": "jiātíngzhǔfù"
+  },
+  {
+    "Front": "夹克",
+    "Back": "jacket",
+    "Hint": "jiākè"
+  },
+  {
+    "Front": "加拿大",
+    "Back": "Canada",
+    "Hint": "Jiānádà"
+  },
+  {
+    "Front": "假期",
+    "Back": "holiday",
+    "Hint": "jiàqī"
+  },
+  {
+    "Front": "兼职",
+    "Back": "to do part-time (work)",
+    "Hint": "jiānzhí"
+  },
+  {
+    "Front": "减肥",
+    "Back": "to lose weight",
+    "Hint": "jiǎn féi"
+  },
+  {
+    "Front": "简历",
+    "Back": "CV, resume",
+    "Hint": "jiǎnlì"
+  },
+  {
+    "Front": "件",
+    "Back": "measure word for events and clothes",
+    "Hint": "jiàn"
+  },
+  {
+    "Front": "健康",
+    "Back": "health, healthy",
+    "Hint": "jiànkāng"
+  },
+  {
+    "Front": "健身房",
+    "Back": "gym",
+    "Hint": "jiànshēnfáng"
+  },
+  {
+    "Front": "见面",
+    "Back": "to meet",
+    "Hint": "jiànmiàn"
+  },
+  {
+    "Front": "建筑",
+    "Back": "building",
+    "Hint": "jiànzhù"
+  },
+  {
+    "Front": "将来",
+    "Back": "in the future",
+    "Hint": "jiānglái"
+  },
+  {
+    "Front": "讲",
+    "Back": "to speak",
+    "Hint": "jiǎng"
+  },
+  {
+    "Front": "交朋友",
+    "Back": "to make friends",
+    "Hint": "jiāo péngyou"
+  },
+  {
+    "Front": "交通",
+    "Back": "traffic",
+    "Hint": "jiāotōng"
+  },
+  {
+    "Front": "郊区",
+    "Back": "suburbs",
+    "Hint": "jiāoqū"
+  },
+  {
+    "Front": "脚",
+    "Back": "foot, feet",
+    "Hint": "jiǎo"
+  },
+  {
+    "Front": "饺子",
+    "Back": "dumpling",
+    "Hint": "jiǎozi"
+  },
+  {
+    "Front": "叫",
+    "Back": "to shout; to call",
+    "Hint": "jiào"
+  },
+  {
+    "Front": "叫声",
+    "Back": "sound of calling",
+    "Hint": "jiàoshēng"
+  },
+  {
+    "Front": "教室",
+    "Back": "classroom",
+    "Hint": "jiàoshì"
+  },
+  {
+    "Front": "教育",
+    "Back": "education",
+    "Hint": "jiàoyù"
+  },
+  {
+    "Front": "接",
+    "Back": "to receive (somebody after travel)",
+    "Hint": "jiē"
+  },
+  {
+    "Front": "街",
+    "Back": "street",
+    "Hint": "jiē"
+  },
+  {
+    "Front": "节",
+    "Back": "measure word for class periods",
+    "Hint": "jié"
+  },
+  {
+    "Front": "节目",
+    "Back": "programme",
+    "Hint": "jiémù"
+  },
+  {
+    "Front": "节日",
+    "Back": "holiday, festival",
+    "Hint": "jiérì"
+  },
+  {
+    "Front": "结婚",
+    "Back": "to get married",
+    "Hint": "jiéhūn"
+  },
+  {
+    "Front": "姐姐",
+    "Back": "older sister",
+    "Hint": "jiějie"
+  },
+  {
+    "Front": "介绍",
+    "Back": "to introduce",
+    "Hint": "jièshào"
+  },
+  {
+    "Front": "戒烟",
+    "Back": "to quit smoking",
+    "Hint": "jiè yān"
+  },
+  {
+    "Front": "今年",
+    "Back": "this year",
+    "Hint": "jīntián"
+  },
+  {
+    "Front": "今天",
+    "Back": "today",
+    "Hint": "jīntiān"
+  },
+  {
+    "Front": "金牌",
+    "Back": "gold medal",
+    "Hint": "jīnpái"
+  },
+  {
+    "Front": "仅",
+    "Back": "merely",
+    "Hint": "jǐn"
+  },
+  {
+    "Front": "近",
+    "Back": "near",
+    "Hint": "jìn"
+  },
+  {
+    "Front": "经常",
+    "Back": "often",
+    "Hint": "jīngcháng"
+  },
+  {
+    "Front": "经济",
+    "Back": "economy, economic",
+    "Hint": "jīngjì"
+  },
+  {
+    "Front": "经济学",
+    "Back": "economics",
+    "Hint": "jīngjìxué"
+  },
+  {
+    "Front": "经理",
+    "Back": "manager",
+    "Hint": "jīnglǐ"
+  },
+  {
+    "Front": "经验",
+    "Back": "experience",
+    "Hint": "jīngyàn"
+  },
+  {
+    "Front": "京剧",
+    "Back": "Beijing Opera",
+    "Hint": "jīngjù"
+  },
+  {
+    "Front": "警察",
+    "Back": "police officer",
+    "Hint": "jǐngchá"
+  },
+  {
+    "Front": "酒",
+    "Back": "alcohol",
+    "Hint": "jiǔ"
+  },
+  {
+    "Front": "酒店",
+    "Back": "hotel/restaurant",
+    "Hint": "jiǔdiàn"
+  },
+  {
+    "Front": "九",
+    "Back": "nine",
+    "Hint": "jiǔ"
+  },
+  {
+    "Front": "就",
+    "Back": "\"just\", \"as soon as\"",
+    "Hint": "jiù"
+  },
+  {
+    "Front": "旧",
+    "Back": "old; worn out",
+    "Hint": "Jiù"
+  },
+  {
+    "Front": "桔子",
+    "Back": "tangerine",
+    "Hint": "júzi"
+  },
+  {
+    "Front": "觉得",
+    "Back": "to think; to feel",
+    "Hint": "juéde"
+  },
+  {
+    "Front": "君子",
+    "Back": "gentleman",
+    "Hint": "jūnzǐ"
+  },
+  {
+    "Front": "骏马",
+    "Back": "fine horse",
+    "Hint": "jùnmǎ"
+  },
+  {
+    "Front": "咖啡",
+    "Back": "coffee",
+    "Hint": "kāfēi"
+  },
+  {
+    "Front": "咖啡馆/咖啡厅",
+    "Back": "café",
+    "Hint": "kāfēiguǎn/kāfēi tīng"
+  },
+  {
+    "Front": "开",
+    "Back": "to start (business)",
+    "Hint": "kāi"
+  },
+  {
+    "Front": "开车",
+    "Back": "to drive",
+    "Hint": "kāi chē"
+  },
+  {
+    "Front": "开门",
+    "Back": "to open a door; open for business",
+    "Hint": "kāimén"
+  },
+  {
+    "Front": "开始",
+    "Back": "to start",
+    "Hint": "kāishǐ"
+  },
+  {
+    "Front": "看",
+    "Back": "to see; to look at; to watch",
+    "Hint": "kàn"
+  },
+  {
+    "Front": "看病",
+    "Back": "to see a doctor",
+    "Hint": "kàn bìng"
+  },
+  {
+    "Front": "看到/看见",
+    "Back": "to see",
+    "Hint": "kàn dào/kànjiàn"
+  },
+  {
+    "Front": "看书",
+    "Back": "to read",
+    "Hint": "kàn shū"
+  },
+  {
+    "Front": "看小说",
+    "Back": "to read a novel",
+    "Hint": "kàn xiǎoshuō"
+  },
+  {
+    "Front": "考试",
+    "Back": "test, exam",
+    "Hint": "kǎoshì"
+  },
+  {
+    "Front": "烤鸭",
+    "Back": "roast duck",
+    "Hint": "kǎoyā"
+  },
+  {
+    "Front": "科目",
+    "Back": "(school) subject",
+    "Hint": "kēmù"
+  },
+  {
+    "Front": "科学",
+    "Back": "science",
+    "Hint": "kēxué"
+  },
+  {
+    "Front": "科学家",
+    "Back": "scientist",
+    "Hint": "kēxuéjiā"
+  },
+  {
+    "Front": "可爱",
+    "Back": "cute",
+    "Hint": "kě'ài"
+  },
+  {
+    "Front": "可口可乐",
+    "Back": "Coca-Cola",
+    "Hint": "Kěkǒukělè"
+  },
+  {
+    "Front": "可能",
+    "Back": "perhaps",
+    "Hint": "kěnéng"
+  },
+  {
+    "Front": "可是",
+    "Back": "but",
+    "Hint": "kěshì"
+  },
+  {
+    "Front": "可以",
+    "Back": "can; may; not bad",
+    "Hint": "kěyǐ"
+  },
+  {
+    "Front": "渴",
+    "Back": "thirsty",
+    "Hint": "kě"
+  },
+  {
+    "Front": "刻",
+    "Back": "quarter hour; carve",
+    "Hint": "Kè"
+  },
+  {
+    "Front": "课本",
+    "Back": "textbook",
+    "Hint": "kèběn"
+  },
+  {
+    "Front": "客人",
+    "Back": "guest",
+    "Hint": "kèrén"
+  },
+  {
+    "Front": "客厅",
+    "Back": "guest room",
+    "Hint": "kètīng"
+  },
+  {
+    "Front": "空气",
+    "Back": "air",
+    "Hint": "kōngqì"
+  },
+  {
+    "Front": "空调",
+    "Back": "air conditioning",
+    "Hint": "kōngtiáo"
+  },
+  {
+    "Front": "控制",
+    "Back": "to control",
+    "Hint": "kòngzhì"
+  },
+  {
+    "Front": "口",
+    "Back": "mouth",
+    "Hint": "kǒu"
+  },
+  {
+    "Front": "哭",
+    "Back": "to cry",
+    "Hint": "kū"
+  },
+  {
+    "Front": "苦",
+    "Back": "bitter",
+    "Hint": "kǔ"
+  },
+  {
+    "Front": "酷",
+    "Back": "cool",
+    "Hint": "kù"
+  },
+  {
+    "Front": "裤子",
+    "Back": "trousers",
+    "Hint": "kùzi"
+  },
+  {
+    "Front": "块",
+    "Back": "piece; colloquial measure word for money",
+    "Hint": "kuài"
+  },
+  {
+    "Front": "快",
+    "Back": "fast, quickly",
+    "Hint": "kuài"
+  },
+  {
+    "Front": "快餐",
+    "Back": "fast food",
+    "Hint": "kuàicān"
+  },
+  {
+    "Front": "快乐",
+    "Back": "happy",
+    "Hint": "kuàilè"
+  },
+  {
+    "Front": "快要",
+    "Back": "about to",
+    "Hint": "kuàiyào"
+  },
+  {
+    "Front": "筷子",
+    "Back": "chopsticks",
+    "Hint": "kuàizi"
+  },
+  {
+    "Front": "垃圾",
+    "Back": "rubbish",
+    "Hint": "lājī"
+  },
+  {
+    "Front": "辣",
+    "Back": "hot (spicy)",
+    "Hint": "là"
+  },
+  {
+    "Front": "来",
+    "Back": "to come; to arrive",
+    "Hint": "lái"
+  },
+  {
+    "Front": "来回",
+    "Back": "two-way (eg ‘return ticket’)",
+    "Hint": "láihuí"
+  },
+  {
+    "Front": "蓝",
+    "Back": "blue",
+    "Hint": "lán"
+  },
+  {
+    "Front": "篮球",
+    "Back": "basketball",
+    "Hint": "lánqiú"
+  },
+  {
+    "Front": "浪费",
+    "Back": "to waste",
+    "Hint": "làngfèi"
+  },
+  {
+    "Front": "老",
+    "Back": "old",
+    "Hint": "lǎo"
+  },
+  {
+    "Front": "老师",
+    "Back": "teacher",
+    "Hint": "lǎoshī"
+  },
+  {
+    "Front": "了",
+    "Back": "completed action marker",
+    "Hint": "le"
+  },
+  {
+    "Front": "乐趣",
+    "Back": "delight, pleasure",
+    "Hint": "lèqù"
+  },
+  {
+    "Front": "累",
+    "Back": "tired",
+    "Hint": "Lèi"
+  },
+  {
+    "Front": "冷",
+    "Back": "cold",
+    "Hint": "lěng"
+  },
+  {
+    "Front": "离",
+    "Back": "particle for indicating distance",
+    "Hint": "lí"
+  },
+  {
+    "Front": "离开",
+    "Back": "to leave",
+    "Hint": "líkāi"
+  },
+  {
+    "Front": "礼貌",
+    "Back": "polite",
+    "Hint": "lǐmào"
+  },
+  {
+    "Front": "礼堂",
+    "Back": "auditorium",
+    "Hint": "lǐtáng"
+  },
+  {
+    "Front": "里面",
+    "Back": "inside",
+    "Hint": "lǐmiàn"
+  },
+  {
+    "Front": "厉害",
+    "Back": "terrible, awesome, tremendous",
+    "Hint": "lìhai"
+  },
+  {
+    "Front": "历史",
+    "Back": "history",
+    "Hint": "lìshǐ"
+  },
+  {
+    "Front": "礼物",
+    "Back": "gift",
+    "Hint": "lǐwù"
+  },
+  {
+    "Front": "理想",
+    "Back": "ideal",
+    "Hint": "lǐxiǎng"
+  },
+  {
+    "Front": "凉快",
+    "Back": "cool",
+    "Hint": "liángkuai"
+  },
+  {
+    "Front": "两",
+    "Back": "two (used when counting)",
+    "Hint": "liǎng"
+  },
+  {
+    "Front": "联系",
+    "Back": "to contact",
+    "Hint": "liánxì"
+  },
+  {
+    "Front": "练习",
+    "Back": "to practice; to train",
+    "Hint": "liànxí"
+  },
+  {
+    "Front": "聊天",
+    "Back": "to chat",
+    "Hint": "liáotiān"
+  },
+  {
+    "Front": "邻居",
+    "Back": "neighbour",
+    "Hint": "línjū"
+  },
+  {
+    "Front": "零",
+    "Back": "zero",
+    "Hint": "líng"
+  },
+  {
+    "Front": "零用钱",
+    "Back": "pocket money, allowance",
+    "Hint": "língyòng qián"
+  },
+  {
+    "Front": "领带",
+    "Back": "necktie",
+    "Hint": "lǐngdài"
+  },
+  {
+    "Front": "流利",
+    "Back": "fluent",
+    "Hint": "liúlì"
+  },
+  {
+    "Front": "流行",
+    "Back": "fashionable",
+    "Hint": "liúxíng"
+  },
+  {
+    "Front": "六",
+    "Back": "six",
+    "Hint": "liù"
+  },
+  {
+    "Front": "遛狗",
+    "Back": "to walk a dog",
+    "Hint": "liùgǒu"
+  },
+  {
+    "Front": "龙舟",
+    "Back": "dragon boat",
+    "Hint": "lóngzhōu"
+  },
+  {
+    "Front": "楼",
+    "Back": "building, floor",
+    "Hint": "lóu"
+  },
+  {
+    "Front": "炉子",
+    "Back": "oven",
+    "Hint": "lúzi"
+  },
+  {
+    "Front": "路",
+    "Back": "road",
+    "Hint": "lù"
+  },
+  {
+    "Front": "路口",
+    "Back": "road intersection",
+    "Hint": "lùkǒu"
+  },
+  {
+    "Front": "伦敦",
+    "Back": "London",
+    "Hint": "Lúndūn"
+  },
+  {
+    "Front": "旅行",
+    "Back": "travel, to travel",
+    "Hint": "lǚxíng"
+  },
+  {
+    "Front": "旅行袋",
+    "Back": "suitcase",
+    "Hint": "lǚxíngdài"
+  },
+  {
+    "Front": "旅游车",
+    "Back": "tour tourist coach",
+    "Hint": "lǚyóuchē"
+  },
+  {
+    "Front": "旅游团",
+    "Back": "tour group",
+    "Hint": "lǚyóutuán"
+  },
+  {
+    "Front": "绿",
+    "Back": "green",
+    "Hint": "lǜ"
+  },
+  {
+    "Front": "律师",
+    "Back": "lawyer",
+    "Hint": "lǜshī"
+  },
+  {
+    "Front": "妈妈",
+    "Back": "mama; mother",
+    "Hint": "māma"
+  },
+  {
+    "Front": "吗",
+    "Back": "particle indicating a yes/no question",
+    "Hint": "ma"
+  },
+  {
+    "Front": "麻烦",
+    "Back": "trouble, burden",
+    "Hint": "máfan"
+  },
+  {
+    "Front": "麻花",
+    "Back": "fried dough twist",
+    "Hint": "máhuā"
+  },
+  {
+    "Front": "马",
+    "Back": "horse",
+    "Hint": "mǎ"
+  },
+  {
+    "Front": "马上",
+    "Back": "immediately",
+    "Hint": "mǎshàng"
+  },
+  {
+    "Front": "埋单",
+    "Back": "to pay the bill",
+    "Hint": "máidān"
+  },
+  {
+    "Front": "买",
+    "Back": "to buy",
+    "Hint": "mǎi"
+  },
+  {
+    "Front": "卖",
+    "Back": "to sell",
+    "Hint": "mài"
+  },
+  {
+    "Front": "麦片",
+    "Back": "cereal",
+    "Hint": "màipiàn"
+  },
+  {
+    "Front": "满意",
+    "Back": "to be satisfied",
+    "Hint": "mǎnyì"
+  },
+  {
+    "Front": "慢",
+    "Back": "slow",
+    "Hint": "màn"
+  },
+  {
+    "Front": "忙",
+    "Back": "busy",
+    "Hint": "máng"
+  },
+  {
+    "Front": "猫",
+    "Back": "cat",
+    "Hint": "māo"
+  },
+  {
+    "Front": "矛",
+    "Back": "spear",
+    "Hint": "máo"
+  },
+  {
+    "Front": "毛",
+    "Back": "hair; feather; classifier for money",
+    "Hint": "máo"
+  },
+  {
+    "Front": "毛衣",
+    "Back": "wool jumper",
+    "Hint": "máoyī"
+  },
+  {
+    "Front": "帽子",
+    "Back": "hat",
+    "Hint": "màozi"
+  },
+  {
+    "Front": "没关系",
+    "Back": "it doesn't matter",
+    "Hint": "méi guānxi"
+  },
+  {
+    "Front": "没有",
+    "Back": "not have; not exist; not (used for past)",
+    "Hint": "méiyǒu"
+  },
+  {
+    "Front": "每",
+    "Back": "each / every",
+    "Hint": "měi"
+  },
+  {
+    "Front": "美国",
+    "Back": "USA",
+    "Hint": "Měiguó"
+  },
+  {
+    "Front": "美丽",
+    "Back": "beautiful",
+    "Hint": "měilì"
+  },
+  {
+    "Front": "美术",
+    "Back": "fine arts",
+    "Hint": "měishù"
+  },
+  {
+    "Front": "美术馆",
+    "Back": "art gallery",
+    "Hint": "měishùguǎn"
+  },
+  {
+    "Front": "美洲",
+    "Back": "The Americas",
+    "Hint": "Měizhōu"
+  },
+  {
+    "Front": "妹妹",
+    "Back": "younger sister",
+    "Hint": "mèimei"
+  },
+  {
+    "Front": "们",
+    "Back": "plural marker for pronouns",
+    "Hint": "men"
+  },
+  {
+    "Front": "门",
+    "Back": "gate; door",
+    "Hint": "mén"
+  },
+  {
+    "Front": "门票",
+    "Back": "entrance ticket",
+    "Hint": "ménpiào"
+  },
+  {
+    "Front": "蒙古族",
+    "Back": "Mongolian nationality",
+    "Hint": "Měnggǔzú"
+  },
+  {
+    "Front": "迷路",
+    "Back": "to be lost",
+    "Hint": "mí lù"
+  },
+  {
+    "Front": "米",
+    "Back": "metre",
+    "Hint": "mǐ"
+  },
+  {
+    "Front": "米饭",
+    "Back": "rice",
+    "Hint": "mǐfàn"
+  },
+  {
+    "Front": "免费",
+    "Back": "free (of charge)",
+    "Hint": "miǎnfèi"
+  },
+  {
+    "Front": "面包",
+    "Back": "bread",
+    "Hint": "miànbāo"
+  },
+  {
+    "Front": "面包房",
+    "Back": "bakery",
+    "Hint": "miànbāofáng"
+  },
+  {
+    "Front": "面试",
+    "Back": "interview",
+    "Hint": "miànshì"
+  },
+  {
+    "Front": "面条",
+    "Back": "noodles",
+    "Hint": "miàntiáo"
+  },
+  {
+    "Front": "名片",
+    "Back": "business card",
+    "Hint": "míngpiàn"
+  },
+  {
+    "Front": "名人",
+    "Back": "celebrity",
+    "Hint": "míngrén"
+  },
+  {
+    "Front": "名字",
+    "Back": "name",
+    "Hint": "míngzi"
+  },
+  {
+    "Front": "明白",
+    "Back": "to understand",
+    "Hint": "míngbai"
+  },
+  {
+    "Front": "明年",
+    "Back": "next year",
+    "Hint": "míngnián"
+  },
+  {
+    "Front": "明天",
+    "Back": "tomorrow",
+    "Hint": "míngtiān"
+  },
+  {
+    "Front": "明星",
+    "Back": "celebrity",
+    "Hint": "míngxīng"
+  },
+  {
+    "Front": "明信片",
+    "Back": "postcard",
+    "Hint": "míngxìnpiàn"
+  },
+  {
+    "Front": "默默",
+    "Back": "silently",
+    "Hint": "mòmò"
+  },
+  {
+    "Front": "母亲",
+    "Back": "mother",
+    "Hint": "mǔqīn"
+  },
+  {
+    "Front": "目标",
+    "Back": "goal, objective",
+    "Hint": "mùbiāo"
+  },
+  {
+    "Front": "目的地",
+    "Back": "destination",
+    "Hint": "mùdìdì"
+  },
+  {
+    "Front": "木匠",
+    "Back": "Carpenter",
+    "Hint": "mùjiàng"
+  },
+  {
+    "Front": "拿",
+    "Back": "to carry, take",
+    "Hint": "ná"
+  },
+  {
+    "Front": "哪",
+    "Back": "which",
+    "Hint": "nǎ/něi"
+  },
+  {
+    "Front": "哪年",
+    "Back": "which year?",
+    "Hint": "nǎnián"
+  },
+  {
+    "Front": "哪儿",
+    "Back": "where",
+    "Hint": "nǎr"
+  },
+  {
+    "Front": "那",
+    "Back": "that",
+    "Hint": "nà, nèi"
+  },
+  {
+    "Front": "那达慕",
+    "Back": "A Mongolian festival",
+    "Hint": "Nàdámù"
+  },
+  {
+    "Front": "那么",
+    "Back": "like that, so much",
+    "Hint": "nàme"
+  },
+  {
+    "Front": "那儿",
+    "Back": "there",
+    "Hint": "nàr"
+  },
+  {
+    "Front": "奶奶",
+    "Back": "grandma (paternal)",
+    "Hint": "nǎinai"
+  },
+  {
+    "Front": "难",
+    "Back": "difficult",
+    "Hint": "nán"
+  },
+  {
+    "Front": "难过",
+    "Back": "to be sad",
+    "Hint": "nánguò"
+  },
+  {
+    "Front": "难看",
+    "Back": "ugly",
+    "Hint": "nánkàn"
+  },
+  {
+    "Front": "南",
+    "Back": "south",
+    "Hint": "nán"
+  },
+  {
+    "Front": "南京",
+    "Back": "Nanjing",
+    "Hint": "Nánjīng"
+  },
+  {
+    "Front": "男",
+    "Back": "male",
+    "Hint": "nán"
+  },
+  {
+    "Front": "男朋友",
+    "Back": "boyfriend",
+    "Hint": "nánpéngyou"
+  },
+  {
+    "Front": "闹别扭",
+    "Back": "to get into an argument",
+    "Hint": "nàobièniu"
+  },
+  {
+    "Front": "呢",
+    "Back": "particle indicating \"What about…?\"",
+    "Hint": "ne"
+  },
+  {
+    "Front": "内蒙古",
+    "Back": "Inner Mongolia",
+    "Hint": "Nèi Měnggǔ"
+  },
+  {
+    "Front": "能",
+    "Back": "can; to be possible",
+    "Hint": "néng"
+  },
+  {
+    "Front": "能力",
+    "Back": "ability",
+    "Hint": "nénglì"
+  },
+  {
+    "Front": "你好",
+    "Back": "hello",
+    "Hint": "nǐhǎo"
+  },
+  {
+    "Front": "年",
+    "Back": "year",
+    "Hint": "nián"
+  },
+  {
+    "Front": "年纪",
+    "Back": "age",
+    "Hint": "niánjì"
+  },
+  {
+    "Front": "年轻",
+    "Back": "young",
+    "Hint": "niánqīng"
+  },
+  {
+    "Front": "年夜饭",
+    "Back": "new year's dinner",
+    "Hint": "niányèfàn"
+  },
+  {
+    "Front": "鸟",
+    "Back": "bird",
+    "Hint": "niǎo"
+  },
+  {
+    "Front": "鸟巢",
+    "Back": "The Bird’s Nest Stadium",
+    "Hint": "Niǎocháo"
+  },
+  {
+    "Front": "您贵姓?",
+    "Back": "\"What's your name?\" (polite)",
+    "Hint": "Nín guìxìng?"
+  },
+  {
+    "Front": "您好",
+    "Back": "hello (polite)",
+    "Hint": "nínhǎo"
+  },
+  {
+    "Front": "牛奶",
+    "Back": "cow's milk",
+    "Hint": "niúnǎi"
+  },
+  {
+    "Front": "牛肉",
+    "Back": "beef",
+    "Hint": "niúròu"
+  },
+  {
+    "Front": "牛肉面",
+    "Back": "beef noodle soup",
+    "Hint": "niúròumiàn"
+  },
+  {
+    "Front": "纽约",
+    "Back": "New York",
+    "Hint": "Niǔyuē"
+  },
+  {
+    "Front": "农村",
+    "Back": "farming village",
+    "Hint": "nóngcūn"
+  },
+  {
+    "Front": "暖和",
+    "Back": "warm",
+    "Hint": "nuǎnhuo"
+  },
+  {
+    "Front": "努力",
+    "Back": "to strive; diligent",
+    "Hint": "nǔlì"
+  },
+  {
+    "Front": "女",
+    "Back": "female",
+    "Hint": "nǚ"
+  },
+  {
+    "Front": "女儿",
+    "Back": "daughter",
+    "Hint": "nǚ'ér"
+  },
+  {
+    "Front": "女士",
+    "Back": "Miss; Ms",
+    "Hint": "nǚshì"
+  },
+  {
+    "Front": "欧洲",
+    "Back": "Europe",
+    "Hint": "Ōuzhōu"
+  },
+  {
+    "Front": "爬山",
+    "Back": "to climb a mountain",
+    "Hint": "páshān"
+  },
+  {
+    "Front": "怕",
+    "Back": "afraid",
+    "Hint": "pà"
+  },
+  {
+    "Front": "拍",
+    "Back": "to take (photo)",
+    "Hint": "pāi"
+  },
+  {
+    "Front": "盘",
+    "Back": "plate",
+    "Hint": "pán"
+  },
+  {
+    "Front": "旁边",
+    "Back": "next to",
+    "Hint": "pángbiān"
+  },
+  {
+    "Front": "胖",
+    "Back": "fat",
+    "Hint": "pàng"
+  },
+  {
+    "Front": "跑步",
+    "Back": "to run",
+    "Hint": "pǎobù"
+  },
+  {
+    "Front": "朋友",
+    "Back": "friend",
+    "Hint": "péngyou"
+  },
+  {
+    "Front": "皮带",
+    "Back": "leather belt",
+    "Hint": "pídài"
+  },
+  {
+    "Front": "便宜",
+    "Back": "cheap",
+    "Hint": "piányi"
+  },
+  {
+    "Front": "漂亮",
+    "Back": "pretty; beautiful",
+    "Hint": "piàoliang"
+  },
+  {
+    "Front": "乒乓球",
+    "Back": "table tennis",
+    "Hint": "pīngpāngqiú"
+  },
+  {
+    "Front": "瓶",
+    "Back": "bottle",
+    "Hint": "pīng"
+  },
+  {
+    "Front": "苹果",
+    "Back": "apple",
+    "Hint": "píngguǒ"
+  },
+  {
+    "Front": "泼",
+    "Back": "to splash",
+    "Hint": "pō"
+  },
+  {
+    "Front": "仆人",
+    "Back": "servant",
+    "Hint": "púrén"
+  },
+  {
+    "Front": "七",
+    "Back": "seven",
+    "Hint": "qī"
+  },
+  {
+    "Front": "其他",
+    "Back": "other",
+    "Hint": "qítā"
+  },
+  {
+    "Front": "骑",
+    "Back": "to ride (an animal or bike)",
+    "Hint": "qí"
+  },
+  {
+    "Front": "奇怪",
+    "Back": "strange",
+    "Hint": "qíguài"
+  },
+  {
+    "Front": "起床",
+    "Back": "to get out of bed",
+    "Hint": "qǐchuáng"
+  },
+  {
+    "Front": "乞丐",
+    "Back": "beggar",
+    "Hint": "qǐgài"
+  },
+  {
+    "Front": "汽车",
+    "Back": "car",
+    "Hint": "qìchē"
+  },
+  {
+    "Front": "汽车站",
+    "Back": "bus stop",
+    "Hint": "qìchē zhàn"
+  },
+  {
+    "Front": "汽水",
+    "Back": "soda",
+    "Hint": "qìshuǐ"
+  },
+  {
+    "Front": "气候变化",
+    "Back": "climate change",
+    "Hint": "qìhòu biànhuà"
+  },
+  {
+    "Front": "千",
+    "Back": "thousand",
+    "Hint": "qiān"
+  },
+  {
+    "Front": "铅笔",
+    "Back": "pencil",
+    "Hint": "qiānbǐ"
+  },
+  {
+    "Front": "前面",
+    "Back": "ahead; in front",
+    "Hint": "qiánmiàn"
+  },
+  {
+    "Front": "前天",
+    "Back": "the day before yesterday",
+    "Hint": "qiántiān"
+  },
+  {
+    "Front": "浅",
+    "Back": "shallow, light (coloured)",
+    "Hint": "qián"
+  },
+  {
+    "Front": "钱",
+    "Back": "money",
+    "Hint": "qián"
+  },
+  {
+    "Front": "钱包",
+    "Back": "wallet",
+    "Hint": "qiánbāo"
+  },
+  {
+    "Front": "强",
+    "Back": "strong",
+    "Hint": "qiáng"
+  },
+  {
+    "Front": "抢",
+    "Back": "to grab",
+    "Hint": "qiǎng"
+  },
+  {
+    "Front": "桥",
+    "Back": "bridge",
+    "Hint": "qiáo"
+  },
+  {
+    "Front": "巧克力",
+    "Back": "chocolate",
+    "Hint": "qiǎokèlì"
+  },
+  {
+    "Front": "亲戚",
+    "Back": "relatives",
+    "Hint": "qīnqi"
+  },
+  {
+    "Front": "亲切",
+    "Back": "amiable",
+    "Hint": "qīnqiè"
+  },
+  {
+    "Front": "青菜",
+    "Back": "green vegetables",
+    "Hint": "qīngcài"
+  },
+  {
+    "Front": "清楚",
+    "Back": "clear",
+    "Hint": "qīngchu"
+  },
+  {
+    "Front": "清洁工",
+    "Back": "cleaner",
+    "Hint": "qiāngjiégōng"
+  },
+  {
+    "Front": "晴天",
+    "Back": "fine day",
+    "Hint": "qíngtiān"
+  },
+  {
+    "Front": "请",
+    "Back": "to ask; to invite; please",
+    "Hint": "qǐng"
+  },
+  {
+    "Front": "请进",
+    "Back": "please come in",
+    "Hint": "qǐngjìn"
+  },
+  {
+    "Front": "请问",
+    "Back": "may I ask…",
+    "Hint": "qǐngwèn"
+  },
+  {
+    "Front": "庆祝",
+    "Back": "to celebrate",
+    "Hint": "qìngzhù"
+  },
+  {
+    "Front": "穷",
+    "Back": "poor",
+    "Hint": "qióng"
+  },
+  {
+    "Front": "秋天",
+    "Back": "autumn",
+    "Hint": "qiūtiān"
+  },
+  {
+    "Front": "去",
+    "Back": "to go",
+    "Hint": "qù"
+  },
+  {
+    "Front": "去年",
+    "Back": "last year",
+    "Hint": "qùnián"
+  },
+  {
+    "Front": "全",
+    "Back": "whole",
+    "Hint": "quán"
+  },
+  {
+    "Front": "却",
+    "Back": "yet, however",
+    "Hint": "què"
+  },
+  {
+    "Front": "裙子",
+    "Back": "skirt",
+    "Hint": "qúnzi"
+  },
+  {
+    "Front": "然后",
+    "Back": "afterwards",
+    "Hint": "ránhòu"
+  },
+  {
+    "Front": "让",
+    "Back": "to let, allow; to make (somebody do something)",
+    "Hint": "ràng"
+  },
+  {
+    "Front": "热",
+    "Back": "hot",
+    "Hint": "rè"
+  },
+  {
+    "Front": "热闹",
+    "Back": "bustling with activity",
+    "Hint": "rènao"
+  },
+  {
+    "Front": "人",
+    "Back": "person",
+    "Hint": "rén"
+  },
+  {
+    "Front": "人口",
+    "Back": "population",
+    "Hint": "rénkǒu"
+  },
+  {
+    "Front": "人民币",
+    "Back": "Chinese Yuan",
+    "Hint": "rénmínbì"
+  },
+  {
+    "Front": "认识",
+    "Back": "to know; to get to know",
+    "Hint": "rènshi"
+  },
+  {
+    "Front": "日",
+    "Back": "sun; day; date",
+    "Hint": "rì"
+  },
+  {
+    "Front": "日本",
+    "Back": "Japan",
+    "Hint": "Rìběn"
+  },
+  {
+    "Front": "日记",
+    "Back": "diary",
+    "Hint": "rìjì"
+  },
+  {
+    "Front": "日期",
+    "Back": "date",
+    "Hint": "rìqī"
+  },
+  {
+    "Front": "日文",
+    "Back": "Japanese language",
+    "Hint": "Rìwén"
+  },
+  {
+    "Front": "容易",
+    "Back": "easy",
+    "Hint": "róngyì"
+  },
+  {
+    "Front": "如果, 要是",
+    "Back": "if",
+    "Hint": "rúguǒ, yàoshi"
+  },
+  {
+    "Front": "入口",
+    "Back": "entrance",
+    "Hint": "rùkǒu"
+  },
+  {
+    "Front": "弱点",
+    "Back": "weak point",
+    "Hint": "ruòdiǎn"
+  },
+  {
+    "Front": "塞翁",
+    "Back": "Old man of the border town",
+    "Hint": "sāi wēng"
+  },
+  {
+    "Front": "赛车",
+    "Back": "car racing",
+    "Hint": "sàichē"
+  },
+  {
+    "Front": "赛马",
+    "Back": "horse racing",
+    "Hint": "sàimǎ"
+  },
+  {
+    "Front": "三",
+    "Back": "three",
+    "Hint": "sān"
+  },
+  {
+    "Front": "三杯鸡",
+    "Back": "three-cup chicken",
+    "Hint": "sānbēijī"
+  },
+  {
+    "Front": "散步",
+    "Back": "to take a walk",
+    "Hint": "sànbù"
+  },
+  {
+    "Front": "三明治",
+    "Back": "sandwich",
+    "Hint": "sānmíngzhì"
+  },
+  {
+    "Front": "森林",
+    "Back": "forest",
+    "Hint": "sēnlín"
+  },
+  {
+    "Front": "沙发",
+    "Back": "sofa",
+    "Hint": "shāfā"
+  },
+  {
+    "Front": "沙拉",
+    "Back": "salad",
+    "Hint": "shālā"
+  },
+  {
+    "Front": "晒太阳",
+    "Back": "to sunbathe",
+    "Hint": "shài tàiyáng"
+  },
+  {
+    "Front": "山",
+    "Back": "mountain",
+    "Hint": "shān"
+  },
+  {
+    "Front": "山区",
+    "Back": "mountain area",
+    "Hint": "shānqū"
+  },
+  {
+    "Front": "删除",
+    "Back": "to delete",
+    "Hint": "shānchú"
+  },
+  {
+    "Front": "伤",
+    "Back": "to injure; a wound",
+    "Hint": "shāng"
+  },
+  {
+    "Front": "伤心",
+    "Back": "sad",
+    "Hint": "shāngxīn"
+  },
+  {
+    "Front": "商场",
+    "Back": "marketplace",
+    "Hint": "shāngchǎng"
+  },
+  {
+    "Front": "商店",
+    "Back": "a shop",
+    "Hint": "shāngdiàn"
+  },
+  {
+    "Front": "商人",
+    "Back": "businessperson",
+    "Hint": "shāngrén"
+  },
+  {
+    "Front": "商业化",
+    "Back": "commercialised",
+    "Hint": "shāngyèhuà"
+  },
+  {
+    "Front": "上",
+    "Back": "up; above; previous",
+    "Hint": "shàng"
+  },
+  {
+    "Front": "上班",
+    "Back": "to go to work",
+    "Hint": "shàng bān"
+  },
+  {
+    "Front": "上菜",
+    "Back": "to bring food",
+    "Hint": "shàng cài"
+  },
+  {
+    "Front": "上车",
+    "Back": "to get on (transport)",
+    "Hint": "shàng chē"
+  },
+  {
+    "Front": "上海",
+    "Back": "Shanghai",
+    "Hint": "Shànghǎi"
+  },
+  {
+    "Front": "上课",
+    "Back": "to go to/start class",
+    "Hint": "shàng kè"
+  },
+  {
+    "Front": "上面",
+    "Back": "on top of",
+    "Hint": "shàngmian"
+  },
+  {
+    "Front": "上网",
+    "Back": "to go online",
+    "Hint": "shàng wǎng"
+  },
+  {
+    "Front": "上午",
+    "Back": "morning; a.m.",
+    "Hint": "shàngwǔ"
+  },
+  {
+    "Front": "上学",
+    "Back": "to go to school",
+    "Hint": "shàngxué"
+  },
+  {
+    "Front": "上瘾",
+    "Back": "to be addicted",
+    "Hint": "shàngyǐn"
+  },
+  {
+    "Front": "烧",
+    "Back": "to burn, braise, stew",
+    "Hint": "shāo"
+  },
+  {
+    "Front": "烧烤",
+    "Back": "barbecue",
+    "Hint": "shāokǎo"
+  },
+  {
+    "Front": "少",
+    "Back": "few; rarely",
+    "Hint": "shǎo"
+  },
+  {
+    "Front": "少数民族",
+    "Back": "Minority ethnic group",
+    "Hint": "shǎoshùmínzú"
+  },
+  {
+    "Front": "蛇",
+    "Back": "snake",
+    "Hint": "shé"
+  },
+  {
+    "Front": "设备",
+    "Back": "equipment",
+    "Hint": "shèbèi"
+  },
+  {
+    "Front": "设计",
+    "Back": "to design",
+    "Hint": "shèjì"
+  },
+  {
+    "Front": "社会",
+    "Back": "society",
+    "Hint": "shèhuì"
+  },
+  {
+    "Front": "射箭",
+    "Back": "archery",
+    "Hint": "shèjiàn"
+  },
+  {
+    "Front": "摄影师",
+    "Back": "photographer",
+    "Hint": "shèyǐngshī"
+  },
+  {
+    "Front": "谁",
+    "Back": "who",
+    "Hint": "shéi"
+  },
+  {
+    "Front": "深",
+    "Back": "deep",
+    "Hint": "shēn"
+  },
+  {
+    "Front": "申请",
+    "Back": "to apply",
+    "Hint": "shēnqǐng"
+  },
+  {
+    "Front": "身份证",
+    "Back": "ID card",
+    "Hint": "shēnfenzhèng"
+  },
+  {
+    "Front": "身体",
+    "Back": "body",
+    "Hint": "shēntǐ"
+  },
+  {
+    "Front": "什么",
+    "Back": "what",
+    "Hint": "shénme"
+  },
+  {
+    "Front": "什么时候",
+    "Back": "when",
+    "Hint": "shénmeshíhou"
+  },
+  {
+    "Front": "生病",
+    "Back": "to become ill",
+    "Hint": "shēng bìng"
+  },
+  {
+    "Front": "生活",
+    "Back": "life, to live",
+    "Hint": "shēnghuó"
+  },
+  {
+    "Front": "生气",
+    "Back": "angry",
+    "Hint": "shēngqì"
+  },
+  {
+    "Front": "生日",
+    "Back": "birthday",
+    "Hint": "shēngrì"
+  },
+  {
+    "Front": "生物学",
+    "Back": "biology",
+    "Hint": "shēngwùxué"
+  },
+  {
+    "Front": "生意",
+    "Back": "business",
+    "Hint": "shēngyì"
+  },
+  {
+    "Front": "省钱",
+    "Back": "to save money",
+    "Hint": "shěngqián"
+  },
+  {
+    "Front": "圣诞节",
+    "Back": "Christmas",
+    "Hint": "shèngdànjié"
+  },
+  {
+    "Front": "剩下",
+    "Back": "to remain",
+    "Hint": "shèngxià"
+  },
+  {
+    "Front": "失业",
+    "Back": "unemployment",
+    "Hint": "shīyè"
+  },
+  {
+    "Front": "十",
+    "Back": "ten",
+    "Hint": "shí"
+  },
+  {
+    "Front": "十字路口",
+    "Back": "intersection",
+    "Hint": "shízì lùkǒu"
+  },
+  {
+    "Front": "时代",
+    "Back": "era",
+    "Hint": "shídài"
+  },
+  {
+    "Front": "时间",
+    "Back": "time",
+    "Hint": "shíjiān"
+  },
+  {
+    "Front": "食堂",
+    "Back": "dining hall",
+    "Hint": "shítáng"
+  },
+  {
+    "Front": "实习",
+    "Back": "to intern",
+    "Hint": "shíxí"
+  },
+  {
+    "Front": "试",
+    "Back": "to try",
+    "Hint": "shì"
+  },
+  {
+    "Front": "是",
+    "Back": "to be",
+    "Hint": "shì"
+  },
+  {
+    "Front": "事儿",
+    "Back": "matter, thing",
+    "Hint": "shì r"
+  },
+  {
+    "Front": "世界",
+    "Back": "the world",
+    "Hint": "shìjiè"
+  },
+  {
+    "Front": "手",
+    "Back": "hand(s)",
+    "Hint": "shǒu"
+  },
+  {
+    "Front": "手表",
+    "Back": "wristwatch",
+    "Hint": "shǒubiǎo"
+  },
+  {
+    "Front": "手机",
+    "Back": "mobile phone",
+    "Hint": "shǒujī"
+  },
+  {
+    "Front": "首都",
+    "Back": "capital",
+    "Hint": "shǒudū"
+  },
+  {
+    "Front": "瘦",
+    "Back": "thin",
+    "Hint": "shòu"
+  },
+  {
+    "Front": "售货员",
+    "Back": "salesperson",
+    "Hint": "shòuhuòyuán"
+  },
+  {
+    "Front": "寿司",
+    "Back": "sushi",
+    "Hint": "shòusī"
+  },
+  {
+    "Front": "书",
+    "Back": "book",
+    "Hint": "shū"
+  },
+  {
+    "Front": "书店",
+    "Back": "book store",
+    "Hint": "shū diàn"
+  },
+  {
+    "Front": "书包",
+    "Back": "book bag",
+    "Hint": "shūbāo"
+  },
+  {
+    "Front": "书法",
+    "Back": "calligraphy",
+    "Hint": "shūfǎ"
+  },
+  {
+    "Front": "书房",
+    "Back": "study",
+    "Hint": "shūfáng"
+  },
+  {
+    "Front": "书架",
+    "Back": "bookshelf",
+    "Hint": "shūjià"
+  },
+  {
+    "Front": "书院门",
+    "Back": "Shuyuanmen (street name)",
+    "Hint": "Shūyuànmén"
+  },
+  {
+    "Front": "蔬菜",
+    "Back": "vegetables",
+    "Hint": "shūcài"
+  },
+  {
+    "Front": "舒服",
+    "Back": "comfortable",
+    "Hint": "shūfu"
+  },
+  {
+    "Front": "叔叔",
+    "Back": "uncle",
+    "Hint": "shūshu"
+  },
+  {
+    "Front": "属",
+    "Back": "to belong to",
+    "Hint": "shǔ"
+  },
+  {
+    "Front": "暑假",
+    "Back": "summer holidays",
+    "Hint": "shǔjià"
+  },
+  {
+    "Front": "树",
+    "Back": "tree",
+    "Hint": "shù"
+  },
+  {
+    "Front": "数学",
+    "Back": "mathematics",
+    "Hint": "shùxué"
+  },
+  {
+    "Front": "摔下",
+    "Back": "to fall down",
+    "Hint": "shuāi xià"
+  },
+  {
+    "Front": "帅",
+    "Back": "handsome",
+    "Hint": "shuài"
+  },
+  {
+    "Front": "双",
+    "Back": "pair",
+    "Hint": "shuāng"
+  },
+  {
+    "Front": "双人房",
+    "Back": "double room",
+    "Hint": "shuāngrénfáng"
+  },
+  {
+    "Front": "水",
+    "Back": "water",
+    "Hint": "shuǐ"
+  },
+  {
+    "Front": "水果",
+    "Back": "fruit",
+    "Hint": "shuǐguǒ"
+  },
+  {
+    "Front": "睡觉",
+    "Back": "to sleep",
+    "Hint": "shuìjiào"
+  },
+  {
+    "Front": "说",
+    "Back": "to speak; to say",
+    "Hint": "shuō"
+  },
+  {
+    "Front": "说唱",
+    "Back": "rap",
+    "Hint": "shuōchàng"
+  },
+  {
+    "Front": "司机",
+    "Back": "driver",
+    "Hint": "sījī"
+  },
+  {
+    "Front": "四",
+    "Back": "four",
+    "Hint": "sì"
+  },
+  {
+    "Front": "四川",
+    "Back": "Sichuan",
+    "Hint": "Sìchuān"
+  },
+  {
+    "Front": "四合院",
+    "Back": "traditional courtyard home",
+    "Hint": "sìhéyuàn"
+  },
+  {
+    "Front": "寺庙",
+    "Back": "temple",
+    "Hint": "sìmiào"
+  },
+  {
+    "Front": "送",
+    "Back": "to see somebody off",
+    "Hint": "sòng"
+  },
+  {
+    "Front": "虽然",
+    "Back": "although",
+    "Hint": "suīrán"
+  },
+  {
+    "Front": "岁",
+    "Back": "years old",
+    "Hint": "suì"
+  },
+  {
+    "Front": "孙女",
+    "Back": "granddaughter",
+    "Hint": "sūnnǚ"
+  },
+  {
+    "Front": "孙子",
+    "Back": "grandson",
+    "Hint": "sǔnzǐ"
+  },
+  {
+    "Front": "所以",
+    "Back": "therefore; so",
+    "Hint": "suǒyǐ"
+  },
+  {
+    "Front": "所有",
+    "Back": "all",
+    "Hint": "suǒyǒu"
+  },
+  {
+    "Front": "她",
+    "Back": "she",
+    "Hint": "tā"
+  },
+  {
+    "Front": "它",
+    "Back": "it",
+    "Hint": "tā"
+  },
+  {
+    "Front": "台北",
+    "Back": "Taipei",
+    "Hint": "Táiběi"
+  },
+  {
+    "Front": "台湾",
+    "Back": "Taiwan",
+    "Hint": "Táiwān"
+  },
+  {
+    "Front": "太",
+    "Back": "too (much)",
+    "Hint": "tài"
+  },
+  {
+    "Front": "太极拳",
+    "Back": "Taiji",
+    "Hint": "tàijíquán"
+  },
+  {
+    "Front": "太太",
+    "Back": "married woman; Mrs.; wife",
+    "Hint": "tàitai"
+  },
+  {
+    "Front": "太阳",
+    "Back": "sun",
+    "Hint": "tàiyang"
+  },
+  {
+    "Front": "弹",
+    "Back": "to play (a string instrument)",
+    "Hint": "tán"
+  },
+  {
+    "Front": "谈恋爱",
+    "Back": "to date",
+    "Hint": "tán liàn ài"
+  },
+  {
+    "Front": "汤",
+    "Back": "soup",
+    "Hint": "tāng"
+  },
+  {
+    "Front": "讨厌",
+    "Back": "to dislike",
+    "Hint": "tǎoyàn"
+  },
+  {
+    "Front": "特别",
+    "Back": "special, especially",
+    "Hint": "tèbié"
+  },
+  {
+    "Front": "疼",
+    "Back": "to hurt, ache",
+    "Hint": "téng"
+  },
+  {
+    "Front": "踢",
+    "Back": "to kick; to play (football)",
+    "Hint": "tī"
+  },
+  {
+    "Front": "T 恤衫",
+    "Back": "T-shirt",
+    "Hint": "tīxùshān"
+  },
+  {
+    "Front": "体操",
+    "Back": "gymnastics",
+    "Hint": "tǐcāo"
+  },
+  {
+    "Front": "体育",
+    "Back": "physical education",
+    "Hint": "tǐyù"
+  },
+  {
+    "Front": "体育馆",
+    "Back": "gymnasium, stadium",
+    "Hint": "tǐyùguǎn"
+  },
+  {
+    "Front": "天",
+    "Back": "day; sky",
+    "Hint": "tiān"
+  },
+  {
+    "Front": "天坛",
+    "Back": "Temple of Heaven",
+    "Hint": "Tiān Tán"
+  },
+  {
+    "Front": "天安门广场",
+    "Back": "Tian’anmen Square",
+    "Hint": "Tiān'ānmén Guǎngchǎng"
+  },
+  {
+    "Front": "天帝",
+    "Back": "God",
+    "Hint": "Tiāndì"
+  },
+  {
+    "Front": "天津",
+    "Back": "Tianjin",
+    "Hint": "Tiānjīn"
+  },
+  {
+    "Front": "天空",
+    "Back": "sky",
+    "Hint": "tiānkōng"
+  },
+  {
+    "Front": "天气",
+    "Back": "weather",
+    "Hint": "tiānqì"
+  },
+  {
+    "Front": "天气预报",
+    "Back": "weather forecast",
+    "Hint": "tiānqì yùbào"
+  },
+  {
+    "Front": "天天",
+    "Back": "every day",
+    "Hint": "tiāntiān"
+  },
+  {
+    "Front": "添",
+    "Back": "to add",
+    "Hint": "tiān"
+  },
+  {
+    "Front": "甜",
+    "Back": "sweet",
+    "Hint": "tián"
+  },
+  {
+    "Front": "条",
+    "Back": "measure word for long thin objects",
+    "Hint": "tiáo"
+  },
+  {
+    "Front": "跳舞",
+    "Back": "to dance",
+    "Hint": "tiào wǔ"
+  },
+  {
+    "Front": "听",
+    "Back": "to listen",
+    "Hint": "tīng"
+  },
+  {
+    "Front": "听说",
+    "Back": "to hear that",
+    "Hint": "tīngshuō"
+  },
+  {
+    "Front": "同情",
+    "Back": "to empathise",
+    "Hint": "tóngqíng"
+  },
+  {
+    "Front": "同事",
+    "Back": "colleague",
+    "Hint": "tóngshì"
+  },
+  {
+    "Front": "同学",
+    "Back": "classmate",
+    "Hint": "tóngxué"
+  },
+  {
+    "Front": "同意",
+    "Back": "to agree",
+    "Hint": "tóngyì"
+  },
+  {
+    "Front": "头",
+    "Back": "head",
+    "Hint": "tóu"
+  },
+  {
+    "Front": "头发",
+    "Back": "hair",
+    "Hint": "tóufa"
+  },
+  {
+    "Front": "头饰",
+    "Back": "headdress",
+    "Hint": "tóushì"
+  },
+  {
+    "Front": "图书馆",
+    "Back": "library",
+    "Hint": "túshūguǎn"
+  },
+  {
+    "Front": "兔子",
+    "Back": "rabbit",
+    "Hint": "tùzi"
+  },
+  {
+    "Front": "腿",
+    "Back": "leg(s)",
+    "Hint": "tuǐ"
+  },
+  {
+    "Front": "袜子",
+    "Back": "socks",
+    "Hint": "wàzi"
+  },
+  {
+    "Front": "外面",
+    "Back": "outside",
+    "Hint": "wàimian"
+  },
+  {
+    "Front": "外滩",
+    "Back": "the Shanghai Bund",
+    "Hint": "Wàitān"
+  },
+  {
+    "Front": "完",
+    "Back": "to finish",
+    "Hint": "wán"
+  },
+  {
+    "Front": "玩儿",
+    "Back": "to play; to have fun",
+    "Hint": "wánr"
+  },
+  {
+    "Front": "碗",
+    "Back": "bowl; cup",
+    "Hint": "wǎn"
+  },
+  {
+    "Front": "晚饭",
+    "Back": "dinner",
+    "Hint": "wǎnfàn"
+  },
+  {
+    "Front": "晚会",
+    "Back": "performance party",
+    "Hint": "wǎnhuì"
+  },
+  {
+    "Front": "晚上",
+    "Back": "evening",
+    "Hint": "wǎnshang"
+  },
+  {
+    "Front": "晚上好!",
+    "Back": "\"Good evening!\"",
+    "Hint": "Wǎnshàng hǎo!"
+  },
+  {
+    "Front": "万",
+    "Back": "ten thousand",
+    "Hint": "wàn"
+  },
+  {
+    "Front": "王",
+    "Back": "king",
+    "Hint": "wáng"
+  },
+  {
+    "Front": "往",
+    "Back": "to go towards",
+    "Hint": "wǎng"
+  },
+  {
+    "Front": "网吧",
+    "Back": "internet café",
+    "Hint": "wǎngba"
+  },
+  {
+    "Front": "网民",
+    "Back": "web user",
+    "Hint": "wǎngmín"
+  },
+  {
+    "Front": "网球",
+    "Back": "tennis",
+    "Hint": "wǎngqiú"
+  },
+  {
+    "Front": "网页",
+    "Back": "webpage",
+    "Hint": "wǎngyè"
+  },
+  {
+    "Front": "网友",
+    "Back": "online friend",
+    "Hint": "wǎngyǒu"
+  },
+  {
+    "Front": "网站",
+    "Back": "website",
+    "Hint": "wǎngzhàn"
+  },
+  {
+    "Front": "忘",
+    "Back": "to forget",
+    "Hint": "wàng"
+  },
+  {
+    "Front": "微信",
+    "Back": "WeChat",
+    "Hint": "Wēixìn"
+  },
+  {
+    "Front": "位",
+    "Back": "measure word for people (polite)",
+    "Hint": "wèi"
+  },
+  {
+    "Front": "为了",
+    "Back": "for the sake of",
+    "Hint": "wèile"
+  },
+  {
+    "Front": "为什么",
+    "Back": "why",
+    "Hint": "wèi shénme"
+  },
+  {
+    "Front": "未婚",
+    "Back": "unmarried",
+    "Hint": "wèihūn"
+  },
+  {
+    "Front": "卫生间",
+    "Back": "lavatory",
+    "Hint": "wèishēngjiān"
+  },
+  {
+    "Front": "文化",
+    "Back": "culture",
+    "Hint": "wénhuà"
+  },
+  {
+    "Front": "问",
+    "Back": "to ask",
+    "Hint": "wèn"
+  },
+  {
+    "Front": "问题",
+    "Back": "question",
+    "Hint": "wèntí"
+  },
+  {
+    "Front": "卧龙",
+    "Back": "Crouching Dragon",
+    "Hint": "Wòlóng"
+  },
+  {
+    "Front": "卧室",
+    "Back": "bedroom",
+    "Hint": "wòshì"
+  },
+  {
+    "Front": "屋梁",
+    "Back": "rafter",
+    "Hint": "wū liáng"
+  },
+  {
+    "Front": "污染",
+    "Back": "pollution",
+    "Hint": "wūrǎn"
+  },
+  {
+    "Front": "午饭",
+    "Back": "lunch",
+    "Hint": "wǔfàn"
+  },
+  {
+    "Front": "五",
+    "Back": "five",
+    "Hint": "wǔ"
+  },
+  {
+    "Front": "舞龙",
+    "Back": "dragon dance",
+    "Hint": "wǔlóng"
+  },
+  {
+    "Front": "舞狮",
+    "Back": "lion dance",
+    "Hint": "wǔshī"
+  },
+  {
+    "Front": "舞台",
+    "Back": "stage",
+    "Hint": "wǔtái"
+  },
+  {
+    "Front": "雾",
+    "Back": "fog, mist",
+    "Hint": "wù"
+  },
+  {
+    "Front": "物理",
+    "Back": "physics",
+    "Hint": "wùlǐ"
+  },
+  {
+    "Front": "西",
+    "Back": "west",
+    "Hint": "xī"
+  },
+  {
+    "Front": "西安",
+    "Back": "Xi'an",
+    "Hint": "Xī'ān"
+  },
+  {
+    "Front": "西班牙文",
+    "Back": "Spanish language",
+    "Hint": "Xībānyáwén"
+  },
+  {
+    "Front": "西方",
+    "Back": "western",
+    "Hint": "Xīfāng"
+  },
+  {
+    "Front": "西瓜",
+    "Back": "watermelon",
+    "Hint": "xīguā"
+  },
+  {
+    "Front": "西双版纳",
+    "Back": "A place in Yunnan",
+    "Hint": "Xīshuāngbǎnnà"
+  },
+  {
+    "Front": "西药",
+    "Back": "Western medicine",
+    "Hint": "xī yào"
+  },
+  {
+    "Front": "希望",
+    "Back": "hope, to hope",
+    "Hint": "xīwàng"
+  },
+  {
+    "Front": "嘻哈",
+    "Back": "hip hop",
+    "Hint": "xīhā"
+  },
+  {
+    "Front": "吸烟",
+    "Back": "to smoke",
+    "Hint": "xī yān"
+  },
+  {
+    "Front": "习惯",
+    "Back": "habit",
+    "Hint": "xíguàn"
+  },
+  {
+    "Front": "洗",
+    "Back": "to clean, wash",
+    "Hint": "xǐ"
+  },
+  {
+    "Front": "洗手",
+    "Back": "to wash hands",
+    "Hint": "xǐ shǒu"
+  },
+  {
+    "Front": "洗手间",
+    "Back": "lavatory",
+    "Hint": "xǐshǒujian"
+  },
+  {
+    "Front": "洗衣机",
+    "Back": "washing machine",
+    "Hint": "xǐyījī"
+  },
+  {
+    "Front": "喜欢",
+    "Back": "to like",
+    "Hint": "xǐhuan"
+  },
+  {
+    "Front": "虾",
+    "Back": "shrimp; prawn",
+    "Hint": "xiā"
+  },
+  {
+    "Front": "下",
+    "Back": "down; below; next",
+    "Hint": "xià"
+  },
+  {
+    "Front": "下车",
+    "Back": "to get off (transport)",
+    "Hint": "xià chē"
+  },
+  {
+    "Front": "下课",
+    "Back": "to finish class",
+    "Hint": "xià kè"
+  },
+  {
+    "Front": "下面",
+    "Back": "under; below",
+    "Hint": "xiàmian"
+  },
+  {
+    "Front": "下午",
+    "Back": "afternoon; p.m.",
+    "Hint": "xiàwǔ"
+  },
+  {
+    "Front": "下雪",
+    "Back": "to snow",
+    "Hint": "xià xuě"
+  },
+  {
+    "Front": "下雨",
+    "Back": "to rain",
+    "Hint": "xià yǔ"
+  },
+  {
+    "Front": "下载",
+    "Back": "to download",
+    "Hint": "xiàzǎi"
+  },
+  {
+    "Front": "夏天",
+    "Back": "summer",
+    "Hint": "xiàtiān"
+  },
+  {
+    "Front": "先",
+    "Back": "to do something first",
+    "Hint": "xiān"
+  },
+  {
+    "Front": "先生",
+    "Back": "Mr; husband",
+    "Hint": "xiānsheng"
+  },
+  {
+    "Front": "咸",
+    "Back": "salty",
+    "Hint": "xián"
+  },
+  {
+    "Front": "现代",
+    "Back": "modern",
+    "Hint": "xiàndài"
+  },
+  {
+    "Front": "现金",
+    "Back": "cash",
+    "Hint": "xiànjīn"
+  },
+  {
+    "Front": "现在",
+    "Back": "now; present",
+    "Hint": "xiànzài"
+  },
+  {
+    "Front": "香港",
+    "Back": "Hong Kong",
+    "Hint": "Xiānggǎng"
+  },
+  {
+    "Front": "相信",
+    "Back": "to believe",
+    "Hint": "xiāngxìn"
+  },
+  {
+    "Front": "想",
+    "Back": "to think; want to; miss",
+    "Hint": "xiǎng"
+  },
+  {
+    "Front": "享受",
+    "Back": "to enjoy",
+    "Hint": "xiǎngshòu"
+  },
+  {
+    "Front": "橡皮",
+    "Back": "rubber",
+    "Hint": "xiàngpí"
+  },
+  {
+    "Front": "象棋",
+    "Back": "chess",
+    "Hint": "xiàngqí"
+  },
+  {
+    "Front": "小",
+    "Back": "small",
+    "Hint": "xiǎo"
+  },
+  {
+    "Front": "小时",
+    "Back": "hour",
+    "Hint": "xiǎoshí"
+  },
+  {
+    "Front": "小偷",
+    "Back": "thief",
+    "Hint": "xiǎo tōu"
+  },
+  {
+    "Front": "小学",
+    "Back": "primary school",
+    "Hint": "xiǎoxué"
+  },
+  {
+    "Front": "小雨",
+    "Back": "light rain",
+    "Hint": "xiǎoyǔ"
+  },
+  {
+    "Front": "小镇",
+    "Back": "small town",
+    "Hint": "xiǎo zhèn"
+  },
+  {
+    "Front": "笑",
+    "Back": "smile, to smile or laugh",
+    "Hint": "xiào"
+  },
+  {
+    "Front": "校服",
+    "Back": "school uniform",
+    "Hint": "xiàofú"
+  },
+  {
+    "Front": "校长",
+    "Back": "head of school",
+    "Hint": "xiàozhǎng"
+  },
+  {
+    "Front": "鞋",
+    "Back": "shoes",
+    "Hint": "xié"
+  },
+  {
+    "Front": "协会",
+    "Back": "an association",
+    "Hint": "xiéhuì"
+  },
+  {
+    "Front": "写",
+    "Back": "to write",
+    "Hint": "xiě"
+  },
+  {
+    "Front": "谢谢",
+    "Back": "thank you",
+    "Hint": "xièxie"
+  },
+  {
+    "Front": "新",
+    "Back": "new",
+    "Hint": "xīn"
+  },
+  {
+    "Front": "新加坡",
+    "Back": "Singapore",
+    "Hint": "xīnjiāpō"
+  },
+  {
+    "Front": "新年快乐!",
+    "Back": "Happy new year!",
+    "Hint": "Xīnnián kuàilè"
+  },
+  {
+    "Front": "新闻",
+    "Back": "news",
+    "Hint": "xīnwén"
+  },
+  {
+    "Front": "新鲜",
+    "Back": "fresh",
+    "Hint": "xīnxiān"
+  },
+  {
+    "Front": "辛苦",
+    "Back": "hard, difficult",
+    "Hint": "xīnkǔ"
+  },
+  {
+    "Front": "信用卡",
+    "Back": "credit card",
+    "Hint": "xìnyòngkǎ"
+  },
+  {
+    "Front": "星期",
+    "Back": "week",
+    "Hint": "xīngqī"
+  },
+  {
+    "Front": "星星",
+    "Back": "star",
+    "Hint": "xīngxing"
+  },
+  {
+    "Front": "星座",
+    "Back": "star sign",
+    "Hint": "xīngzuò"
+  },
+  {
+    "Front": "行",
+    "Back": "okay, acceptable",
+    "Hint": "xíng"
+  },
+  {
+    "Front": "姓",
+    "Back": "surname",
+    "Hint": "xìng"
+  },
+  {
+    "Front": "性别",
+    "Back": "gender, sex",
+    "Hint": "xìngbié"
+  },
+  {
+    "Front": "熊猫",
+    "Back": "panda",
+    "Hint": "xióngmāo"
+  },
+  {
+    "Front": "休息",
+    "Back": "to rest",
+    "Hint": "xiūxi"
+  },
+  {
+    "Front": "需要",
+    "Back": "to need",
+    "Hint": "xūyào"
+  },
+  {
+    "Front": "学",
+    "Back": "to learn",
+    "Hint": "xué"
+  },
+  {
+    "Front": "学期",
+    "Back": "school term",
+    "Hint": "xuéqī"
+  },
+  {
+    "Front": "学生",
+    "Back": "student",
+    "Hint": "xuésheng"
+  },
+  {
+    "Front": "学习",
+    "Back": "to study",
+    "Hint": "xuéxí"
+  },
+  {
+    "Front": "学校",
+    "Back": "school",
+    "Hint": "xuéxiào"
+  },
+  {
+    "Front": "压力",
+    "Back": "pressure",
+    "Hint": "yālì"
+  },
+  {
+    "Front": "牙齿",
+    "Back": "tooth, teeth",
+    "Hint": "yáchǐ"
+  },
+  {
+    "Front": "亚洲",
+    "Back": "Asia",
+    "Hint": "Yàzhōu"
+  },
+  {
+    "Front": "严格",
+    "Back": "strict",
+    "Hint": "yángé"
+  },
+  {
+    "Front": "研究",
+    "Back": "to research",
+    "Hint": "yánjiū"
+  },
+  {
+    "Front": "颜色",
+    "Back": "colour",
+    "Hint": "yánsè"
+  },
+  {
+    "Front": "严肃",
+    "Back": "serious",
+    "Hint": "yánsù"
+  },
+  {
+    "Front": "演员",
+    "Back": "actor or actress",
+    "Hint": "yǎnyuán"
+  },
+  {
+    "Front": "眼睛",
+    "Back": "eye",
+    "Hint": "yǎnjing"
+  },
+  {
+    "Front": "眼镜",
+    "Back": "glasses",
+    "Hint": "yǎnjìng"
+  },
+  {
+    "Front": "洋人",
+    "Back": "foreigner",
+    "Hint": "yángrén"
+  },
+  {
+    "Front": "羊肉",
+    "Back": "mutton",
+    "Hint": "yángròu"
+  },
+  {
+    "Front": "邀请",
+    "Back": "to invite",
+    "Hint": "yāoqǐng"
+  },
+  {
+    "Front": "药",
+    "Back": "medicine",
+    "Hint": "yào"
+  },
+  {
+    "Front": "要",
+    "Back": "will; must; want",
+    "Hint": "yào"
+  },
+  {
+    "Front": "爷爷",
+    "Back": "paternal grandfather",
+    "Hint": "yéye"
+  },
+  {
+    "Front": "也",
+    "Back": "also; too",
+    "Hint": "yě"
+  },
+  {
+    "Front": "叶",
+    "Back": "leaf",
+    "Hint": "yè"
+  },
+  {
+    "Front": "夜市",
+    "Back": "night market",
+    "Hint": "yèshì"
+  },
+  {
+    "Front": "一",
+    "Back": "one",
+    "Hint": "yī"
+  },
+  {
+    "Front": "一般",
+    "Back": "generally",
+    "Hint": "yībān"
+  },
+  {
+    "Front": "一边……，一边……",
+    "Back": "doing (sth) while doing (sth else)",
+    "Hint": "yībiān...yībiān..."
+  },
+  {
+    "Front": "一点",
+    "Back": "a bit; a little",
+    "Hint": "yìdiǎn"
+  },
+  {
+    "Front": "一定",
+    "Back": "certainly",
+    "Hint": "yīdìng"
+  },
+  {
+    "Front": "一共",
+    "Back": "altogether",
+    "Hint": "yígòng"
+  },
+  {
+    "Front": "一家人",
+    "Back": "the whole family",
+    "Hint": "yījiārén"
+  },
+  {
+    "Front": "一起",
+    "Back": "together",
+    "Hint": "yìqǐ"
+  },
+  {
+    "Front": "一些",
+    "Back": "some; a few",
+    "Hint": "yìxiē"
+  },
+  {
+    "Front": "一直",
+    "Back": "straight, continuously",
+    "Hint": "yīzhí"
+  },
+  {
+    "Front": "衣服",
+    "Back": "clothes",
+    "Hint": "yīfu"
+  },
+  {
+    "Front": "医生",
+    "Back": "doctor",
+    "Hint": "yīshēng"
+  },
+  {
+    "Front": "医院",
+    "Back": "hospital",
+    "Hint": "yīyuàn"
+  },
+  {
+    "Front": "已经",
+    "Back": "already",
+    "Hint": "yǐjīng"
+  },
+  {
+    "Front": "以后",
+    "Back": "after",
+    "Hint": "yǐhòu"
+  },
+  {
+    "Front": "以前",
+    "Back": "before",
+    "Hint": "yǐqián"
+  },
+  {
+    "Front": "以为",
+    "Back": "to mistakenly believe",
+    "Hint": "yǐwéi"
+  },
+  {
+    "Front": "椅子",
+    "Back": "chair",
+    "Hint": "yǐzi"
+  },
+  {
+    "Front": "义工",
+    "Back": "volunteer work",
+    "Hint": "yìgōng"
+  },
+  {
+    "Front": "艺术",
+    "Back": "art",
+    "Hint": "yìshù"
+  },
+  {
+    "Front": "因此",
+    "Back": "because of this",
+    "Hint": "yīncǐ"
+  },
+  {
+    "Front": "因为",
+    "Back": "because",
+    "Hint": "yīnwèi"
+  },
+  {
+    "Front": "音乐",
+    "Back": "music",
+    "Hint": "yīnyuè"
+  },
+  {
+    "Front": "音乐会",
+    "Back": "concert",
+    "Hint": "yīnyuè huì"
+  },
+  {
+    "Front": "阴天",
+    "Back": "overcast day",
+    "Hint": "yīntiān"
+  },
+  {
+    "Front": "银行",
+    "Back": "bank",
+    "Hint": "yínháng"
+  },
+  {
+    "Front": "饮食",
+    "Back": "food and drink",
+    "Hint": "yǐnshí"
+  },
+  {
+    "Front": "英国",
+    "Back": "UK",
+    "Hint": "Yīngguó"
+  },
+  {
+    "Front": "英文/英语",
+    "Back": "English language",
+    "Hint": "Yīngwén/Yīngyǔ"
+  },
+  {
+    "Front": "应该",
+    "Back": "should; must",
+    "Hint": "yīnggāi"
+  },
+  {
+    "Front": "赢",
+    "Back": "to win",
+    "Hint": "yíng"
+  },
+  {
+    "Front": "影响",
+    "Back": "influence",
+    "Hint": "yǐngxiǎng"
+  },
+  {
+    "Front": "应征入伍",
+    "Back": "to be enlisted",
+    "Hint": "yìngzhēng rùwǔ"
+  },
+  {
+    "Front": "用",
+    "Back": "to use",
+    "Hint": "yòng"
+  },
+  {
+    "Front": "游客",
+    "Back": "tourist",
+    "Hint": "yóukè"
+  },
+  {
+    "Front": "游戏",
+    "Back": "game",
+    "Hint": "yóuxì"
+  },
+  {
+    "Front": "游泳",
+    "Back": "to swim",
+    "Hint": "yóuyǒng"
+  },
+  {
+    "Front": "游泳池",
+    "Back": "swimming pool",
+    "Hint": "yóuyǒngchí"
+  },
+  {
+    "Front": "邮局",
+    "Back": "post office",
+    "Hint": "yóujú"
+  },
+  {
+    "Front": "有",
+    "Back": "to have; there is/are",
+    "Hint": "yǒu"
+  },
+  {
+    "Front": "有害",
+    "Back": "harmful",
+    "Hint": "yǒuhài"
+  },
+  {
+    "Front": "有空",
+    "Back": "to have free time",
+    "Hint": "yǒukòng"
+  },
+  {
+    "Front": "有名",
+    "Back": "famous",
+    "Hint": "yǒumíng"
+  },
+  {
+    "Front": "有趣/有意思",
+    "Back": "interesting",
+    "Hint": "yǒu qù/yǒuyìsi"
+  },
+  {
+    "Front": "有用",
+    "Back": "useful",
+    "Hint": "yǒuyòng"
+  },
+  {
+    "Front": "友好",
+    "Back": "friendly",
+    "Hint": "yǒuhǎo"
+  },
+  {
+    "Front": "又……又……",
+    "Back": "both…and…",
+    "Hint": "yòu...yòu..."
+  },
+  {
+    "Front": "右边",
+    "Back": "right side",
+    "Hint": "yòubian"
+  },
+  {
+    "Front": "鱼",
+    "Back": "fish",
+    "Hint": "yú"
+  },
+  {
+    "Front": "羽毛球",
+    "Back": "badminton",
+    "Hint": "yǔmáoqiú"
+  },
+  {
+    "Front": "玉石",
+    "Back": "jade stone",
+    "Hint": "yùshí"
+  },
+  {
+    "Front": "浴室",
+    "Back": "bath room",
+    "Hint": "yùshì"
+  },
+  {
+    "Front": "豫园",
+    "Back": "Yu Garden",
+    "Hint": "Yùyuán"
+  },
+  {
+    "Front": "元",
+    "Back": "unit of money",
+    "Hint": "yuán"
+  },
+  {
+    "Front": "远",
+    "Back": "far",
+    "Hint": "yuǎn"
+  },
+  {
+    "Front": "约会",
+    "Back": "appointment",
+    "Hint": "yuēhuì"
+  },
+  {
+    "Front": "月",
+    "Back": "moon; month",
+    "Hint": "yuè"
+  },
+  {
+    "Front": "月饼",
+    "Back": "moon cake",
+    "Hint": "yuèbǐng"
+  },
+  {
+    "Front": "月亮",
+    "Back": "moon",
+    "Hint": "yuèliang"
+  },
+  {
+    "Front": "越来越",
+    "Back": "more and more",
+    "Hint": "yuè lái yuè"
+  },
+  {
+    "Front": "运动",
+    "Back": "sports",
+    "Hint": "yùndòng"
+  },
+  {
+    "Front": "运动员",
+    "Back": "athlete",
+    "Hint": "yùndòngyuán"
+  },
+  {
+    "Front": "杂志",
+    "Back": "magazine",
+    "Hint": "zázhì"
+  },
+  {
+    "Front": "再",
+    "Back": "again",
+    "Hint": "zài"
+  },
+  {
+    "Front": "再见",
+    "Back": "goodbye",
+    "Hint": "zàijiàn"
+  },
+  {
+    "Front": "在",
+    "Back": "(located) at or in",
+    "Hint": "zài"
+  },
+  {
+    "Front": "脏",
+    "Back": "dirty",
+    "Hint": "zāng"
+  },
+  {
+    "Front": "糟糕",
+    "Back": "terrible",
+    "Hint": "zāogāo"
+  },
+  {
+    "Front": "早/早餐/早饭",
+    "Back": "breakfast",
+    "Hint": "zǎo/zǎocān/zǎofàn"
+  },
+  {
+    "Front": "早上",
+    "Back": "early morning",
+    "Hint": "zǎoshang"
+  },
+  {
+    "Front": "早上好!",
+    "Back": "\"Good morning!\"",
+    "Hint": "Zǎoshàng hǎo!"
+  },
+  {
+    "Front": "怎么",
+    "Back": "how",
+    "Hint": "zěnme"
+  },
+  {
+    "Front": "怎么办?",
+    "Back": "What's to be done?",
+    "Hint": "Zěnme bàn?"
+  },
+  {
+    "Front": "怎么了",
+    "Back": "what's the matter",
+    "Hint": "zěnmele"
+  },
+  {
+    "Front": "怎么样",
+    "Back": "what is ... like?",
+    "Hint": "zěnmeyàng"
+  },
+  {
+    "Front": "增加",
+    "Back": "to increase",
+    "Hint": "zēngjiā"
+  },
+  {
+    "Front": "窄",
+    "Back": "narrow",
+    "Hint": "zhǎi"
+  },
+  {
+    "Front": "展览",
+    "Back": "exhibition",
+    "Hint": "zhǎnlǎn"
+  },
+  {
+    "Front": "站",
+    "Back": "station; to stand",
+    "Hint": "zhàn"
+  },
+  {
+    "Front": "站台",
+    "Back": "platform",
+    "Hint": "zhàntái"
+  },
+  {
+    "Front": "战国",
+    "Back": "Warring States period",
+    "Hint": "Zhànguó"
+  },
+  {
+    "Front": "战争",
+    "Back": "war",
+    "Hint": "zhànzhēng"
+  },
+  {
+    "Front": "张",
+    "Back": "measure word for flat objects",
+    "Hint": "zhāng"
+  },
+  {
+    "Front": "张开",
+    "Back": "to open",
+    "Hint": "zhāngkāi"
+  },
+  {
+    "Front": "长",
+    "Back": "to grow; to appear",
+    "Hint": "zhǎng"
+  },
+  {
+    "Front": "长",
+    "Back": "long (in length)",
+    "Hint": "cháng"
+  },
+  {
+    "Front": "长大",
+    "Back": "to grow up",
+    "Hint": "zhǎngdà"
+  },
+  {
+    "Front": "着急",
+    "Back": "to worry",
+    "Hint": "zháojí"
+  },
+  {
+    "Front": "找",
+    "Back": "to look for",
+    "Hint": "zhǎo"
+  },
+  {
+    "Front": "照片",
+    "Back": "photograph",
+    "Hint": "zhàopiàn"
+  },
+  {
+    "Front": "照相",
+    "Back": "to take a photo",
+    "Hint": "zhàoxiàng"
+  },
+  {
+    "Front": "着",
+    "Back": "particle indicating action in progress",
+    "Hint": "zhe"
+  },
+  {
+    "Front": "这/这儿",
+    "Back": "this/here",
+    "Hint": "zhè/zhèr"
+  },
+  {
+    "Front": "真",
+    "Back": "really",
+    "Hint": "zhēn"
+  },
+  {
+    "Front": "政府",
+    "Back": "government",
+    "Hint": "zhèngfǔ"
+  },
+  {
+    "Front": "正在",
+    "Back": "in the middle of",
+    "Hint": "zhèngzài"
+  },
+  {
+    "Front": "珍珠奶茶",
+    "Back": "bubble milk tea",
+    "Hint": "zhēnzhū nǎichá"
+  },
+  {
+    "Front": "只",
+    "Back": "measure word / only",
+    "Hint": "zhī/zhǐ"
+  },
+  {
+    "Front": "之一",
+    "Back": "one of",
+    "Hint": "zhīyī"
+  },
+  {
+    "Front": "知道",
+    "Back": "to know",
+    "Hint": "zhīdào"
+  },
+  {
+    "Front": "职业",
+    "Back": "profession",
+    "Hint": "zhíyè"
+  },
+  {
+    "Front": "纸",
+    "Back": "paper",
+    "Hint": "zhǐ"
+  },
+  {
+    "Front": "志愿者",
+    "Back": "volunteer",
+    "Hint": "zhìyuànzhě"
+  },
+  {
+    "Front": "中国",
+    "Back": "China",
+    "Hint": "Zhōngguó"
+  },
+  {
+    "Front": "中国新年",
+    "Back": "Chinese New Year",
+    "Hint": "Zhōngguó Xīnnián"
+  },
+  {
+    "Front": "中间",
+    "Back": "between",
+    "Hint": "zhōngjiān"
+  },
+  {
+    "Front": "中秋节",
+    "Back": "Mid-Autumn Festival",
+    "Hint": "Zhōngqiūjié"
+  },
+  {
+    "Front": "中文",
+    "Back": "Chinese",
+    "Hint": "ZhōngWén"
+  },
+  {
+    "Front": "中午",
+    "Back": "noon",
+    "Hint": "zhōngwǔ"
+  },
+  {
+    "Front": "中心",
+    "Back": "center",
+    "Hint": "zhōngxīn"
+  },
+  {
+    "Front": "终于",
+    "Back": "finally",
+    "Hint": "zhōngyú"
+  },
+  {
+    "Front": "钟",
+    "Back": "clock",
+    "Hint": "zhōng"
+  },
+  {
+    "Front": "钟头",
+    "Back": "hour",
+    "Hint": "zhōngtóu"
+  },
+  {
+    "Front": "种",
+    "Back": "kind; sort; type",
+    "Hint": "zhǒng"
+  },
+  {
+    "Front": "重",
+    "Back": "heavy",
+    "Hint": "zhòng"
+  },
+  {
+    "Front": "重点",
+    "Back": "key point",
+    "Hint": "zhòngdiǎn"
+  },
+  {
+    "Front": "重要",
+    "Back": "important",
+    "Hint": "zhòngyào"
+  },
+  {
+    "Front": "周末",
+    "Back": "weekend",
+    "Hint": "zhōumò"
+  },
+  {
+    "Front": "周一",
+    "Back": "Monday",
+    "Hint": "zhōuyī"
+  },
+  {
+    "Front": "粥",
+    "Back": "porridge",
+    "Hint": "zhōu"
+  },
+  {
+    "Front": "猪",
+    "Back": "pig",
+    "Hint": "zhū"
+  },
+  {
+    "Front": "猪肉",
+    "Back": "pork",
+    "Hint": "zhūròu"
+  },
+  {
+    "Front": "主意",
+    "Back": "idea",
+    "Hint": "zhǔyì"
+  },
+  {
+    "Front": "住",
+    "Back": "to live",
+    "Hint": "zhù"
+  },
+  {
+    "Front": "祝",
+    "Back": "to wish",
+    "Hint": "zhù"
+  },
+  {
+    "Front": "注意",
+    "Back": "to pay attention to",
+    "Hint": "zhùyì"
+  },
+  {
+    "Front": "准备",
+    "Back": "to prepare",
+    "Hint": "zhǔnbèi"
+  },
+  {
+    "Front": "桌子",
+    "Back": "table",
+    "Hint": "zhuōzi"
+  },
+  {
+    "Front": "自己",
+    "Back": "self",
+    "Hint": "zìjǐ"
+  },
+  {
+    "Front": "自行车",
+    "Back": "bicycle",
+    "Hint": "zìxíngchē"
+  },
+  {
+    "Front": "字",
+    "Back": "word",
+    "Hint": "zì"
+  },
+  {
+    "Front": "字典",
+    "Back": "dictionary",
+    "Hint": "zìdiǎn"
+  },
+  {
+    "Front": "总是",
+    "Back": "always",
+    "Hint": "zǒngshì"
+  },
+  {
+    "Front": "走",
+    "Back": "to walk",
+    "Hint": "zǒu"
+  },
+  {
+    "Front": "走路",
+    "Back": "to walk",
+    "Hint": "zǒu lù"
+  },
+  {
+    "Front": "足球",
+    "Back": "football",
+    "Hint": "zúqiú"
+  },
+  {
+    "Front": "最",
+    "Back": "most",
+    "Hint": "zuì"
+  },
+  {
+    "Front": "最后",
+    "Back": "lastly; final",
+    "Hint": "zuìhòu"
+  },
+  {
+    "Front": "最近",
+    "Back": "recently",
+    "Hint": "zuìjìn"
+  },
+  {
+    "Front": "左边",
+    "Back": "left side",
+    "Hint": "zuǒbian"
+  },
+  {
+    "Front": "坐",
+    "Back": "to sit; travel by",
+    "Hint": "zuò"
+  },
+  {
+    "Front": "做",
+    "Back": "to do; to make",
+    "Hint": "zuò"
+  },
+  {
+    "Front": "做饭",
+    "Back": "to cook",
+    "Hint": "zuò fàn"
+  },
+  {
+    "Front": "做生意",
+    "Back": "to do business",
+    "Hint": "zuò shēngyì"
+  },
+  {
+    "Front": "作业",
+    "Back": "homework",
+    "Hint": "zuòyè"
+  }
+]
